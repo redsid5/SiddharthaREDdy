@@ -48,9 +48,10 @@
       color: #111111;
       background: #ffffff;
       max-width: 8.5in;
-      height: 11in;
+      min-height: 11in;
+      height: auto;
       margin: 1.5rem auto;
-      padding: 0.20in 0.40in;
+      padding: 0.35in 0.50in;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
       border-radius: 8px;
       overflow: hidden; /* Emulate print boundaries exactly */
@@ -102,7 +103,7 @@
     .no-print {
       display: none !important;
     }
-    html, body {
+    html, body, body.overflow-hidden {
       overflow: visible !important;
       height: auto !important;
       background: white !important;
