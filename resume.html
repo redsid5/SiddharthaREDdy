@@ -28,6 +28,32 @@
   /* Common reset */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    /* Layout & Spacing Defaults (will be tuned by optimizer) */
+    --page-padding-y: 0.36in;
+    --page-padding-x: 0.50in;
+    --section-margin-top: 4px;
+    --entry-margin-bottom: 2.5px;
+    --li-margin-bottom: 0.2px;
+    --skills-padding-y: 0.7px;
+    --skills-td-width: 90px;
+    --act-block-margin-bottom: 2.5px;
+
+    /* Typography Defaults (will be tuned by optimizer) */
+    --base-font-size: 8pt;
+    --base-line-height: 1.16;
+
+    --h1-font-size: calc(var(--base-font-size) * 1.8);
+    --contact-font-size: calc(var(--base-font-size) * 0.95);
+    --section-title-font-size: calc(var(--base-font-size) * 1.05);
+    --title-font-size: calc(var(--base-font-size) * 1.05);
+    --date-font-size: calc(var(--base-font-size) * 0.95);
+    --subline-font-size: var(--base-font-size);
+    --small-font-size: calc(var(--base-font-size) * 0.95);
+    --act-title-font-size: calc(var(--base-font-size) * 1.02);
+    --act-detail-font-size: var(--base-font-size);
+  }
+
   /* Digital/Web screen overrides */
   @media screen {
     body {
@@ -43,15 +69,15 @@
     }
     .page {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 7.2pt;
-      line-height: 1.10;
+      font-size: var(--base-font-size);
+      line-height: var(--base-line-height);
       color: #111111;
       background: #ffffff;
       max-width: 8.5in;
       min-height: 11in;
       height: auto;
       margin: 1.5rem auto;
-      padding: 0.35in 0.50in;
+      padding: var(--page-padding-y) var(--page-padding-x);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
       border-radius: 8px;
       overflow: hidden; /* Emulate print boundaries exactly */
@@ -60,21 +86,21 @@
 
   /* Resume typography and layout defaults */
   h1 {
-    font-size: 13pt;
+    font-size: var(--h1-font-size);
     line-height: 1.05;
     font-weight: 700;
     margin-bottom: 2px;
     text-align: center;
   }
   .contact {
-    font-size: 7.0pt;
+    font-size: var(--contact-font-size);
     margin-bottom: 4px;
     text-align: center;
     color: #333333;
   }
-  .section { margin-top: 3px; }
+  .section { margin-top: var(--section-margin-top); }
   .section-title {
-    font-size: 7.6pt;
+    font-size: var(--section-title-font-size);
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
@@ -82,21 +108,21 @@
     padding-bottom: 0.5px;
     margin-bottom: 1.5px;
   }
-  .summary { font-size: 7.2pt; text-align: justify; line-height: 1.15; }
-  .entry { margin-bottom: 1.5px; page-break-inside: avoid; }
+  .summary { font-size: var(--base-font-size); text-align: justify; line-height: var(--base-line-height); }
+  .entry { margin-bottom: var(--entry-margin-bottom); page-break-inside: avoid; }
   .row { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
-  .title { font-size: 7.6pt; font-weight: 700; }
-  .date { font-size: 7.0pt; color: #333333; white-space: nowrap; font-weight: 600; }
-  .subline { font-size: 7.2pt; color: #444444; margin-top: 0px; margin-bottom: 1px; font-style: italic; }
-  .small { font-size: 7.2pt; color: #555555; }
+  .title { font-size: var(--title-font-size); font-weight: 700; }
+  .date { font-size: var(--date-font-size); color: #333333; white-space: nowrap; font-weight: 600; }
+  .subline { font-size: var(--subline-font-size); color: #444444; margin-top: 0px; margin-bottom: 1px; font-style: italic; }
+  .small { font-size: var(--small-font-size); color: #555555; }
   .skills-table { width: 100%; border-collapse: collapse; }
-  .skills-table td { font-size: 7.2pt; padding: 0.5px 0; vertical-align: top; }
-  .skills-table td:first-child { font-weight: bold; width: 85px; white-space: nowrap; }
+  .skills-table td { font-size: var(--base-font-size); padding: var(--skills-padding-y) 0; vertical-align: top; }
+  .skills-table td:first-child { font-weight: bold; width: var(--skills-td-width); white-space: nowrap; }
   ul { padding-left: 10px; margin-top: 0px; }
-  li { margin-bottom: 0.1px; font-size: 7.2pt; text-align: justify; line-height: 1.15; }
-  .act-block { margin-bottom: 1.5px; }
-  .act-title { font-size: 7.4pt; font-weight: bold; }
-  .act-detail { font-size: 7.2pt; margin-left: 10px; }
+  li { margin-bottom: var(--li-margin-bottom); font-size: var(--base-font-size); text-align: justify; line-height: var(--base-line-height); }
+  .act-block { margin-bottom: var(--act-block-margin-bottom); }
+  .act-title { font-size: var(--act-title-font-size); font-weight: bold; }
+  .act-detail { font-size: var(--act-detail-font-size); margin-left: 10px; }
 
   /* Print overrides */
   @media print {
@@ -125,57 +151,11 @@
       height: auto !important;
       box-shadow: none !important;
       border-radius: 0 !important;
-      padding: 0.18in 0.35in !important; /* Slightly tighter margins for high density print */
+      padding: var(--page-padding-y) var(--page-padding-x) !important;
       margin: 0 !important;
       background: white !important;
       color: black !important;
       overflow: visible !important;
-      font-size: 7.0pt !important;
-      line-height: 1.12 !important;
-    }
-    h1 {
-      font-size: 12.5pt !important;
-      margin-bottom: 1px !important;
-    }
-    .contact {
-      font-size: 6.8pt !important;
-      margin-bottom: 3px !important;
-    }
-    .section {
-      margin-top: 2.5px !important;
-    }
-    .section-title {
-      font-size: 7.2pt !important;
-      margin-bottom: 1px !important;
-    }
-    .entry {
-      margin-bottom: 1.2px !important;
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-    .row {
-      gap: 4px !important;
-    }
-    .title {
-      font-size: 7.2pt !important;
-    }
-    .subline {
-      font-size: 6.8pt !important;
-      margin-bottom: 0px !important;
-    }
-    .summary {
-      font-size: 6.8pt !important;
-    }
-    .skills-table td {
-      font-size: 6.8pt !important;
-      padding: 0.3px 0 !important;
-    }
-    li {
-      font-size: 6.8pt !important;
-      margin-bottom: 0.1px !important;
-    }
-    .act-detail {
-      font-size: 6.8pt !important;
     }
     h1, .section-title, .title, .subline, li, p, span, div, td {
       color: black !important;
