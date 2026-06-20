@@ -15,130 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style type="text/css">
-        body {
-            background-color: #030712;
-            color: #f3f4f6;
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
-        
-        /* Ambient Lighting Cursor Flow */
-        .ambient-light {
-            position: fixed;
-            top: var(--cursor-y, 0px);
-            left: var(--cursor-x, 0px);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, rgba(99, 102, 241, 0) 70%);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 1;
-            mix-blend-mode: screen;
-            transition: width 0.3s, height 0.3s;
-        }
-
-        /* Floating Nebulas */
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.12; transform: scale(1); }
-            50% { opacity: 0.20; transform: scale(1.08); }
-        }
-        .nebula-indigo {
-            animation: pulse-slow 10s ease-in-out infinite;
-        }
-        .nebula-cyan {
-            animation: pulse-slow 14s ease-in-out infinite;
-        }
-
-        /* Interactive Card Glow Effect (Glassmorphism 2.0) */
-        .glass-card {
-            position: relative;
-            background: rgba(17, 24, 39, 0.45);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            overflow: hidden;
-        }
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(
-                400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-                rgba(99, 102, 241, 0.12),
-                transparent 80%
-            );
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-        .glass-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 
-                0 30px 60px -15px rgba(0, 0, 0, 0.8),
-                0 0 35px -5px rgba(99, 102, 241, 0.18);
-        }
-
-        /* Glass Navigation */
-        .glass-nav {
-            background: rgba(3, 7, 18, 0.8);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        /* Metallic Gradient Headers */
-        .section-header {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            background: linear-gradient(to right, #ffffff 40%, #9ca3af 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #030712;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1f2937;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #374151;
-        }
-    </style>
+    <link rel="stylesheet" href="./src/index.css">
 </head>
 <body class="min-h-full flex flex-col relative">
 
@@ -928,20 +805,65 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
 
     <!-- Interactive Custom Scripts -->
     <script type="text/javascript">
-        // --- Cursor Tracking for Ambient Background Glow ---
+        // --- Canvas Visibility States for IntersectionObserver ---
+        const canvasVisibility = {
+            scoutCanvas: false,
+            prismCanvas: false,
+            ekoCanvas: false,
+            vibeinCanvas: false,
+            arenaCanvas: false
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.id;
+                const isVisible = entry.isIntersecting;
+                const wasVisible = canvasVisibility[id];
+                canvasVisibility[id] = isVisible;
+                
+                // If it became visible, trigger its draw loop if it wasn't running
+                if (isVisible && !wasVisible) {
+                    if (id === 'scoutCanvas') drawScout();
+                    else if (id === 'prismCanvas') drawPrism();
+                    else if (id === 'ekoCanvas') drawEko();
+                    else if (id === 'vibeinCanvas') drawVibein();
+                    else if (id === 'arenaCanvas') drawArena();
+                }
+            });
+        }, { threshold: 0.05 });
+
+        // --- Throttled Cursor Tracking for Ambient Background Glow ---
+        let ambientX = 0, ambientY = 0;
+        let ambientUpdateScheduled = false;
         document.addEventListener('mousemove', e => {
-            document.body.style.setProperty('--cursor-x', `${e.clientX}px`);
-            document.body.style.setProperty('--cursor-y', `${e.clientY}px`);
+            ambientX = e.clientX;
+            ambientY = e.clientY;
+            if (!ambientUpdateScheduled) {
+                ambientUpdateScheduled = true;
+                requestAnimationFrame(() => {
+                    document.body.style.setProperty('--cursor-x', `${ambientX}px`);
+                    document.body.style.setProperty('--cursor-y', `${ambientY}px`);
+                    ambientUpdateScheduled = false;
+                });
+            }
         });
 
-        // --- 1. Interactive Mouse Hover Tracking for Card Glows ---
+        // --- 1. Interactive Mouse Hover Tracking for Card Glows (Throttled) ---
         document.querySelectorAll('.glass-card').forEach(card => {
+            let cardX = 0, cardY = 0;
+            let updateScheduled = false;
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
+                cardX = e.clientX - rect.left;
+                cardY = e.clientY - rect.top;
+                if (!updateScheduled) {
+                    updateScheduled = true;
+                    requestAnimationFrame(() => {
+                        card.style.setProperty('--mouse-x', `${cardX}px`);
+                        card.style.setProperty('--mouse-y', `${cardY}px`);
+                        updateScheduled = false;
+                    });
+                }
             });
         });
 
@@ -1016,7 +938,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
             ];
 
             function drawScout() {
-                if (!scoutCanvas) return;
+                if (!scoutCanvas || !canvasVisibility.scoutCanvas) return;
                 ctx.clearRect(0, 0, w, h);
 
                 // Grid background
@@ -1097,7 +1019,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
 
                 requestAnimationFrame(drawScout);
             }
-            drawScout();
+            observer.observe(scoutCanvas);
         }
 
         // --- 4. Holographic AST Node Visualizer Canvas (PRISM) ---
@@ -1138,7 +1060,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
             let angle = 0;
 
             function drawPrism() {
-                if (!prismCanvas) return;
+                if (!prismCanvas || !canvasVisibility.prismCanvas) return;
                 ctx.clearRect(0, 0, w, h);
 
                 // Grid background details
@@ -1218,7 +1140,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 ctx.fillText(`RISK_RATIO: ${(0.05 + Math.abs(Math.sin(angle)) * 0.75).toFixed(4)}`, w - 110, 14);
                 requestAnimationFrame(drawPrism);
             }
-            drawPrism();
+            observer.observe(prismCanvas);
         }
 
         // --- 5. EKO AI Voice Dubbing Waveform Canvas (EKO) ---
@@ -1249,7 +1171,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
             let time = 0;
 
             function drawEko() {
-                if (!ekoCanvas) return;
+                if (!ekoCanvas || !canvasVisibility.ekoCanvas) return;
                 ctx.clearRect(0, 0, w, h);
 
                 // Grid background
@@ -1331,7 +1253,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
 
                 requestAnimationFrame(drawEko);
             }
-            drawEko();
+            observer.observe(ekoCanvas);
         }
 
         // --- 6. P2P Matchmaking Telemetry Canvas (VIBEIN) ---
@@ -1363,7 +1285,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
             let timer = 0;
 
             function drawVibein() {
-                if (!vibeinCanvas) return;
+                if (!vibeinCanvas || !canvasVisibility.vibeinCanvas) return;
                 ctx.clearRect(0, 0, w, h);
 
                 timer += 0.5;
@@ -1443,7 +1365,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 ctx.fillText(`CONC_PACKETS: 821`, w - 105, 14);
                 requestAnimationFrame(drawVibein);
             }
-            drawVibein();
+            observer.observe(vibeinCanvas);
         }
 
         // --- 7. Compiler Execution Metrics Canvas (ARENAHQ) ---
@@ -1491,7 +1413,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
             let cycle = 0;
 
             function drawArena() {
-                if (!arenaCanvas) return;
+                if (!arenaCanvas || !canvasVisibility.arenaCanvas) return;
                 ctx.clearRect(0, 0, w, h);
                 cycle += 0.2;
 
@@ -1555,9 +1477,10 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 ctx.fillText('COMPILE_PING: 4ms', w - 100, 14);
                 requestAnimationFrame(drawArena);
             }
-            drawArena();
+            observer.observe(arenaCanvas);
         }
     </script>
+
 
 </body>
 </html>

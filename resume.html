@@ -10,20 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Tailwind CSS Play CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['Outfit', 'sans-serif'],
-          mono: ['Fira Code', 'monospace'],
-        }
-      }
-    }
-  }
-</script>
+<link rel="stylesheet" href="./src/index.css">
 <style type="text/css">
   /* Common reset */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,14 +30,14 @@
     }
     .page {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 7.8pt;
-      line-height: 1.12;
+      font-size: 7.2pt;
+      line-height: 1.10;
       color: #111111;
       background: #ffffff;
       max-width: 8.5in;
       height: 11in;
       margin: 1.5rem auto;
-      padding: 0.25in 0.45in;
+      padding: 0.20in 0.40in;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
       border-radius: 8px;
       overflow: hidden; /* Emulate print boundaries exactly */
@@ -59,43 +46,43 @@
 
   /* Resume typography and layout defaults */
   h1 {
-    font-size: 14pt;
+    font-size: 13pt;
     line-height: 1.05;
     font-weight: 700;
     margin-bottom: 2px;
     text-align: center;
   }
   .contact {
-    font-size: 7.2pt;
+    font-size: 7.0pt;
     margin-bottom: 4px;
     text-align: center;
     color: #333333;
   }
-  .section { margin-top: 4px; }
+  .section { margin-top: 3px; }
   .section-title {
-    font-size: 7.8pt;
+    font-size: 7.6pt;
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
     border-bottom: 1.2px solid #111111;
     padding-bottom: 0.5px;
-    margin-bottom: 2.5px;
+    margin-bottom: 1.5px;
   }
-  .summary { font-size: 7.4pt; text-align: justify; line-height: 1.25; }
-  .entry { margin-bottom: 2.5px; page-break-inside: avoid; }
+  .summary { font-size: 7.2pt; text-align: justify; line-height: 1.15; }
+  .entry { margin-bottom: 1.5px; page-break-inside: avoid; }
   .row { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
-  .title { font-size: 7.8pt; font-weight: 700; }
-  .date { font-size: 7.2pt; color: #333333; white-space: nowrap; font-weight: 600; }
-  .subline { font-size: 7.4pt; color: #444444; margin-top: 0px; margin-bottom: 1px; font-style: italic; }
-  .small { font-size: 7.4pt; color: #555555; }
+  .title { font-size: 7.6pt; font-weight: 700; }
+  .date { font-size: 7.0pt; color: #333333; white-space: nowrap; font-weight: 600; }
+  .subline { font-size: 7.2pt; color: #444444; margin-top: 0px; margin-bottom: 1px; font-style: italic; }
+  .small { font-size: 7.2pt; color: #555555; }
   .skills-table { width: 100%; border-collapse: collapse; }
-  .skills-table td { font-size: 7.4pt; padding: 1px 0; vertical-align: top; }
+  .skills-table td { font-size: 7.2pt; padding: 0.5px 0; vertical-align: top; }
   .skills-table td:first-child { font-weight: bold; width: 85px; white-space: nowrap; }
   ul { padding-left: 10px; margin-top: 0px; }
-  li { margin-bottom: 0.2px; font-size: 7.4pt; text-align: justify; line-height: 1.25; }
-  .act-block { margin-bottom: 2.5px; }
-  .act-title { font-size: 7.6pt; font-weight: bold; }
-  .act-detail { font-size: 7.4pt; margin-left: 10px; }
+  li { margin-bottom: 0.1px; font-size: 7.2pt; text-align: justify; line-height: 1.15; }
+  .act-block { margin-bottom: 1.5px; }
+  .act-title { font-size: 7.4pt; font-weight: bold; }
+  .act-detail { font-size: 7.2pt; margin-left: 10px; }
 
   /* Print overrides */
   @media print {
@@ -124,31 +111,31 @@
       height: auto !important;
       box-shadow: none !important;
       border-radius: 0 !important;
-      padding: 0.22in 0.35in !important; /* Slightly tighter margins for high density print */
+      padding: 0.18in 0.35in !important; /* Slightly tighter margins for high density print */
       margin: 0 !important;
       background: white !important;
       color: black !important;
       overflow: visible !important;
-      font-size: 7.4pt !important;
-      line-height: 1.18 !important;
+      font-size: 7.0pt !important;
+      line-height: 1.12 !important;
     }
     h1 {
-      font-size: 13pt !important;
+      font-size: 12.5pt !important;
       margin-bottom: 1px !important;
     }
     .contact {
-      font-size: 7.0pt !important;
+      font-size: 6.8pt !important;
       margin-bottom: 3px !important;
     }
     .section {
-      margin-top: 3px !important;
+      margin-top: 2.5px !important;
     }
     .section-title {
-      font-size: 7.6pt !important;
-      margin-bottom: 1.5px !important;
+      font-size: 7.2pt !important;
+      margin-bottom: 1px !important;
     }
     .entry {
-      margin-bottom: 1.5px !important;
+      margin-bottom: 1.2px !important;
       page-break-inside: avoid;
       break-inside: avoid;
     }
@@ -156,25 +143,25 @@
       gap: 4px !important;
     }
     .title {
-      font-size: 7.6pt !important;
+      font-size: 7.2pt !important;
     }
     .subline {
-      font-size: 7.2pt !important;
+      font-size: 6.8pt !important;
       margin-bottom: 0px !important;
     }
     .summary {
-      font-size: 7.2pt !important;
+      font-size: 6.8pt !important;
     }
     .skills-table td {
-      font-size: 7.2pt !important;
-      padding: 0.5px 0 !important;
+      font-size: 6.8pt !important;
+      padding: 0.3px 0 !important;
     }
     li {
-      font-size: 7.2pt !important;
+      font-size: 6.8pt !important;
       margin-bottom: 0.1px !important;
     }
     .act-detail {
-      font-size: 7.2pt !important;
+      font-size: 6.8pt !important;
     }
     h1, .section-title, .title, .subline, li, p, span, div, td {
       color: black !important;
