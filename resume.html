@@ -28,8 +28,8 @@
   /* Common reset */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    /* Layout & Spacing (tuned by optimizer) */
+  /* Scoped CSS variables for standard resume */
+  #page-standard {
     --page-padding-top: 32px;
     --page-padding-bottom: 38px;
     --page-padding-left-right: 52px;
@@ -38,21 +38,22 @@
     --entry-margin-bottom: 6px;
     --li-margin-bottom: 1.2px;
     --skills-line-height: 1.45;
-
-    /* Base Sizing (tuned by optimizer) */
     --base-font-size: 10.5px;
     --base-line-height: 1.35;
+  }
 
-    /* Scaled Sizing (derived proportionally) */
-    --name-font-size: calc(var(--base-font-size) * 1.66);
-    --contact-font-size: calc(var(--base-font-size) * 0.92);
-    --section-label-font-size: calc(var(--base-font-size) * 0.92);
-    --bold-font-size: var(--base-font-size);
-    --meta-font-size: calc(var(--base-font-size) * 0.92);
-    --sub-font-size: calc(var(--base-font-size) * 0.96);
-    --skills-font-size: calc(var(--base-font-size) * 0.96);
-    --li-font-size: calc(var(--base-font-size) * 0.96);
-    --entry-sub-font-size: calc(var(--base-font-size) * 0.92);
+  /* Scoped CSS variables for Instawork resume */
+  #page-instawork {
+    --page-padding-top: 28px;
+    --page-padding-bottom: 32px;
+    --page-padding-left-right: 52px;
+    --section-margin-top: 9px;
+    --section-label-margin-bottom: 4px;
+    --entry-margin-bottom: 4px;
+    --li-margin-bottom: 0.8px;
+    --skills-line-height: 1.35;
+    --base-font-size: 9.5px;
+    --base-line-height: 1.3;
   }
 
   /* Digital/Web screen overrides */
@@ -87,7 +88,7 @@
 
   /* Resume typography and layout defaults (ATS friendly) */
   .header-name {
-    font-size: var(--name-font-size);
+    font-size: calc(var(--base-font-size) * 1.66);
     font-weight: 500;
     text-align: center;
     letter-spacing: -0.2px;
@@ -95,7 +96,7 @@
     color: #0a0a0a;
   }
   .contact {
-    font-size: var(--contact-font-size);
+    font-size: calc(var(--base-font-size) * 0.92);
     color: #444;
     text-align: center;
     line-height: 1.7;
@@ -117,7 +118,7 @@
     margin-top: var(--section-margin-top);
   }
   .section-title {
-    font-size: var(--section-label-font-size);
+    font-size: calc(var(--base-font-size) * 0.92);
     font-weight: 500;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -133,7 +134,7 @@
     text-align: justify;
   }
   .core-tech {
-    font-size: var(--skills-font-size);
+    font-size: calc(var(--base-font-size) * 0.96);
     font-weight: 500;
     text-align: center;
     color: #475569;
@@ -152,23 +153,23 @@
     color: #0a0a0a;
   }
   .meta {
-    font-size: var(--meta-font-size);
+    font-size: calc(var(--base-font-size) * 0.92);
     color: #555;
     white-space: nowrap;
   }
   .subline {
-    font-size: var(--sub-font-size);
+    font-size: calc(var(--base-font-size) * 0.96);
     color: #333;
     margin-top: 1px;
     margin-bottom: 3px;
   }
   .small {
-    font-size: var(--sub-font-size);
+    font-size: calc(var(--base-font-size) * 0.96);
     color: #555;
     margin-top: 1px;
   }
   .skills-block {
-    font-size: var(--skills-font-size);
+    font-size: calc(var(--base-font-size) * 0.96);
     color: #222;
     line-height: var(--skills-line-height);
   }
@@ -182,7 +183,7 @@
     break-inside: avoid;
   }
   .entry-sub {
-    font-size: var(--entry-sub-font-size);
+    font-size: calc(var(--base-font-size) * 0.92);
     color: #555;
     margin-bottom: 3px;
   }
@@ -191,7 +192,7 @@
     padding-left: 16px;
   }
   .entry ul li {
-    font-size: var(--li-font-size);
+    font-size: calc(var(--base-font-size) * 0.96);
     color: #222;
     line-height: var(--base-line-height);
     margin-bottom: var(--li-margin-bottom);
@@ -237,6 +238,9 @@
       color: black !important;
       text-decoration: none !important;
     }
+    #page-standard.hidden, #page-instawork.hidden {
+      display: none !important;
+    }
     @page { 
       size: letter; 
       margin: 0; 
@@ -264,9 +268,12 @@
         <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-indigo-500/50 shadow-lg">
           <img src="siddartha_headshot.jpg" alt="Siddartha Reddy Munugala" class="w-full h-full object-cover">
         </div>
-        <div>
+        <div class="space-y-1">
           <h2 class="text-base font-extrabold text-white tracking-tight">Siddartha Reddy</h2>
-          <p class="text-xs text-indigo-400 font-mono font-medium">Software Engineer</p>
+          <p id="resume-title" class="text-xs text-indigo-400 font-mono font-medium">Software Engineer</p>
+          <div class="pt-1">
+            <span id="active-version-badge" class="bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded font-mono text-[9px]">Standard Active</span>
+          </div>
         </div>
       </div>
 
@@ -275,6 +282,18 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
         Print / Save PDF
       </button>
+
+      <!-- Passcode Unlock Card -->
+      <div class="border-t border-white/5 pt-5 space-y-2">
+        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Alternate Resume Version</span>
+        <div class="flex gap-2">
+          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-white text-xs focus:outline-none focus:border-indigo-500 transition-colors font-mono">
+          <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all active:scale-95">
+            Unlock
+          </button>
+        </div>
+        <div id="passcode-message" class="text-[10px] text-gray-500 font-mono hidden"></div>
+      </div>
 
       <!-- Sidebar Specs List -->
       <div class="border-t border-white/5 pt-5 space-y-4 text-xs">
@@ -311,8 +330,9 @@
 
   <!-- Right Scrollable Area: Standard Letter Page -->
   <main class="page-container flex-grow overflow-y-auto w-full">
-    <div class="page">
-
+    
+    <!-- STANDARD RESUME -->
+    <div id="page-standard" class="page">
       <!-- HEADER -->
       <div class="header-name">Siddartha Reddy Munugala</div>
       <div class="contact">
@@ -444,9 +464,192 @@
           </ul>
         </div>
       </section>
-
     </div>
+
+    <!-- INSTAWORK RESUME (Passcode: 58775) -->
+    <div id="page-instawork" class="page hidden">
+      <!-- HEADER -->
+      <div class="header-name">Siddartha Reddy Munugala</div>
+      <div class="contact">
+        New Jersey, USA <span class="sep">&bull;</span> Open to San Francisco internships <span class="sep">&bull;</span>
+        <a href="tel:6362621008">(636) 262-1008</a> <span class="sep">&bull;</span>
+        <a href="mailto:Siddarth.lbf341@gmail.com">Siddarth.lbf341@gmail.com</a> <span class="sep">&bull;</span>
+        <a href="https://github.com/Redsid5" target="_blank">github.com/Redsid5</a> <span class="sep">&bull;</span>
+        <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank">linkedin.com/in/siddartharm</a> <span class="sep">&bull;</span>
+        vibein.us <span class="sep">&bull;</span> arenahq.us
+      </div>
+
+      <!-- PROFESSIONAL SUMMARY -->
+      <section class="section">
+        <div class="section-title">Product Operations / Software Engineering Intern</div>
+        <p class="summary">
+          CS student with hands-on experience running user research loops, building operational tooling, and iterating products toward measurable outcomes. Shipped two live platforms with 1,621 combined users and 20% active retention. Comfortable working across product, engineering, and operations — with a bias toward fast execution and real user impact.
+        </p>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section">
+        <div class="section-title">Skills</div>
+        <div class="skills-block">
+          <strong>Languages:</strong> Python, SQL, TypeScript, JavaScript &nbsp;|&nbsp;
+          <strong>Frameworks:</strong> Next.js 14, Node.js, React, Tailwind CSS<br>
+          <strong>Product &amp; Ops:</strong> User research, funnel analysis, workflow automation, growth experiments, cross-functional execution<br>
+          <strong>Data &amp; Analytics:</strong> PostgreSQL, Supabase, Google Sheets, Google Apps Script, XGBoost, SHAP<br>
+          <strong>Infra &amp; Tools:</strong> Vercel, Git, GitHub Actions, REST APIs, WebSockets, Docker &nbsp;|&nbsp; <strong>AI:</strong> Claude API, Gemini API, Whisper, LangChain
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section">
+        <div class="section-title">Experience</div>
+
+        <div class="entry">
+          <div class="row">
+            <span class="bold">Co-Founder &amp; Lead Engineer — VibeIn / ArenaHQ</span>
+            <span class="meta">Jan 2025 – Present</span>
+          </div>
+          <div class="entry-sub">vibein.us · arenahq.us · New Jersey / Remote</div>
+          <ul>
+            <li>Ran 50+ user interviews and translated structured feedback into product changes, driving 20% active retention across 1,621 combined registered users pre-beta.</li>
+            <li>Built and iterated real-time networking, matchmaking, and coding tournament systems using Next.js, WebSockets, and Supabase — shipping features in rapid weekly cycles.</li>
+            <li>Managed end-to-end deployment pipelines on Vercel; implemented row-level security, real-time chat, and peer recommendation systems with 99%+ uptime.</li>
+            <li>Diagnosed and resolved 8+ critical production incidents — auth failures, API deprecations, notification breakdowns, real-time failures — under hard user-test deadlines.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="row">
+            <span class="bold">IT Coordinator &amp; Chapter Administrator — NSLS Executive Board</span>
+            <span class="meta">Sep 2024 – Present</span>
+          </div>
+          <div class="entry-sub">University of South Dakota</div>
+          <ul>
+            <li>Automated member tracking and onboarding workflows with Python and Google Apps Script, reducing onboarding latency by 50%.</li>
+            <li>Built internal dashboards and lightweight data pipelines to improve chapter operations, communication, and member management across a national organization.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="row">
+            <span class="bold">Production Operations Coordinator — USD Athletics</span>
+            <span class="meta">Aug 2025 – Present</span>
+          </div>
+          <div class="entry-sub">University of South Dakota · Part-Time On-Campus</div>
+          <ul>
+            <li>Coordinate live-event broadcast workflows, display systems, and timing-critical operations for NCAA collegiate sports events.</li>
+            <li>Support cross-functional execution across operations, marketing, and media teams under real-time production constraints with zero margin for error.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="row">
+            <span class="bold">Freelance Content Strategist &amp; Brand Consultant</span>
+            <span class="meta">Jun 2019 – Dec 2022</span>
+          </div>
+          <div class="entry-sub">Independent · Remote</div>
+          <ul>
+            <li>Managed brand identities, content calendars, and distribution campaigns for 10+ internet creators and small businesses; maintained 100% client retention across 3+ years.</li>
+            <li>Developed audience-specific messaging frameworks and delivered consistent content on deadline across multiple concurrent clients under NDA.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section">
+        <div class="section-title">Selected Projects</div>
+
+        <div class="entry">
+          <div class="row">
+            <span class="bold">EKO — AI Background Music &amp; Voice Dubbing System</span>
+            <span class="meta">2026 – Present</span>
+          </div>
+          <ul>
+            <li>Built a three-mode AI audio platform (Studio, BGM Dub, Voice Dub) with a proprietary pipeline covering transcription, voice preservation, and multilingual output — 821 users, 40% DAU at zero paid acquisition cost.</li>
+            <li>Resolved critical memory constraints on 2GB Render container; migrated from local MusicGen-small (1.8GB RAM) to HuggingFace Inference API, reducing footprint to ~400MB.</li>
+            <li>Stack: Next.js 14, FastAPI, Neon Postgres, Vercel, Render, faster-whisper, Demucs, Google Lyria 3, Gemini Flash.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="row">
+            <span class="bold">PRISM — PR Risk Intelligence &amp; Structural Modeling</span>
+            <span class="meta">2026</span>
+          </div>
+          <ul>
+            <li>ML pipeline predicting post-merge engineering risk from 45 features (AST via tree-sitter, dependency graphs via NetworkX); XGBoost + SHAP; AUC ≥ 0.80, ΔAUC &lt; 0.05 cross-repo generalization.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section">
+        <div class="section-title">Education</div>
+        <div class="row">
+          <span class="bold">University of South Dakota</span>
+          <span class="meta">Vermillion, SD &bull; Expected May 2027</span>
+        </div>
+        <div class="sub">B.S. Computer Science — Minor in Innovation &amp; Entrepreneurship</div>
+        <div class="small">Coursework: Data Structures, Algorithms, Systems Programming, Database Systems, Software Engineering</div>
+      </section>
+
+      <!-- LEADERSHIP -->
+      <section class="section">
+        <div class="section-title">Leadership &amp; Activities</div>
+        <div class="entry">
+          <ul>
+            <li>AI &amp; Entrepreneurship Workshop Facilitator (Self-Initiated, Offline) — lead hands-on sessions for teenagers (ages 13–16) on how AI applies to daily life and core business skills: identifying a skill, finding customers, building a product, and communicating ideas with confidence.</li>
+            <li>USD INFORMS (Beacom School of Business) — authored 10-week operational plan; built chapter admin portal.</li>
+            <li>NSLS Executive Board — IT Coordinator &amp; Publicity Chair; USD Marketing Club member.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
   </main>
+
+  <!-- Passcode checking script -->
+  <script>
+    function checkPasscode(codeFromUrl) {
+      const input = document.getElementById('passcode-input');
+      const msg = document.getElementById('passcode-message');
+      const code = codeFromUrl || (input ? input.value.trim() : '');
+
+      if (code === '58775') {
+        document.getElementById('page-standard').classList.add('hidden');
+        document.getElementById('page-instawork').classList.remove('hidden');
+        
+        // Update sidebar
+        const titleEl = document.getElementById('resume-title');
+        if (titleEl) titleEl.innerText = 'Instawork Resume';
+        
+        if (msg) {
+          msg.textContent = '🔓 Instawork version unlocked!';
+          msg.className = 'text-[10px] text-emerald-400 font-mono block';
+        }
+        
+        if (input) input.value = '58775';
+        
+        const badge = document.getElementById('active-version-badge');
+        if (badge) {
+          badge.textContent = 'Instawork Active';
+          badge.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+        }
+      } else {
+        if (msg && !codeFromUrl) {
+          msg.textContent = '❌ Invalid passcode';
+          msg.className = 'text-[10px] text-rose-400 font-mono block';
+        }
+      }
+    }
+
+    // Check URL on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('passcode') === '58775') {
+        checkPasscode('58775');
+      }
+    });
+  </script>
 
 </body>
 </html>
