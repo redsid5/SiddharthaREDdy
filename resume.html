@@ -406,9 +406,22 @@
         Print / Save PDF
       </button>
 
-      <!-- Passcode Unlock Card -->
+      <!-- Version Switcher (Standard and Startup are public) -->
       <div class="border-t border-white/5 pt-5 space-y-2">
-        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Alternate Resume Version</span>
+        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Select Version</span>
+        <div class="grid grid-cols-2 gap-1.5 bg-white/5 p-1 rounded-xl border border-white/10">
+          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow">
+            Standard
+          </button>
+          <button onclick="switchVersion('startup')" id="btn-version-startup" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white">
+            Startup
+          </button>
+        </div>
+      </div>
+
+      <!-- Passcode Unlock Card (For BAD RESUME only) -->
+      <div class="border-t border-white/5 pt-5 space-y-2">
+        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Unlock BAD RESUME</span>
         <div class="flex gap-2">
           <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-white text-xs focus:outline-none focus:border-indigo-500 transition-colors font-mono">
           <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all active:scale-95">
@@ -973,62 +986,83 @@
 
   <!-- Passcode checking script -->
   <script>
-    function checkPasscode(codeFromUrl) {
-      const input = document.getElementById('passcode-input');
-      const msg = document.getElementById('passcode-message');
-      const code = (codeFromUrl || (input ? input.value.trim() : '')).toLowerCase();
-
+    function switchVersion(version) {
       const pageStd = document.getElementById('page-standard');
       const pageInsta = document.getElementById('page-instawork');
       const pageStart = document.getElementById('page-startup');
       const titleEl = document.getElementById('resume-title');
       const badge = document.getElementById('active-version-badge');
 
+      const btnStd = document.getElementById('btn-version-standard');
+      const btnStart = document.getElementById('btn-version-startup');
+
       // Hide all first
       pageStd.classList.add('hidden');
       pageInsta.classList.add('hidden');
       pageStart.classList.add('hidden');
 
-      if (code === '58775') {
-        pageInsta.classList.remove('hidden');
-        if (titleEl) titleEl.innerText = 'BAD RESUME';
-        if (msg) {
-          msg.textContent = '🔓 BAD RESUME version unlocked!';
-          msg.className = 'text-[10px] text-emerald-400 font-mono block';
-        }
-        if (input) input.value = '58775';
-        if (badge) {
-          badge.textContent = 'BAD RESUME Active';
-          badge.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
-        }
-      } else if (code === 'startup' || code === '48291') {
-        pageStart.classList.remove('hidden');
-        if (titleEl) titleEl.innerText = 'Startup Resume';
-        if (msg) {
-          msg.textContent = '🔓 Startup version unlocked!';
-          msg.className = 'text-[10px] text-emerald-400 font-mono block';
-        }
-        if (input) input.value = code;
-        if (badge) {
-          badge.textContent = 'Startup Active';
-          badge.className = 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
-        }
-      } else {
+      // Reset button classes
+      if (btnStd) {
+        btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white';
+      }
+      if (btnStart) {
+        btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white';
+      }
+
+      if (version === 'standard') {
         pageStd.classList.remove('hidden');
         if (titleEl) titleEl.innerText = 'Software Engineer';
         if (badge) {
           badge.textContent = 'Standard Active';
           badge.className = 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
+        if (btnStd) {
+          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow';
+        }
+      } else if (version === 'startup') {
+        pageStart.classList.remove('hidden');
+        if (titleEl) titleEl.innerText = 'Startup Resume';
+        if (badge) {
+          badge.textContent = 'Startup Active';
+          badge.className = 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+        }
+        if (btnStart) {
+          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-cyan-600 text-white shadow';
+        }
+      } else if (version === 'bad') {
+        pageInsta.classList.remove('hidden');
+        if (titleEl) titleEl.innerText = 'BAD RESUME';
+        if (badge) {
+          badge.textContent = 'BAD RESUME Active';
+          badge.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+        }
+      }
+    }
+
+    function checkPasscode(codeFromUrl) {
+      const input = document.getElementById('passcode-input');
+      const msg = document.getElementById('passcode-message');
+      const code = (codeFromUrl || (input ? input.value.trim() : '')).toLowerCase();
+
+      if (code === '58775') {
+        switchVersion('bad');
+        if (msg) {
+          msg.textContent = '🔓 BAD RESUME unlocked!';
+          msg.className = 'text-[10px] text-emerald-400 font-mono block';
+        }
+        if (input) input.value = '58775';
+      } else if (code === 'startup' || code === '48291') {
+        switchVersion('startup');
+        if (msg) {
+          msg.textContent = '🔓 Startup version active!';
+          msg.className = 'text-[10px] text-cyan-400 font-mono block';
+        }
+        if (input) input.value = 'startup';
+      } else {
         if (code !== '') {
           if (msg && !codeFromUrl) {
             msg.textContent = '❌ Invalid passcode';
             msg.className = 'text-[10px] text-rose-400 font-mono block';
-          }
-        } else {
-          if (msg) {
-            msg.textContent = '';
-            msg.className = 'text-[10px] text-gray-500 font-mono hidden';
           }
         }
       }
@@ -1038,8 +1072,11 @@
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const pass = params.get('passcode');
+      const ver = params.get('version') || params.get('mode');
       if (pass) {
         checkPasscode(pass);
+      } else if (ver) {
+        switchVersion(ver.toLowerCase());
       }
     });
   </script>
