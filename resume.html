@@ -30,18 +30,18 @@
 
   :root {
     /* Layout & Spacing Defaults (will be tuned by optimizer) */
-    --page-padding-y: 0.38in;
+    --page-padding-y: 0.36in;
     --page-padding-x: 0.50in;
-    --section-margin-top: 4.5px;
-    --entry-margin-bottom: 3px;
+    --section-margin-top: 4px;
+    --entry-margin-bottom: 2.5px;
     --li-margin-bottom: 0.2px;
-    --skills-padding-y: 0.8px;
+    --skills-padding-y: 0.7px;
     --skills-td-width: 90px;
-    --act-block-margin-bottom: 3px;
+    --act-block-margin-bottom: 2.5px;
 
     /* Typography Defaults (will be tuned by optimizer) */
-    --base-font-size: 8.2pt;
-    --base-line-height: 1.18;
+    --base-font-size: 8pt;
+    --base-line-height: 1.16;
 
     --h1-font-size: calc(var(--base-font-size) * 1.8);
     --contact-font-size: calc(var(--base-font-size) * 0.95);
@@ -251,166 +251,173 @@
   <!-- Right Scrollable Area: Standard Letter Page -->
   <main class="page-container flex-grow overflow-y-auto w-full">
     <div class="page">
-      <h1>Siddartha Reddy Munugala</h1>
-      <div class="contact">Vermillion, SD / Minneapolis, MN <span class="sep">&bull;</span> <a href="mailto:Siddarth.lbf341@gmail.com" class="hover:underline">Siddarth.lbf341@gmail.com</a> <span class="sep">&bull;</span> <a href="https://siddartha.dev" target="_blank" class="hover:underline">siddartha.dev</a> <span class="sep">&bull;</span> GitHub: <a href="https://github.com/Redsid5" target="_blank" class="hover:underline">github.com/Redsid5</a> <span class="sep">&bull;</span> LinkedIn: <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank" class="hover:underline">linkedin.com/in/siddartha-reddy-munugala-95b35a333</a></div>
 
+      <!-- HEADER -->
+      <div class="header-name" style="font-size: var(--name-font-size); font-weight: 500; letter-spacing: -0.2px; margin-bottom: 4px; color: #0a0a0a;">Siddartha Reddy Munugala</div>
+      <div class="contact">
+        New Jersey <span class="sep">&bull;</span>
+        <a href="tel:6362621008" class="hover:underline">(636) 262-1008</a> <span class="sep">&bull;</span>
+        <a href="mailto:Siddarth.lbf341@gmail.com" class="hover:underline">Siddarth.lbf341@gmail.com</a> <span class="sep">&bull;</span>
+        <a href="https://github.com/Redsid5" target="_blank" class="hover:underline">github.com/Redsid5</a> <span class="sep">&bull;</span>
+        <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank" class="hover:underline">linkedin.com/in/siddartharm</a> <span class="sep">&bull;</span>
+        <a href="https://vibein.us" target="_blank" class="hover:underline">vibein.us</a> <span class="sep">&bull;</span>
+        <a href="https://arenahq.us" target="_blank" class="hover:underline">arenahq.us</a>
+      </div>
+
+      <!-- EDUCATION -->
       <section class="section">
-        <div class="section-title">Summary</div>
-        <p class="summary">Co-founder and CTO/COO of VibeIn LLC, a live software company with 2 deployed products used by 1,000+ people. Built and shipped VibeIn (821 registered users, 40% DAU) and ArenaHQ (100–500 active competitive coders) independently as lead engineer. Full-stack across Next.js, TypeScript, WebSockets, WebRTC, and PostgreSQL. Experienced in content strategy, event operations, and pitching to technical and investor audiences. Ready to contribute from day one.</p>
+        <div class="section-title">Education</div>
+        <div class="entry">
+          <div class="row">
+            <span class="bold">University of South Dakota</span>
+            <span class="meta">New Jersey <span class="sep">&bull;</span> Expected May 2027</span>
+          </div>
+          <div class="subline">B.S. Computer Science — Minor in Innovation &amp; Entrepreneurship</div>
+          <div class="small" style="color:#555; margin-top: 1px;">Relevant Coursework: Data Structures, Algorithms, Systems Programming, Database Systems, Software Engineering</div>
+        </div>
       </section>
 
+      <!-- SKILLS -->
       <section class="section">
         <div class="section-title">Technical Skills</div>
         <table class="skills-table">
           <tr>
             <td>Languages</td>
-            <td>Python, TypeScript, JavaScript, SQL, C, HTML, CSS</td>
+            <td>Python, TypeScript, JavaScript, SQL</td>
           </tr>
           <tr>
-            <td>Frontend</td>
-            <td>React, Next.js, Tailwind CSS, CodeMirror 6</td>
-          </tr>
-          <tr>
-            <td>Backend</td>
-            <td>Node.js, Express, WebSockets, WebRTC, REST APIs, PostgreSQL, Supabase, Redis, Neon, Firebase</td>
+            <td>Frameworks</td>
+            <td>Next.js 14, React, Node.js, Tailwind CSS</td>
           </tr>
           <tr>
             <td>AI / ML</td>
-            <td>OpenAI API, Gemini API, Claude API, Whisper, TensorFlow.js, XGBoost, pgvector</td>
+            <td>XGBoost, SHAP, PyTorch, Claude API, Gemini API, OpenAI API, LangChain, Whisper</td>
           </tr>
           <tr>
-            <td>Tools</td>
-            <td>Git, GitHub Actions, Docker, Vercel, FFmpeg, Tree-sitter, NetworkX, Google Apps Script, Twilio</td>
+            <td>Infrastructure</td>
+            <td>Supabase, PostgreSQL, Firebase, Neon Postgres, Redis, Docker, Vercel, Git, GitHub Actions</td>
+          </tr>
+          <tr>
+            <td>Other</td>
+            <td>WebRTC, WebSockets, REST APIs, FFmpeg, CodeMirror 6, tree-sitter, NetworkX</td>
           </tr>
         </table>
       </section>
 
+      <!-- EXPERIENCE -->
       <section class="section">
         <div class="section-title">Experience</div>
 
         <div class="entry">
           <div class="row">
-            <div class="title">Co-Founder, CTO &amp; COO &mdash; VibeIn LLC</div>
-            <div class="date">Jan 2026 &ndash; Present | Remote</div>
+            <span class="bold">Co-Founder &amp; Lead Engineer — VibeIn / ArenaHQ</span>
+            <span class="meta">Jan 2025 – Present</span>
           </div>
-          <div class="subline">Products: VibeIn (vibein.us) &bull; ArenaHQ (arenahq.us)</div>
+          <div class="subline">vibein.us &bull; arenahq.us</div>
           <ul>
-            <li>Co-founded VibeIn LLC; own all engineering, product, and operations &mdash; co-founder leads growth and partnerships</li>
-            <li>Grew VibeIn to 821 registered users with 40% DAU &mdash; organic growth, zero paid acquisition &mdash; within months of launch</li>
-            <li>Built ArenaHQ: live 1v1 competitive coding platform serving 100&ndash;500 active coders with real-time ranked matches</li>
-            <li>Engineered real-time multiplayer systems using WebSockets and WebRTC for live coding sessions and video networking</li>
-            <li>Designed multi-tenant PostgreSQL architecture with Row-Level Security; integrated Twilio SMS and Gemini AI</li>
-            <li>Built sandboxed in-browser code execution using Piston API and CodeMirror 6 with multi-language support</li>
-            <li>Shipped CI/CD pipeline via GitHub Actions and Vercel; managed all production environments end-to-end</li>
-            <li>Conducted 50+ user interviews; iterated product direction based on retention data and behavioral feedback</li>
-            <li>Pitched at demo days and entrepreneurship competitions; presented to investor and technical audiences</li>
+            <li>Built and shipped two full-stack web applications using Next.js 14, Supabase, WebRTC, and Twilio serving a combined 1,621 registered users with 20% active retention pre-beta.</li>
+            <li>Resolved 8+ critical production bugs — including RLS authentication failures, Gemini API deprecation, broken SMS/WhatsApp notifications, and Supabase Realtime failures — under a hard deployment deadline.</li>
+            <li>Implemented row-level security, real-time chat, peer recommendation matrices, and P2P camera authentication for live exam proctoring.</li>
+            <li>Conducted 50+ user interviews to drive feature iteration; managed end-to-end Vercel deployment pipelines with 99%+ uptime across both platforms.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="row">
-            <div class="title">Production Operations Staff &mdash; USD Athletics</div>
-            <div class="date">Aug 2025 &ndash; Present</div>
+            <span class="bold">Production Operations Staff — USD Athletics</span>
+            <span class="meta">Aug 2025 – Present</span>
           </div>
+          <div class="subline">University of South Dakota &bull; Part-Time On-Campus</div>
           <ul>
-            <li>Operated live broadcast, timing, and display infrastructure for NCAA Division I events under zero-downtime requirements</li>
-            <li>Coordinated real-time event technology across production team during televised NCAA sports broadcasts</li>
+            <li>Operate live-event audio systems, stadium display boards, and broadcast cues for NCAA athletics events under zero-tolerance real-time production constraints.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="row">
-            <div class="title">IT Coordinator &mdash; NSLS Executive Board</div>
-            <div class="date">Sep 2024 &ndash; Present</div>
+            <span class="bold">IT Coordinator &amp; Publicity Chair — NSLS Executive Board</span>
+            <span class="meta">Sep 2024 – Present</span>
           </div>
+          <div class="subline">University of South Dakota</div>
           <ul>
-            <li>Automated member onboarding workflows using Python and Google Apps Script, reducing manual effort by 50%</li>
-            <li>Built internal dashboards for membership tracking, engagement reporting, and leadership decision-making</li>
-            <li>Organized tech-focused chapter events for a 100+ member organization</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="row">
-            <div class="title">Freelance Content Strategist &amp; Ghostwriter</div>
-            <div class="date">2022 | Independent</div>
-          </div>
-          <ul>
-            <li>Ghostwrote blogs, newsletters, and YouTube scripts for 3&ndash;5 independent creators across multiple niches</li>
-            <li>Developed brand voice, messaging frameworks, and story structures tailored to each creator's audience</li>
-            <li>Delivered consistent content on deadline for clients building personal brands and online audiences</li>
+            <li>Built member tracking pipelines, communication scripts, and recruitment dashboards; streamlined onboarding workflows for a national collegiate leadership organization.</li>
           </ul>
         </div>
       </section>
 
+      <!-- PROJECTS -->
       <section class="section">
         <div class="section-title">Projects</div>
 
         <div class="entry">
           <div class="row">
-            <div class="title">ALASKA &mdash; Encrypted AI Assistant</div>
-            <div class="date">Top 10 / 100+ teams | 48-hour hackathon</div>
+            <span class="bold">EKO — AI Background Music &amp; Voice Dubbing System</span>
+            <span class="meta">2026 – Present</span>
           </div>
           <ul>
-            <li>Built AES-256-GCM encrypted voice AI assistant for veterans with crisis detection and accessibility modes</li>
-            <li>Integrated real-time speech pipeline with secure session management under a 48-hour build constraint</li>
+            <li>Built a three-mode AI audio platform: Studio (vocal sketch to 10 BGM variations), BGM Dub (scene-energy-matched music generation for video), and Voice Dub (multilingual speech replacement with background music preservation via Demucs stem separation).</li>
+            <li>Stack: Next.js 14 (Vercel), FastAPI (Render), Neon Postgres / Drizzle ORM, Vercel Blob, faster-whisper, librosa, Gemini Flash, Google Lyria 3 for AI audio generation, Demucs htdemucs for stem separation.</li>
+            <li>Resolved critical memory constraints on 2GB Render container by migrating from local MusicGen-small (1.8GB RAM peak) to HuggingFace Inference API, dropping footprint to ~400MB; diagnosed and fixed silent loop failures causing single-variation generation bug.</li>
+            <li>821 registered users, 40% DAU at zero paid acquisition cost; arXiv preprint (cs.SD) drafted covering full system architecture, unit economics, and competitive differentiation.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="row">
-            <div class="title">PRISM &mdash; PR Risk Engine</div>
-            <div class="date">2026</div>
+            <span class="bold">PRISM — PR Risk Intelligence &amp; Structural Modeling</span>
+            <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built graph-based ML system using Tree-sitter and NetworkX to analyze code dependency changes across pull requests</li>
-            <li>Modeled post-merge engineering risk using XGBoost with SHAP-based feature attribution</li>
+            <li>Engineered a machine learning pipeline predicting post-merge engineering risk using 45 features (AST complexity via tree-sitter, dependency graphs via NetworkX, code churn); XGBoost classifier validated at AUC ≥ 0.80 with SHAP-based explainability.</li>
+            <li>Maintained cross-repository generalization gap ΔAUC &lt; 0.05; authored formal research proposals with mathematical appendices for USD faculty and external mentorship review.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="row">
-            <div class="title">WTFcode &mdash; Developer CLI Tool</div>
-            <div class="date">2026</div>
+            <span class="bold">COGN — Cognitive Drift Detection GitHub Action</span>
+            <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built AST-based repository compression tool reducing LLM token usage by up to 90% via structured code parsing</li>
-            <li>Extracts dependency graphs and call hierarchies for context-efficient AI coding workflows</li>
+            <li>Built an open-source CI/CD GitHub Action that scores pull requests for "cognitive drift" — measurable shifts in reasoning coherence introduced by AI-generated code — against repository baselines using three custom primitives.</li>
           </ul>
         </div>
 
         <div class="entry">
           <div class="row">
-            <div class="title">Scout &mdash; AI Accessibility Tool</div>
-            <div class="date">2026</div>
+            <span class="bold">ALASKA — Encrypted AI Assistant for Military Veterans</span>
+            <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built real-time visual assistance system using TensorFlow.js, OCR, and Gemini API for blind and low-vision users</li>
-            <li>Designed local-first processing pipeline with AI fallback for minimal latency on device</li>
+            <li>Built in 48 hours: AES-256-GCM encrypted AI assistant with VA routing algorithm, crisis detection, and accessibility modes — top-10 hackathon finish.</li>
           </ul>
         </div>
       </section>
 
-      <section class="section">
-        <div class="section-title">Education</div>
-        <div class="entry">
-          <div class="row">
-            <div class="title">University of South Dakota</div>
-            <div class="date">Expected May 2027</div>
-          </div>
-          <div class="subline">B.S. Computer Science &bull; Minor: Innovation &amp; Entrepreneurship</div>
-          <div class="small">Coursework: Data Structures, Algorithms, Databases, Software Engineering, Systems Programming, Entrepreneurship &amp; Venture Creation, Technology Commercialization</div>
-        </div>
-      </section>
-
+      <!-- LEADERSHIP -->
       <section class="section">
         <div class="section-title">Leadership &amp; Activities</div>
-        <ul>
-          <li><strong>Demo Day &amp; Pitch Competitions</strong> &mdash; Pitched VibeIn and ArenaHQ to investor and technical panels at entrepreneurship competitions</li>
-          <li><strong>USD INFORMS Chapter</strong> &mdash; Built operational planning tools and member management system for chapter leadership</li>
-          <li><strong>Campus Tech Events</strong> &mdash; Organized and ran tech-focused events at USD; active in the campus entrepreneurship community</li>
-        </ul>
+        <div class="entry">
+          <div class="row">
+            <span class="bold">AI Education Workshop Facilitator</span>
+            <span class="meta">Ongoing</span>
+          </div>
+          <div class="subline">Self-Initiated &bull; Youth Outreach</div>
+          <ul>
+            <li>Design and lead hands-on workshops teaching teenagers (ages 13–16) how AI integrates into sectors of daily life — including healthcare, education, media, and transportation.</li>
+            <li>Build curriculum that makes applied AI concepts accessible to non-technical learners with no prior background.</li>
+          </ul>
+        </div>
+
+        <div class="entry" style="margin-top: 4px;">
+          <ul>
+            <li>Community Educator (Self-Initiated, Offline) — go into public spaces to teach teenagers (ages 13–16) foundational life and entrepreneurship skills: what a business is, how to find customers, how to build a product, and how to communicate and present ideas with confidence.</li>
+            <li>USD INFORMS (Beacom School of Business) — authored 10-week strategic operational plan; built chapter admin portal.</li>
+            <li>NSLS Executive Board — IT Coordinator &amp; Publicity Chair; USD Marketing Club member.</li>
+          </ul>
+        </div>
       </section>
+
     </div>
   </main>
 
