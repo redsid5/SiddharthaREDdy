@@ -30,18 +30,18 @@
 
   :root {
     /* Layout & Spacing (tuned by optimizer) */
-    --page-padding-top: 28px;
-    --page-padding-bottom: 32px;
+    --page-padding-top: 32px;
+    --page-padding-bottom: 38px;
     --page-padding-left-right: 52px;
-    --section-margin-top: 9px;
-    --section-label-margin-bottom: 4px;
-    --entry-margin-bottom: 4px;
-    --li-margin-bottom: 0.8px;
-    --skills-line-height: 1.35;
+    --section-margin-top: 11px;
+    --section-label-margin-bottom: 5px;
+    --entry-margin-bottom: 6px;
+    --li-margin-bottom: 1.2px;
+    --skills-line-height: 1.45;
 
     /* Base Sizing (tuned by optimizer) */
-    --base-font-size: 9.5px;
-    --base-line-height: 1.3;
+    --base-font-size: 10.5px;
+    --base-line-height: 1.35;
 
     /* Scaled Sizing (derived proportionally) */
     --name-font-size: calc(var(--base-font-size) * 1.66);
@@ -122,7 +122,7 @@
     letter-spacing: 1.2px;
     text-transform: uppercase;
     color: #0a0a0a;
-    border-bottom: 1px solid #0a0a0a;
+    border-bottom: 1px solid #cbd5e1;
     padding-bottom: 3px;
     margin-bottom: var(--section-label-margin-bottom);
   }
@@ -131,6 +131,14 @@
     color: #222;
     line-height: var(--base-line-height);
     text-align: justify;
+  }
+  .core-tech {
+    font-size: var(--skills-font-size);
+    font-weight: 500;
+    text-align: center;
+    color: #475569;
+    margin-top: 6px;
+    margin-bottom: 2px;
   }
   .row {
     display: flex;
@@ -320,7 +328,10 @@
       <section class="section">
         <div class="section-title">Professional Summary</div>
         <p class="summary">
-          Full-Stack Software &amp; AI Engineer with experience architecting real-time systems, distributed databases, and generative AI pipelines. Co-founder of VibeIn/ArenaHQ, building and deploying production-grade web applications to 1,600+ users. Expert in TypeScript, Next.js, Node.js, Python, WebSockets, WebRTC, and PostgreSQL, focusing on scalable infrastructure and performance optimization.
+          Software Engineer specializing in full-stack development, AI-powered applications, and scalable backend systems. Built production web applications using TypeScript, Next.js, Python, PostgreSQL, and OpenAI APIs, with experience developing real-time communication platforms, developer tools, and machine learning applications. Passionate about building reliable, high-performance software from idea to deployment.
+        </p>
+        <p class="core-tech">
+          Core Technologies: Python &bull; TypeScript &bull; React &bull; Next.js &bull; Node.js &bull; PostgreSQL &bull; Docker &bull; Git &bull; CI/CD
         </p>
       </section>
 
@@ -330,10 +341,10 @@
         <div class="entry">
           <div class="row">
             <span class="bold">University of South Dakota</span>
-            <span class="meta">New Jersey <span class="sep">&bull;</span> Expected May 2027</span>
+            <span class="meta">Vermillion, SD <span class="sep">&bull;</span> Expected May 2027</span>
           </div>
           <div class="subline">B.S. Computer Science — Minor in Innovation &amp; Entrepreneurship</div>
-          <div class="small">Relevant Coursework: Data Structures, Algorithms, Systems Programming, Database Systems, Software Engineering</div>
+          <div class="small">Relevant Coursework: Data Structures, Algorithms, Systems Programming, Database Systems, Software Engineering, Object-Oriented Programming</div>
         </div>
       </section>
 
@@ -341,11 +352,13 @@
       <section class="section">
         <div class="section-title">Technical Skills</div>
         <div class="skills-block">
-          <strong>Languages:</strong> Python, TypeScript, JavaScript, SQL<br>
-          <strong>Frameworks:</strong> Next.js 14, React, Node.js, Tailwind CSS<br>
-          <strong>AI / ML:</strong> XGBoost, SHAP, PyTorch, Claude API, Gemini API, OpenAI API, LangChain, Whisper<br>
-          <strong>Infrastructure:</strong> Supabase, PostgreSQL, Firebase, Neon Postgres, Redis, Docker, Vercel, Git, GitHub Actions<br>
-          <strong>Other:</strong> WebRTC, WebSockets, REST APIs, FFmpeg, CodeMirror 6, tree-sitter, NetworkX
+          <strong>Languages:</strong> Python &bull; TypeScript &bull; JavaScript &bull; SQL &bull; Linux &bull; OOP<br>
+          <strong>Frontend:</strong> React &bull; Next.js &bull; Tailwind CSS &bull; CodeMirror 6<br>
+          <strong>Backend:</strong> Node.js &bull; RESTful APIs &bull; WebSockets &bull; WebRTC &bull; FastAPI &bull; API Design &bull; Authentication &bull; Authorization<br>
+          <strong>Databases:</strong> PostgreSQL &bull; Supabase &bull; Firebase &bull; Redis &bull; Neon &bull; Database Design &bull; Caching<br>
+          <strong>AI / Machine Learning:</strong> OpenAI API &bull; Claude API &bull; Gemini API &bull; LangChain &bull; PyTorch &bull; XGBoost &bull; SHAP &bull; Whisper<br>
+          <strong>Cloud &amp; DevOps:</strong> Docker &bull; Git &bull; GitHub Actions &bull; Vercel &bull; CI/CD &bull; Caching &bull; Monitoring &bull; Observability<br>
+          <strong>Developer Tools:</strong> FFmpeg &bull; tree-sitter &bull; NetworkX &bull; Agile
         </div>
       </section>
 
@@ -360,10 +373,10 @@
           </div>
           <div class="entry-sub">vibein.us · arenahq.us</div>
           <ul>
-            <li>Architected and deployed two full-stack web applications using Next.js 14, Supabase, WebRTC, and Twilio, scaling user acquisition to 1,621 registered users with 20% active retention pre-beta.</li>
-            <li>Debugged and resolved 8+ high-priority production issues—including Supabase RLS policies, real-time database locks, and API deprecations—under a hard deployment deadline to maintain 99%+ system uptime.</li>
-            <li>Engineered high-performance real-time chat systems, peer-recommendation algorithms, and secure WebRTC P2P camera authentication pipelines, increasing user engagement and security validation.</li>
-            <li>Streamlined continuous deployment pipelines using GitHub Actions and Vercel, reducing release cycles while maintaining 99.9% uptime across production environments.</li>
+            <li>Built and launched two full-stack web applications using Next.js, Supabase, and WebRTC, growing the platforms to over 1,600 registered users.</li>
+            <li>Resolved critical production issues involving Supabase RLS policies, API migrations, and real-time database performance to improve application reliability.</li>
+            <li>Implemented real-time messaging and secure peer-to-peer video communication using WebSockets and WebRTC.</li>
+            <li>Automated deployments using GitHub Actions and Vercel, reducing manual releases and improving deployment consistency.</li>
           </ul>
         </div>
 
@@ -400,10 +413,10 @@
             <span class="meta">2026 – Present</span>
           </div>
           <ul>
-            <li>Designed a three-mode AI audio generation platform featuring automated multilingual vocal translation and scene-energy-matched music synthesis, improving audio production speed.</li>
-            <li>Orchestrated a modern cloud stack utilizing Next.js 14, FastAPI, Neon Postgres, and Demucs stem-separation algorithms, enabling real-time audio isolation and processing.</li>
-            <li>Optimized server memory footprints by 77% (from 1.8GB to 400MB) by migrating heavy audio model execution to the HuggingFace Inference API, resolving out-of-memory container crashes.</li>
-            <li>Scaled the application to 821 registered users and 40% Daily Active Users (DAU) organically, drafting a technical system architecture preprint for arXiv.</li>
+            <li>Developed a three-mode AI audio platform integrating speech translation, video scene-energy music matching, and multilingual voice dubbing.</li>
+            <li>Built the system architecture using Next.js, FastAPI, Neon Postgres, and Demucs stem-separation algorithms for real-time audio isolation.</li>
+            <li>Reduced inference server memory usage from 1.8 GB to 400 MB by moving model execution to the Hugging Face Inference API, eliminating container crashes.</li>
+            <li>Deployed the application to over 800 users organically and drafted a technical system architecture preprint.</li>
           </ul>
         </div>
 
@@ -413,28 +426,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Engineered an automated machine learning pipeline analyzing 45 source code features (AST complexity, dependency graphs, code churn) using XGBoost and SHAP to predict post-merge software regression risks with AUC ≥ 0.80.</li>
-            <li>Validated model generalization across heterogeneous codebases, maintaining a tight generalization gap (ΔAUC &lt; 0.05) and securing academic research endorsement.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="row">
-            <span class="bold">COGN — Cognitive Drift Detection GitHub Action</span>
-            <span class="meta">2026</span>
-          </div>
-          <ul>
-            <li>Developed an open-source CI/CD GitHub Action that analyzes pull requests for semantic and structural drift introduced by AI generators, evaluating changes against codebase baselines to prevent technical debt.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="row">
-            <span class="bold">ALASKA — Encrypted AI Assistant for Military Veterans</span>
-            <span class="meta">2026</span>
-          </div>
-          <ul>
-            <li>Architected an AES-256-GCM encrypted AI voice assistant integrating real-time crisis detection and automated veteran services routing, winning a top-10 placement out of 100+ teams in a 48-hour hackathon.</li>
+            <li>Engineered an automated machine learning pipeline analyzing AST code complexity (via tree-sitter) and dependency graphs (via NetworkX) to predict post-merge software regression risks.</li>
+            <li>Trained and validated an XGBoost classifier with SHAP-based explainability, achieving robust generalization across diverse code repositories.</li>
           </ul>
         </div>
       </section>
@@ -443,22 +436,11 @@
       <section class="section">
         <div class="section-title">Leadership &amp; Activities</div>
         <div class="entry">
-          <div class="row">
-            <span class="bold">AI Education Workshop Facilitator</span>
-            <span class="meta">Ongoing</span>
-          </div>
-          <div class="subline">Self-Initiated &bull; Youth Outreach</div>
           <ul>
-            <li>Designed and facilitated hands-on workshops teaching teenagers (ages 13–16) how AI integrates into healthcare, education, and media, reaching 50+ participants.</li>
-            <li>Created accessible curricula covering basic neural network concepts and ethical AI frameworks, simplifying technical concepts for non-technical learners.</li>
-          </ul>
-        </div>
-
-        <div class="entry" style="margin-top: 4px;">
-          <ul>
-            <li>Mentored teenagers in offline community spaces on foundational business, product development, and customer discovery principles, accelerating their communication confidence.</li>
-            <li>Authored a 10-week strategic operational plan and built the chapter administration portal, reducing administrative overhead for the USD INFORMS Chapter.</li>
-            <li>Coordinated campus tech events as IT Coordinator &amp; Publicity Chair for the NSLS Executive Board and USD Marketing Club.</li>
+            <li>Designed and taught AI workshops for 50+ students covering machine learning fundamentals, ethics, and practical applications.</li>
+            <li>Mentored local youth in offline community programs on foundational business, customer discovery, and communication skills.</li>
+            <li>Authored a 10-week strategic operational plan and built the chapter administration portal for USD INFORMS.</li>
+            <li>Coordinated campus tech events as IT Coordinator and Publicity Chair for the NSLS Executive Board.</li>
           </ul>
         </div>
       </section>
