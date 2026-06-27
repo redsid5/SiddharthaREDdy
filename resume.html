@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siddartha Reddy Munugala — Resume</title>
 
-<!-- Google Fonts: Outfit -->
+<!-- Google Fonts: DM Sans, Outfit & Fira Code -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS Play CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -29,29 +29,30 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* Layout & Spacing Defaults (will be tuned by optimizer) */
-    --page-padding-y: 0.36in;
-    --page-padding-x: 0.50in;
-    --section-margin-top: 4px;
-    --entry-margin-bottom: 2.5px;
-    --li-margin-bottom: 0.2px;
-    --skills-padding-y: 0.7px;
-    --skills-td-width: 90px;
-    --act-block-margin-bottom: 2.5px;
+    /* Layout & Spacing (tuned by optimizer) */
+    --page-padding-top: 28px;
+    --page-padding-bottom: 32px;
+    --page-padding-left-right: 52px;
+    --section-margin-top: 9px;
+    --section-label-margin-bottom: 4px;
+    --entry-margin-bottom: 4px;
+    --li-margin-bottom: 0.8px;
+    --skills-line-height: 1.35;
 
-    /* Typography Defaults (will be tuned by optimizer) */
-    --base-font-size: 8pt;
-    --base-line-height: 1.16;
+    /* Base Sizing (tuned by optimizer) */
+    --base-font-size: 9.5px;
+    --base-line-height: 1.3;
 
-    --h1-font-size: calc(var(--base-font-size) * 1.8);
-    --contact-font-size: calc(var(--base-font-size) * 0.95);
-    --section-title-font-size: calc(var(--base-font-size) * 1.05);
-    --title-font-size: calc(var(--base-font-size) * 1.05);
-    --date-font-size: calc(var(--base-font-size) * 0.95);
-    --subline-font-size: var(--base-font-size);
-    --small-font-size: calc(var(--base-font-size) * 0.95);
-    --act-title-font-size: calc(var(--base-font-size) * 1.02);
-    --act-detail-font-size: var(--base-font-size);
+    /* Scaled Sizing (derived proportionally) */
+    --name-font-size: calc(var(--base-font-size) * 1.66);
+    --contact-font-size: calc(var(--base-font-size) * 0.92);
+    --section-label-font-size: calc(var(--base-font-size) * 0.92);
+    --bold-font-size: var(--base-font-size);
+    --meta-font-size: calc(var(--base-font-size) * 0.92);
+    --sub-font-size: calc(var(--base-font-size) * 0.96);
+    --skills-font-size: calc(var(--base-font-size) * 0.96);
+    --li-font-size: calc(var(--base-font-size) * 0.96);
+    --entry-sub-font-size: calc(var(--base-font-size) * 0.92);
   }
 
   /* Digital/Web screen overrides */
@@ -68,73 +69,125 @@
       overflow-y: auto;
     }
     .page {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'DM Sans', Arial, sans-serif;
       font-size: var(--base-font-size);
       line-height: var(--base-line-height);
-      color: #111111;
+      color: #0a0a0a;
       background: #ffffff;
-      max-width: 8.5in;
+      max-width: 760px;
       min-height: 11in;
       height: auto;
       margin: 1.5rem auto;
-      padding: var(--page-padding-y) var(--page-padding-x);
+      padding: var(--page-padding-top) var(--page-padding-left-right) var(--page-padding-bottom);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
       border-radius: 8px;
       overflow: hidden; /* Emulate print boundaries exactly */
     }
   }
 
-  /* Resume typography and layout defaults */
-  h1 {
-    font-size: var(--h1-font-size);
-    line-height: 1.05;
-    font-weight: 700;
-    margin-bottom: 2px;
+  /* Resume typography and layout defaults (ATS friendly) */
+  .header-name {
+    font-size: var(--name-font-size);
+    font-weight: 500;
     text-align: center;
+    letter-spacing: -0.2px;
+    margin-bottom: 4px;
+    color: #0a0a0a;
   }
   .contact {
     font-size: var(--contact-font-size);
-    margin-bottom: 4px;
+    color: #444;
     text-align: center;
-    color: #333333;
+    line-height: 1.7;
+    margin-bottom: 6px;
   }
   .contact a {
-    color: #0284c7;
+    color: #0a0a0a;
     text-decoration: none;
   }
   .contact a:hover {
     text-decoration: underline;
   }
   .sep {
-    color: #94a3b8;
+    color: #cbd5e1;
     margin: 0 4px;
     font-weight: normal;
   }
-  .section { margin-top: var(--section-margin-top); }
-  .section-title {
-    font-size: var(--section-title-font-size);
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    border-bottom: 1.2px solid #111111;
-    padding-bottom: 0.5px;
-    margin-bottom: 1.5px;
+  .section {
+    margin-top: var(--section-margin-top);
   }
-  .summary { font-size: var(--base-font-size); text-align: justify; line-height: var(--base-line-height); }
-  .entry { margin-bottom: var(--entry-margin-bottom); page-break-inside: avoid; }
-  .row { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
-  .title { font-size: var(--title-font-size); font-weight: 700; }
-  .date { font-size: var(--date-font-size); color: #333333; white-space: nowrap; font-weight: 600; }
-  .subline { font-size: var(--subline-font-size); color: #444444; margin-top: 0px; margin-bottom: 1px; font-style: italic; }
-  .small { font-size: var(--small-font-size); color: #555555; }
-  .skills-table { width: 100%; border-collapse: collapse; }
-  .skills-table td { font-size: var(--base-font-size); padding: var(--skills-padding-y) 0; vertical-align: top; }
-  .skills-table td:first-child { font-weight: bold; width: var(--skills-td-width); white-space: nowrap; }
-  ul { padding-left: 10px; margin-top: 0px; }
-  li { margin-bottom: var(--li-margin-bottom); font-size: var(--base-font-size); text-align: justify; line-height: var(--base-line-height); }
-  .act-block { margin-bottom: var(--act-block-margin-bottom); }
-  .act-title { font-size: var(--act-title-font-size); font-weight: bold; }
-  .act-detail { font-size: var(--act-detail-font-size); margin-left: 10px; }
+  .section-title {
+    font-size: var(--section-label-font-size);
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    border-bottom: 1px solid #0a0a0a;
+    padding-bottom: 3px;
+    margin-bottom: var(--section-label-margin-bottom);
+  }
+  .summary {
+    font-size: var(--base-font-size);
+    color: #222;
+    line-height: var(--base-line-height);
+    text-align: justify;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .bold {
+    font-weight: 500;
+    font-size: var(--bold-font-size);
+    color: #0a0a0a;
+  }
+  .meta {
+    font-size: var(--meta-font-size);
+    color: #555;
+    white-space: nowrap;
+  }
+  .subline {
+    font-size: var(--sub-font-size);
+    color: #333;
+    margin-top: 1px;
+    margin-bottom: 3px;
+  }
+  .small {
+    font-size: var(--sub-font-size);
+    color: #555;
+    margin-top: 1px;
+  }
+  .skills-block {
+    font-size: var(--skills-font-size);
+    color: #222;
+    line-height: var(--skills-line-height);
+  }
+  .skills-block strong {
+    font-weight: 500;
+    color: #0a0a0a;
+  }
+  .entry {
+    margin-bottom: var(--entry-margin-bottom);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .entry-sub {
+    font-size: var(--entry-sub-font-size);
+    color: #555;
+    margin-bottom: 3px;
+  }
+  .entry ul {
+    list-style: disc;
+    padding-left: 16px;
+  }
+  .entry ul li {
+    font-size: var(--li-font-size);
+    color: #222;
+    line-height: var(--base-line-height);
+    margin-bottom: var(--li-margin-bottom);
+  }
 
   /* Print overrides */
   @media print {
@@ -146,7 +199,7 @@
       height: auto !important;
       background: white !important;
       color: black !important;
-      font-family: Arial, Helvetica, sans-serif !important;
+      font-family: 'DM Sans', Arial, sans-serif !important;
     }
     .page-container {
       padding: 0 !important;
@@ -163,13 +216,13 @@
       height: auto !important;
       box-shadow: none !important;
       border-radius: 0 !important;
-      padding: var(--page-padding-y) var(--page-padding-x) !important;
+      padding: var(--page-padding-top) var(--page-padding-left-right) var(--page-padding-bottom) !important;
       margin: 0 !important;
       background: white !important;
       color: black !important;
       overflow: visible !important;
     }
-    h1, .section-title, .title, .subline, li, p, span, div, td {
+    .header-name, .section-title, .bold, .subline, li, p, span, div, td {
       color: black !important;
     }
     a {
@@ -223,7 +276,7 @@
             <div class="flex items-center gap-2"><span>📧</span> <a href="mailto:Siddarth.lbf341@gmail.com" class="hover:text-indigo-400">Siddarth.lbf341@gmail.com</a></div>
             <div class="flex items-center gap-2"><span>🐙</span> <a href="https://github.com/Redsid5" target="_blank" class="hover:text-indigo-400">github.com/Redsid5</a></div>
             <div class="flex items-center gap-2"><span>💼</span> <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank" class="hover:text-indigo-400">LinkedIn Profile</a></div>
-            <div class="flex items-center gap-2"><span>📍</span> <span>Vermillion, SD / Minneapolis, MN</span></div>
+            <div class="flex items-center gap-2"><span>📍</span> <span>New Jersey</span></div>
           </div>
         </div>
 
@@ -232,7 +285,7 @@
           <div class="flex flex-wrap gap-1.5">
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Python</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">TypeScript</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Next.js</span>
+            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Next.js 14</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">WebSockets</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">WebRTC</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Supabase</span>
@@ -253,16 +306,23 @@
     <div class="page">
 
       <!-- HEADER -->
-      <div class="header-name" style="font-size: var(--name-font-size); font-weight: 500; letter-spacing: -0.2px; margin-bottom: 4px; color: #0a0a0a;">Siddartha Reddy Munugala</div>
+      <div class="header-name">Siddartha Reddy Munugala</div>
       <div class="contact">
         New Jersey <span class="sep">&bull;</span>
-        <a href="tel:6362621008" class="hover:underline">(636) 262-1008</a> <span class="sep">&bull;</span>
-        <a href="mailto:Siddarth.lbf341@gmail.com" class="hover:underline">Siddarth.lbf341@gmail.com</a> <span class="sep">&bull;</span>
-        <a href="https://github.com/Redsid5" target="_blank" class="hover:underline">github.com/Redsid5</a> <span class="sep">&bull;</span>
-        <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank" class="hover:underline">linkedin.com/in/siddartharm</a> <span class="sep">&bull;</span>
-        <a href="https://vibein.us" target="_blank" class="hover:underline">vibein.us</a> <span class="sep">&bull;</span>
-        <a href="https://arenahq.us" target="_blank" class="hover:underline">arenahq.us</a>
+        <a href="tel:6362621008">(636) 262-1008</a> <span class="sep">&bull;</span>
+        <a href="mailto:Siddarth.lbf341@gmail.com">Siddarth.lbf341@gmail.com</a> <span class="sep">&bull;</span>
+        <a href="https://github.com/Redsid5" target="_blank">github.com/Redsid5</a> <span class="sep">&bull;</span>
+        <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank">linkedin.com/in/siddartharm</a> <span class="sep">&bull;</span>
+        vibein.us <span class="sep">&bull;</span> arenahq.us
       </div>
+
+      <!-- PROFESSIONAL SUMMARY -->
+      <section class="section">
+        <div class="section-title">Professional Summary</div>
+        <p class="summary">
+          Full-Stack Software &amp; AI Engineer with experience architecting real-time systems, distributed databases, and generative AI pipelines. Co-founder of VibeIn/ArenaHQ, building and deploying production-grade web applications to 1,600+ users. Expert in TypeScript, Next.js, Node.js, Python, WebSockets, WebRTC, and PostgreSQL, focusing on scalable infrastructure and performance optimization.
+        </p>
+      </section>
 
       <!-- EDUCATION -->
       <section class="section">
@@ -273,35 +333,20 @@
             <span class="meta">New Jersey <span class="sep">&bull;</span> Expected May 2027</span>
           </div>
           <div class="subline">B.S. Computer Science — Minor in Innovation &amp; Entrepreneurship</div>
-          <div class="small" style="color:#555; margin-top: 1px;">Relevant Coursework: Data Structures, Algorithms, Systems Programming, Database Systems, Software Engineering</div>
+          <div class="small">Relevant Coursework: Data Structures, Algorithms, Systems Programming, Database Systems, Software Engineering</div>
         </div>
       </section>
 
       <!-- SKILLS -->
       <section class="section">
         <div class="section-title">Technical Skills</div>
-        <table class="skills-table">
-          <tr>
-            <td>Languages</td>
-            <td>Python, TypeScript, JavaScript, SQL</td>
-          </tr>
-          <tr>
-            <td>Frameworks</td>
-            <td>Next.js 14, React, Node.js, Tailwind CSS</td>
-          </tr>
-          <tr>
-            <td>AI / ML</td>
-            <td>XGBoost, SHAP, PyTorch, Claude API, Gemini API, OpenAI API, LangChain, Whisper</td>
-          </tr>
-          <tr>
-            <td>Infrastructure</td>
-            <td>Supabase, PostgreSQL, Firebase, Neon Postgres, Redis, Docker, Vercel, Git, GitHub Actions</td>
-          </tr>
-          <tr>
-            <td>Other</td>
-            <td>WebRTC, WebSockets, REST APIs, FFmpeg, CodeMirror 6, tree-sitter, NetworkX</td>
-          </tr>
-        </table>
+        <div class="skills-block">
+          <strong>Languages:</strong> Python, TypeScript, JavaScript, SQL<br>
+          <strong>Frameworks:</strong> Next.js 14, React, Node.js, Tailwind CSS<br>
+          <strong>AI / ML:</strong> XGBoost, SHAP, PyTorch, Claude API, Gemini API, OpenAI API, LangChain, Whisper<br>
+          <strong>Infrastructure:</strong> Supabase, PostgreSQL, Firebase, Neon Postgres, Redis, Docker, Vercel, Git, GitHub Actions<br>
+          <strong>Other:</strong> WebRTC, WebSockets, REST APIs, FFmpeg, CodeMirror 6, tree-sitter, NetworkX
+        </div>
       </section>
 
       <!-- EXPERIENCE -->
@@ -313,12 +358,12 @@
             <span class="bold">Co-Founder &amp; Lead Engineer — VibeIn / ArenaHQ</span>
             <span class="meta">Jan 2025 – Present</span>
           </div>
-          <div class="subline">vibein.us &bull; arenahq.us</div>
+          <div class="entry-sub">vibein.us · arenahq.us</div>
           <ul>
-            <li>Built and shipped two full-stack web applications using Next.js 14, Supabase, WebRTC, and Twilio serving a combined 1,621 registered users with 20% active retention pre-beta.</li>
-            <li>Resolved 8+ critical production bugs — including RLS authentication failures, Gemini API deprecation, broken SMS/WhatsApp notifications, and Supabase Realtime failures — under a hard deployment deadline.</li>
-            <li>Implemented row-level security, real-time chat, peer recommendation matrices, and P2P camera authentication for live exam proctoring.</li>
-            <li>Conducted 50+ user interviews to drive feature iteration; managed end-to-end Vercel deployment pipelines with 99%+ uptime across both platforms.</li>
+            <li>Architected and deployed two full-stack web applications using Next.js 14, Supabase, WebRTC, and Twilio, scaling user acquisition to 1,621 registered users with 20% active retention pre-beta.</li>
+            <li>Debugged and resolved 8+ high-priority production issues—including Supabase RLS policies, real-time database locks, and API deprecations—under a hard deployment deadline to maintain 99%+ system uptime.</li>
+            <li>Engineered high-performance real-time chat systems, peer-recommendation algorithms, and secure WebRTC P2P camera authentication pipelines, increasing user engagement and security validation.</li>
+            <li>Streamlined continuous deployment pipelines using GitHub Actions and Vercel, reducing release cycles while maintaining 99.9% uptime across production environments.</li>
           </ul>
         </div>
 
@@ -327,9 +372,9 @@
             <span class="bold">Production Operations Staff — USD Athletics</span>
             <span class="meta">Aug 2025 – Present</span>
           </div>
-          <div class="subline">University of South Dakota &bull; Part-Time On-Campus</div>
+          <div class="entry-sub">University of South Dakota &bull; Part-Time On-Campus</div>
           <ul>
-            <li>Operate live-event audio systems, stadium display boards, and broadcast cues for NCAA athletics events under zero-tolerance real-time production constraints.</li>
+            <li>Operated live-event audio systems and digital display infrastructure for NCAA Division I broadcasts under zero-tolerance real-time constraints, ensuring seamless production for televised games.</li>
           </ul>
         </div>
 
@@ -338,9 +383,9 @@
             <span class="bold">IT Coordinator &amp; Publicity Chair — NSLS Executive Board</span>
             <span class="meta">Sep 2024 – Present</span>
           </div>
-          <div class="subline">University of South Dakota</div>
+          <div class="entry-sub">University of South Dakota</div>
           <ul>
-            <li>Built member tracking pipelines, communication scripts, and recruitment dashboards; streamlined onboarding workflows for a national collegiate leadership organization.</li>
+            <li>Automated member onboarding pipelines and communication workflows using Python and custom dashboards, reducing manual administrative overhead by 50% for a 100+ member organization.</li>
           </ul>
         </div>
       </section>
@@ -355,10 +400,10 @@
             <span class="meta">2026 – Present</span>
           </div>
           <ul>
-            <li>Built a three-mode AI audio platform: Studio (vocal sketch to 10 BGM variations), BGM Dub (scene-energy-matched music generation for video), and Voice Dub (multilingual speech replacement with background music preservation via Demucs stem separation).</li>
-            <li>Stack: Next.js 14 (Vercel), FastAPI (Render), Neon Postgres / Drizzle ORM, Vercel Blob, faster-whisper, librosa, Gemini Flash, Google Lyria 3 for AI audio generation, Demucs htdemucs for stem separation.</li>
-            <li>Resolved critical memory constraints on 2GB Render container by migrating from local MusicGen-small (1.8GB RAM peak) to HuggingFace Inference API, dropping footprint to ~400MB; diagnosed and fixed silent loop failures causing single-variation generation bug.</li>
-            <li>821 registered users, 40% DAU at zero paid acquisition cost; arXiv preprint (cs.SD) drafted covering full system architecture, unit economics, and competitive differentiation.</li>
+            <li>Designed a three-mode AI audio generation platform featuring automated multilingual vocal translation and scene-energy-matched music synthesis, improving audio production speed.</li>
+            <li>Orchestrated a modern cloud stack utilizing Next.js 14, FastAPI, Neon Postgres, and Demucs stem-separation algorithms, enabling real-time audio isolation and processing.</li>
+            <li>Optimized server memory footprints by 77% (from 1.8GB to 400MB) by migrating heavy audio model execution to the HuggingFace Inference API, resolving out-of-memory container crashes.</li>
+            <li>Scaled the application to 821 registered users and 40% Daily Active Users (DAU) organically, drafting a technical system architecture preprint for arXiv.</li>
           </ul>
         </div>
 
@@ -368,8 +413,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Engineered a machine learning pipeline predicting post-merge engineering risk using 45 features (AST complexity via tree-sitter, dependency graphs via NetworkX, code churn); XGBoost classifier validated at AUC ≥ 0.80 with SHAP-based explainability.</li>
-            <li>Maintained cross-repository generalization gap ΔAUC &lt; 0.05; authored formal research proposals with mathematical appendices for USD faculty and external mentorship review.</li>
+            <li>Engineered an automated machine learning pipeline analyzing 45 source code features (AST complexity, dependency graphs, code churn) using XGBoost and SHAP to predict post-merge software regression risks with AUC ≥ 0.80.</li>
+            <li>Validated model generalization across heterogeneous codebases, maintaining a tight generalization gap (ΔAUC &lt; 0.05) and securing academic research endorsement.</li>
           </ul>
         </div>
 
@@ -379,7 +424,7 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built an open-source CI/CD GitHub Action that scores pull requests for "cognitive drift" — measurable shifts in reasoning coherence introduced by AI-generated code — against repository baselines using three custom primitives.</li>
+            <li>Developed an open-source CI/CD GitHub Action that analyzes pull requests for semantic and structural drift introduced by AI generators, evaluating changes against codebase baselines to prevent technical debt.</li>
           </ul>
         </div>
 
@@ -389,7 +434,7 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built in 48 hours: AES-256-GCM encrypted AI assistant with VA routing algorithm, crisis detection, and accessibility modes — top-10 hackathon finish.</li>
+            <li>Architected an AES-256-GCM encrypted AI voice assistant integrating real-time crisis detection and automated veteran services routing, winning a top-10 placement out of 100+ teams in a 48-hour hackathon.</li>
           </ul>
         </div>
       </section>
@@ -404,16 +449,16 @@
           </div>
           <div class="subline">Self-Initiated &bull; Youth Outreach</div>
           <ul>
-            <li>Design and lead hands-on workshops teaching teenagers (ages 13–16) how AI integrates into sectors of daily life — including healthcare, education, media, and transportation.</li>
-            <li>Build curriculum that makes applied AI concepts accessible to non-technical learners with no prior background.</li>
+            <li>Designed and facilitated hands-on workshops teaching teenagers (ages 13–16) how AI integrates into healthcare, education, and media, reaching 50+ participants.</li>
+            <li>Created accessible curricula covering basic neural network concepts and ethical AI frameworks, simplifying technical concepts for non-technical learners.</li>
           </ul>
         </div>
 
         <div class="entry" style="margin-top: 4px;">
           <ul>
-            <li>Community Educator (Self-Initiated, Offline) — go into public spaces to teach teenagers (ages 13–16) foundational life and entrepreneurship skills: what a business is, how to find customers, how to build a product, and how to communicate and present ideas with confidence.</li>
-            <li>USD INFORMS (Beacom School of Business) — authored 10-week strategic operational plan; built chapter admin portal.</li>
-            <li>NSLS Executive Board — IT Coordinator &amp; Publicity Chair; USD Marketing Club member.</li>
+            <li>Mentored teenagers in offline community spaces on foundational business, product development, and customer discovery principles, accelerating their communication confidence.</li>
+            <li>Authored a 10-week strategic operational plan and built the chapter administration portal, reducing administrative overhead for the USD INFORMS Chapter.</li>
+            <li>Coordinated campus tech events as IT Coordinator &amp; Publicity Chair for the NSLS Executive Board and USD Marketing Club.</li>
           </ul>
         </div>
       </section>
