@@ -30,30 +30,30 @@
 
   /* Scoped CSS variables for standard resume */
   #page-standard {
-    --page-padding-top: 42px;
-    --page-padding-bottom: 50px;
+    --page-padding-top: 28px;
+    --page-padding-bottom: 32px;
     --page-padding-left-right: 52px;
-    --section-margin-top: 15px;
-    --section-label-margin-bottom: 8px;
-    --entry-margin-bottom: 9px;
-    --li-margin-bottom: 2.2px;
-    --skills-line-height: 1.6;
-    --base-font-size: 12.5px;
-    --base-line-height: 1.45;
+    --section-margin-top: 9px;
+    --section-label-margin-bottom: 4px;
+    --entry-margin-bottom: 4px;
+    --li-margin-bottom: 0.8px;
+    --skills-line-height: 1.35;
+    --base-font-size: 9.5px;
+    --base-line-height: 1.3;
   }
 
   /* Scoped CSS variables for Instawork resume */
   #page-instawork {
-    --page-padding-top: 42px;
-    --page-padding-bottom: 50px;
+    --page-padding-top: 22px;
+    --page-padding-bottom: 25px;
     --page-padding-left-right: 52px;
-    --section-margin-top: 15px;
-    --section-label-margin-bottom: 8px;
-    --entry-margin-bottom: 9px;
-    --li-margin-bottom: 2.2px;
-    --skills-line-height: 1.6;
-    --base-font-size: 12.5px;
-    --base-line-height: 1.45;
+    --section-margin-top: 7px;
+    --section-label-margin-bottom: 3px;
+    --entry-margin-bottom: 3px;
+    --li-margin-bottom: 0.5px;
+    --skills-line-height: 1.25;
+    --base-font-size: 8.5px;
+    --base-line-height: 1.25;
   }
 
   /* Scoped CSS variables for Startup resume */
@@ -73,10 +73,11 @@
   /* Custom overrides for Startup Resume styling */
   #page-startup .header-name {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: calc(var(--base-font-size) * 1.75);
-    font-weight: 500;
+    font-size: calc(var(--base-font-size) * 1.8);
+    font-weight: bold;
     text-align: left;
     margin-bottom: 4px;
+    color: #000000;
   }
   #page-startup .headline {
     font-family: 'IBM Plex Mono', monospace;
@@ -90,33 +91,33 @@
   }
   #page-startup .contact {
     font-size: calc(var(--base-font-size) * 0.92);
-    color: #5f5e5a;
+    color: #000000;
     line-height: 1.7;
     text-align: left;
     margin-bottom: 0;
   }
   #page-startup .contact a {
-    color: #0a0a0a;
+    color: #000000;
     text-decoration: none;
     border-bottom: 1px solid #d3d1c7;
   }
   #page-startup .contact a:hover {
     text-decoration: none;
-    border-bottom-color: #0a0a0a;
+    border-bottom-color: #000000;
   }
   #page-startup header {
     padding-bottom: 12px;
-    border-bottom: 1.5px solid #0a0a0a;
+    border-bottom: 1.5px solid #000000;
     margin-bottom: 16px;
   }
   #page-startup .section-title {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: calc(var(--base-font-size) * 0.79);
-    font-weight: 500;
+    font-size: calc(var(--base-font-size) * 1.2);
+    font-weight: bold;
     letter-spacing: 1.3px;
     text-transform: uppercase;
-    color: #5f5e5a;
-    border-bottom: 0.5px solid #d3d1c7;
+    color: #000000;
+    border-bottom: 1.5px solid #000000;
     padding-bottom: 3px;
     margin-bottom: var(--section-label-margin-bottom);
     text-align: left;
@@ -200,29 +201,29 @@
 
   /* Resume typography and layout defaults (ATS friendly) */
   .header-name {
-    font-size: calc(var(--base-font-size) * 1.66);
-    font-weight: 500;
-    text-align: center;
+    font-size: calc(var(--base-font-size) * 1.8);
+    font-weight: bold;
+    text-align: left;
     letter-spacing: -0.2px;
     margin-bottom: 4px;
-    color: #0a0a0a;
+    color: #000000;
   }
   .contact {
     font-size: calc(var(--base-font-size) * 0.92);
-    color: #444;
-    text-align: center;
+    color: #000000;
+    text-align: left;
     line-height: 1.7;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
   }
   .contact a {
-    color: #0a0a0a;
+    color: #000000;
     text-decoration: none;
   }
   .contact a:hover {
     text-decoration: underline;
   }
   .sep {
-    color: #cbd5e1;
+    color: #475569;
     margin: 0 4px;
     font-weight: normal;
   }
@@ -230,14 +231,15 @@
     margin-top: var(--section-margin-top);
   }
   .section-title {
-    font-size: calc(var(--base-font-size) * 0.92);
-    font-weight: 500;
+    font-size: calc(var(--base-font-size) * 1.2);
+    font-weight: bold;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: #0a0a0a;
-    border-bottom: 1px solid #cbd5e1;
+    color: #000000;
+    border-bottom: 1.5px solid #000000;
     padding-bottom: 3px;
     margin-bottom: var(--section-label-margin-bottom);
+    text-align: left;
   }
   .summary {
     font-size: var(--base-font-size);
@@ -337,16 +339,16 @@
       --base-line-height: 1.25;
     }
     #page-startup {
-      --page-padding-top: 20px;
-      --page-padding-bottom: 22px;
+      --page-padding-top: 22px;
+      --page-padding-bottom: 25px;
       --page-padding-left-right: 50px;
-      --section-margin-top: 6px;
+      --section-margin-top: 7px;
       --section-label-margin-bottom: 3px;
-      --entry-margin-bottom: 2px;
-      --li-margin-bottom: 0.4px;
-      --skills-line-height: 1.2;
-      --base-font-size: 8px;
-      --base-line-height: 1.22;
+      --entry-margin-bottom: 3px;
+      --li-margin-bottom: 0.5px;
+      --skills-line-height: 1.25;
+      --base-font-size: 9.0px;
+      --base-line-height: 1.25;
     }
 
     .no-print {
@@ -516,7 +518,7 @@
 
       <!-- SKILLS -->
       <section class="section">
-        <div class="section-title">Technical Skills</div>
+        <div class="section-title">Skills</div>
         <div class="skills-block">
           <strong>AI / ML:</strong> LLMs, RAG, prompt engineering, agentic workflows, XGBoost, SHAP, PyTorch, inference optimization, Claude API, Gemini API, OpenAI API, LangChain<br>
           <strong>Languages:</strong> Python, TypeScript, JavaScript, SQL<br>
@@ -637,9 +639,9 @@
         </div>
       </section>
 
-      <!-- LEADERSHIP AND ACTIVITIES -->
+      <!-- LEADERSHIP -->
       <section class="section">
-        <div class="section-title">Leadership and Activities</div>
+        <div class="section-title">Leadership</div>
         <div class="entry">
           <ul>
             <li>AI and Entrepreneurship Workshop Facilitator (Self-Initiated) -- Designed and led community sessions for teenagers ages 13-16 on AI, product building, customer discovery, and startup fundamentals.</li>
@@ -849,9 +851,9 @@
         <div class="summary">Software engineer and founder building AI-powered products end to end, from architecture to production deployment. Built Sidewise, ArenaHQ, and VibeIn under VibeIn LLC, reaching 1,321 combined registered users at zero paid acquisition cost. Experienced across frontend, backend, AI infrastructure, deployment pipelines, and cloud services, including on-device and cloud ML inference, encrypted data handling, and production incident response under live user load. Published open-source developer tooling (WTFcode, 832x token compression) and has delivered working software under tight deadlines, including a 48-hour hackathon build.</div>
       </section>
 
-      <!-- TECHNICAL SKILLS -->
+      <!-- SKILLS -->
       <section class="section">
-        <div class="section-title">Technical Skills</div>
+        <div class="section-title">Skills</div>
         <div class="skills-block">
           <strong>Languages:</strong> Python, TypeScript, JavaScript, SQL<br>
           <strong>Frameworks:</strong> Next.js 14/15/16, React, Node.js, FastAPI, Tailwind CSS<br>
@@ -872,12 +874,12 @@
           </div>
           <div class="entry-sub">vibein.us / arenahq.us / sidewise.vercel.app</div>
           <ul>
-            <li>Built and shipped Sidewise, an AI reasoning platform that surfaces neutral summaries plus cited, ranked arguments on both sides of contested issues, with a live sentiment layer from reader votes; runs a daily founder-led growth and customer-discovery operation across LinkedIn and X to validate product-market fit.</li>
-            <li>Engineered Sidewise's decoupled research pipeline (Brave Search API for retrieval, Gemini 2.5 Flash for synthesis) so every cited claim traces to a real, checkable source; built on Next.js 15 (App Router, React 19, Server Components/Actions) with Drizzle ORM over serverless Postgres (Neon), deployed on Vercel with CI/CD on every push.</li>
-            <li>Architected and launched VibeIn (521 users, anonymous "mutual pitch to reveal" professional matching, 10% active retention) and ArenaHQ (800+ users, live 1v1 verified coding battles), reaching 1,321 combined registered users at zero paid acquisition cost.</li>
-            <li>Built ArenaHQ's live-battle infrastructure: WebRTC dual-camera identity verification, Supabase Realtime (WebSockets + Presence) for match state, CodeMirror 6 editor, and a Piston-based multi-language execution engine scoring submissions on correctness, time, and efficiency into an ELO rating.</li>
-            <li>Diagnosed and resolved 8+ production incidents across authentication, realtime infrastructure, and third-party API integrations (RLS misconfigurations, API model deprecations, SMS/WhatsApp outages), maintaining 99%+ uptime under hard deadlines.</li>
-            <li>Conducted 50+ structured user interviews driving product iteration; managed end-to-end Vercel deployment pipelines and zero downtime release cadences.</li>
+            <li>Built and shipped Sidewise, an AI reasoning platform that surfaces neutral summaries plus cited arguments on both sides of issues, reaching 1,321 combined users; run daily customer-discovery across LinkedIn and X to validate fit.</li>
+            <li>Engineered Sidewise's decoupled research pipeline (Brave Search API, Gemini 2.5 Flash) with cited sources; built on Next.js 15 (App Router, React 19) and Drizzle ORM over Neon Postgres deployed on Vercel.</li>
+            <li>Launched VibeIn (anonymous matching, 10% active retention) and ArenaHQ (live 1v1 verified coding battles), achieving 1,321 registered users at zero paid acquisition cost.</li>
+            <li>Built ArenaHQ's live-battle infrastructure: WebRTC dual-camera verification, Supabase Realtime for match state, CodeMirror 6 editor, and Piston-based execution scoring on correctness and ELO rating.</li>
+            <li>Diagnosed and resolved 8+ production incidents across auth, realtime, and API integrations (RLS issues, SMS outages), maintaining 99%+ uptime under live user load.</li>
+            <li>Conducted 50+ user interviews to drive product iteration; managed Vercel CI/CD pipeline for zero-downtime release cadences.</li>
           </ul>
         </div>
 
@@ -914,8 +916,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built a three-tier local-first inference pipeline (scoutboy.vercel.app): TensorFlow.js COCO-SSD for obstacle detection (~80-150ms), Tesseract.js OCR for on-device text reading (~200-400ms), and Gemini 2.5 Flash cloud fallback only when local confidence is low, cutting typical narration latency well below cloud-only alternatives (800-2000ms).</li>
-            <li>Designed a scene-change filter (12% pixel-diff threshold) to skip redundant frames and confidence-gated fallback thresholds (object score >= 0.55, OCR confidence >= 0.75); shipped Web Speech API narration and voice commands with iOS keepalive and a 60-second watchdog for reliability.</li>
+            <li>Built a three-tier local-first inference pipeline (scoutboy.vercel.app): TensorFlow.js COCO-SSD for obstacle detection (~80-150ms), Tesseract.js OCR for on-device text reading (~200-400ms), and Gemini 2.5 Flash cloud fallback, cutting narration latency below cloud-only alternatives.</li>
+            <li>Designed scene-change filtering (12% pixel-diff threshold) to skip redundant frames and confidence-gated fallbacks; shipped Web Speech API narration with iOS keepalive and a 60-second watchdog.</li>
           </ul>
         </div>
 
@@ -925,8 +927,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built and published a graph-first static analysis tool that builds a dependency graph from AST and import analysis, ranks files by structural risk, and compresses a full codebase into an LLM-ready summary, cutting LLM context size by 832x on FastAPI (568,365 to 683 tokens) while accelerating repository understanding for developers.</li>
-            <li>Designed a six-file output contract (overview, architecture report, failure/blast-radius map, critical-path guide, token-savings proof, raw graph) for direct hand-off to AI coding assistants; ships as a pip-installable CLI with pluggable Anthropic/OpenAI/Gemini/Ollama backends and a free no-LLM structural mode.</li>
+            <li>Built and published a graph-first static analysis tool that builds a dependency graph from AST and import analysis, ranks files by structural risk, and compresses a full codebase, cutting LLM context size by 832x on FastAPI (568,365 to 683 tokens).</li>
+            <li>Designed a six-file output contract (overview, failure map, critical path) for direct hand-off to AI coding assistants; ships as a pip-installable CLI with pluggable API backends.</li>
           </ul>
         </div>
 
@@ -936,8 +938,8 @@
             <span class="meta">2026 - Present</span>
           </div>
           <ul>
-            <li>Building a 4-mode audio product: a multi-track DAW that renders hummed performances through real instruments via FluidSynth and MIDI with Gemini-assisted melody completion, scene-matched background music generation, multilingual voice dubbing with ElevenLabs voice cloning, and a camera-based air-instrument mode.</li>
-            <li>Split the system into a Next.js app (UI, Postgres bookkeeping, Blob-proxied storage) and a separate Python FastAPI service on Google Cloud Run for audio DSP (librosa pitch and rhythm analysis, FluidSynth rendering), with a GitHub Actions cron keeping the render service warm.</li>
+            <li>Building a 4-mode audio DAW rendering hummed performances through real instruments via FluidSynth and MIDI with Gemini-assisted melody completion, background music generation, and voice dubbing.</li>
+            <li>Split system into Next.js app (UI, Postgres, Blob storage) and separate Python FastAPI service on Google Cloud Run for audio DSP (librosa pitch analysis, FluidSynth rendering), kept warm via GitHub Actions crons.</li>
           </ul>
         </div>
 
@@ -947,30 +949,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built an encrypted, VA-aware assistant (Claude Sonnet 4.6 primary, Gemini 2.0 Flash fallback) that auto-fills real VA PDF forms (21-526EZ, 10-10EZ, and 8 others) using Gemini Vision AcroForm extraction plus a deterministic profile mapper, pre-filling 60+ fields from a single conversational request.</li>
-            <li>Implemented AES-256-GCM client-side encryption (Web Crypto API) and crisis-language detection routing to the Veterans Crisis Line; built in 48 hours and placed Top 10 at Wildfire Labs Hackathon.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="row">
-            <span class="bold">Revenue Leak Auditor — Usage-Based Billing SaaS</span>
-            <span class="meta">2026</span>
-          </div>
-          <ul>
-            <li>Built a 3-step audit tool that cross-references an agency's rate card, invoice history, and actual work log via Gemini 2.5 Flash to surface unbilled work, returning a line-by-line report with dollar estimates and confidence scores per item.</li>
-            <li>Designed a zero-upfront, success-fee pricing model (1% of revenue recovered, nothing if none is found); built the audit and async polling-report pipeline on Next.js and Neon Postgres, live end to end on Vercel.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="row">
-            <span class="bold">MYERA — Automated Job-Search Agent</span>
-            <span class="meta">2026</span>
-          </div>
-          <ul>
-            <li>Built a self-hosted daily agent that scrapes YC and Wellfound listings on Vercel Cron, uses Claude to classify and match postings against resume "families," and auto-generates a tailored one-page PDF resume per match via headless Chrome (puppeteer-core).</li>
-            <li>Automated end-to-end email applications for postings with a direct application address, while deliberately routing external-ATS-only postings to a manual-review queue instead of blind-submitting forms under the user's name.</li>
+            <li>Built an encrypted assistant (Claude Sonnet 4.6, Gemini 2.0 Flash fallback) that auto-fills real VA PDF forms (21-526EZ, 10-10EZ) using Gemini Vision AcroForm extraction, pre-filling 60+ fields from a conversational request.</li>
+            <li>Implemented client-side AES-256-GCM encryption (Web Crypto API) and crisis-language detection routing; built in 48 hours and placed Top 10 at Wildfire Labs Hackathon.</li>
           </ul>
         </div>
       </section>
@@ -988,9 +968,9 @@
         </div>
       </section>
 
-      <!-- LEADERSHIP AND ACTIVITIES -->
+      <!-- LEADERSHIP -->
       <section class="section">
-        <div class="section-title">Leadership and Activities</div>
+        <div class="section-title">Leadership</div>
         <div class="entry">
           <ul>
             <li>AI and Entrepreneurship Workshop Facilitator: community sessions for teenagers ages 13-16 covering AI, product building, customer discovery, and public speaking.</li>
