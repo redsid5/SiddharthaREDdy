@@ -341,13 +341,13 @@
       --page-padding-top: 0.75in;
       --page-padding-bottom: 0.75in;
       --page-padding-left-right: 0.75in;
-      --section-margin-top: 8px;
+      --section-margin-top: 6px;
       --section-label-margin-bottom: 2px;
-      --entry-margin-bottom: 3px;
-      --li-margin-bottom: 0.3px;
-      --skills-line-height: 1.15;
-      --base-font-size: 9.0px;
-      --base-line-height: 1.15;
+      --entry-margin-bottom: 2px;
+      --li-margin-bottom: 0.1px;
+      --skills-line-height: 1.12;
+      --base-font-size: 8.5px;
+      --base-line-height: 1.12;
     }
 
     .no-print {
@@ -358,10 +358,24 @@
       height: auto !important;
       background: white !important;
       color: black !important;
+    }
+    #page-standard, #page-standard * {
       font-family: 'Cormorant Garamond', serif !important;
     }
-    * {
-      font-family: 'Cormorant Garamond', serif !important;
+    #page-instawork, #page-instawork * {
+      font-family: Arial, sans-serif !important;
+    }
+    #page-startup {
+      font-family: Arial, sans-serif !important;
+    }
+    #page-startup .header-name,
+    #page-startup .headline,
+    #page-startup .contact,
+    #page-startup .contact *,
+    #page-startup .section-title,
+    #page-startup .meta,
+    #page-startup .entry-sub {
+      font-family: 'IBM Plex Mono', monospace !important;
     }
     .page-container {
       padding: 0 !important;
