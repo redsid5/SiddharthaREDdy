@@ -107,7 +107,6 @@
   }
   #page-startup header {
     padding-bottom: 12px;
-    border-bottom: 1.5px solid #000000;
     margin-bottom: 16px;
   }
   #page-startup .section-title {
@@ -117,8 +116,6 @@
     letter-spacing: 1.3px;
     text-transform: uppercase;
     color: #000000;
-    border-bottom: 1.5px solid #000000;
-    padding-bottom: 3px;
     margin-bottom: var(--section-label-margin-bottom);
     text-align: left;
   }
@@ -236,8 +233,6 @@
     letter-spacing: 1.2px;
     text-transform: uppercase;
     color: #000000;
-    border-bottom: 1.5px solid #000000;
-    padding-bottom: 3px;
     margin-bottom: var(--section-label-margin-bottom);
     text-align: left;
   }
@@ -315,40 +310,40 @@
   /* Print overrides */
   @media print {
     #page-standard {
-      --page-padding-top: 28px;
-      --page-padding-bottom: 32px;
-      --page-padding-left-right: 52px;
-      --section-margin-top: 9px;
-      --section-label-margin-bottom: 4px;
-      --entry-margin-bottom: 4px;
-      --li-margin-bottom: 0.8px;
-      --skills-line-height: 1.35;
-      --base-font-size: 9.5px;
-      --base-line-height: 1.30;
+      --page-padding-top: 0.5in;
+      --page-padding-bottom: 0.5in;
+      --page-padding-left-right: 0.75in;
+      --section-margin-top: 7px;
+      --section-label-margin-bottom: 2px;
+      --entry-margin-bottom: 3px;
+      --li-margin-bottom: 0.2px;
+      --skills-line-height: 1.12;
+      --base-font-size: 10.0px;
+      --base-line-height: 1.12;
     }
     #page-instawork {
-      --page-padding-top: 22px;
-      --page-padding-bottom: 25px;
-      --page-padding-left-right: 52px;
-      --section-margin-top: 7px;
+      --page-padding-top: 0.75in;
+      --page-padding-bottom: 0.75in;
+      --page-padding-left-right: 0.75in;
+      --section-margin-top: 8px;
       --section-label-margin-bottom: 3px;
-      --entry-margin-bottom: 3px;
+      --entry-margin-bottom: 4px;
       --li-margin-bottom: 0.5px;
-      --skills-line-height: 1.25;
+      --skills-line-height: 1.15;
       --base-font-size: 8.5px;
-      --base-line-height: 1.25;
+      --base-line-height: 1.15;
     }
     #page-startup {
-      --page-padding-top: 22px;
-      --page-padding-bottom: 25px;
-      --page-padding-left-right: 50px;
-      --section-margin-top: 7px;
-      --section-label-margin-bottom: 3px;
+      --page-padding-top: 0.5in;
+      --page-padding-bottom: 0.5in;
+      --page-padding-left-right: 0.75in;
+      --section-margin-top: 8px;
+      --section-label-margin-bottom: 2px;
       --entry-margin-bottom: 3px;
-      --li-margin-bottom: 0.5px;
-      --skills-line-height: 1.25;
+      --li-margin-bottom: 0.3px;
+      --skills-line-height: 1.15;
       --base-font-size: 9.0px;
-      --base-line-height: 1.25;
+      --base-line-height: 1.15;
     }
 
     .no-print {
@@ -359,7 +354,10 @@
       height: auto !important;
       background: white !important;
       color: black !important;
-      font-family: 'DM Sans', Arial, sans-serif !important;
+      font-family: Calibri, Aptos, Arial, sans-serif !important;
+    }
+    * {
+      font-family: Calibri, Aptos, Arial, sans-serif !important;
     }
     .page-container {
       padding: 0 !important;
