@@ -317,13 +317,13 @@
       --page-padding-top: 0.75in;
       --page-padding-bottom: 0.75in;
       --page-padding-left-right: 0.75in;
-      --section-margin-top: 8px;
+      --section-margin-top: 6px;
       --section-label-margin-bottom: 2px;
-      --entry-margin-bottom: 3px;
+      --entry-margin-bottom: 2px;
       --li-margin-bottom: 0.2px;
-      --skills-line-height: 1.12;
-      --base-font-size: 9.2px;
-      --base-line-height: 1.12;
+      --skills-line-height: 1.10;
+      --base-font-size: 8.9px;
+      --base-line-height: 1.10;
     }
     #page-instawork {
       --page-padding-top: 0.75in;
@@ -602,8 +602,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built a three-tier local-first inference pipeline (scoutboy.vercel.app): TensorFlow.js COCO-SSD for obstacle detection (~80-150ms), Tesseract.js OCR for on-device text reading (~200-400ms), and Gemini 2.5 Flash fallback, cutting narration latency below cloud-only alternatives.</li>
-            <li>Designed scene-change filtering (12 percent pixel-diff threshold) to skip redundant frames and confidence-gated fallbacks; shipped Web Speech API narration with iOS keepalive and a 60-second watchdog.</li>
+            <li>Built a three-tier local-first accessibility pipeline (scoutboy.vercel.app) routing between TensorFlow.js COCO-SSD (p50: 80-100ms), Tesseract.js OCR (p50: 200-300ms), and a server-side Gemini 2.5 Flash fallback with a 10s abort ceiling.</li>
+            <li>Designed a 100-point frame-differencing canvas filter (12 percent threshold) to skip redundant inferences; offloaded processing to Web Workers and resolved iOS Safari TTS limits via a 20s keepalive and 60s watchdog.</li>
           </ul>
         </div>
 
@@ -624,8 +624,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built a VS Code extension orchestrating multiple specialized AI coding agents (Claude Agent SDK) behind a human-in-the-loop approval gate for all shell and filesystem modifications.</li>
-            <li>Designed a planner/executor agent architecture (CTO + 5 specialist roles) with per-role tool scoping and live task-status streaming to a custom webview UI.</li>
+            <li>Built a VS Code extension implementing a planner/executor multi-agent system (CTO + 5 role-scoped specialists) wrapping the Claude Agent SDK as an embedded library.</li>
+            <li>Engineered a capability-based security model: intercepted and paused all privileged agent tool calls for explicit human approval before filesystem or shell execution.</li>
           </ul>
         </div>
 
@@ -635,8 +635,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built an autonomous job-application agent that sources, ranks, and auto-submits applications daily via a serverless cron pipeline (Next.js, Vercel Postgres/Blob, Claude API).</li>
-            <li>Implemented a dual local/serverless PDF-rendering pipeline (Puppeteer / @sparticuz-chromium) to generate tailored resumes.</li>
+            <li>Built an autonomous cron pipeline (Next.js, Vercel Cron, Claude API, Neon Postgres) that daily sources, classifies, and auto-submits applications with database-backed idempotency.</li>
+            <li>Designed a dual-runtime rendering engine using local Puppeteer and serverless @sparticuz/chromium to compile custom HTML resumes to PDF within Vercel's serverless size constraints.</li>
           </ul>
         </div>
 
@@ -646,8 +646,8 @@
             <span class="meta">2025</span>
           </div>
           <ul>
-            <li>Developed a persistent, tick-based multi-agent city simulation (Express/Node.js) with a public observer dashboard and petition system, running on self-funded infrastructure.</li>
-            <li>Designed a tick-based simulation loop and SSE (Server-Sent Events) stream to publish real-time KV world state updates across 9 public REST endpoints.</li>
+            <li>Developed a persistent, tick-based world simulation engine (Express/Node.js) coordinating autonomous agent governance (proposals/voting), economics, and zoning.</li>
+            <li>Engineered a 'Healing Mode' circuit breaker to throttle autonomous actions when stability metrics degrade; streamed real-time state via Server-Sent Events (SSE) across 9 public endpoints.</li>
           </ul>
         </div>
       </section>
@@ -930,8 +930,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built a three-tier local-first computer vision pipeline (TensorFlow.js, Tesseract.js OCR, Gemini 2.5 Flash), cutting median inference latency to 80-150ms and reducing cloud API cost.</li>
-            <li>Designed a scene-change filter (12 percent pixel-diff threshold) to skip redundant camera frames and implemented Web Speech API narration with iOS keepalive watchdogs.</li>
+            <li>Built a three-tier local-first accessibility pipeline (scoutboy.vercel.app) routing between TensorFlow.js COCO-SSD (p50: 80-100ms), Tesseract.js OCR (p50: 200-300ms), and a server-side Gemini 2.5 Flash fallback with a 10s abort ceiling.</li>
+            <li>Designed a 100-point frame-differencing canvas filter (12 percent threshold) to skip redundant inferences; offloaded processing to Web Workers and resolved iOS Safari TTS limits via a 20s keepalive and 60s watchdog.</li>
           </ul>
         </div>
 
@@ -952,8 +952,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built a VS Code extension orchestrating multiple specialized AI coding agents (Claude Agent SDK) behind a human-in-the-loop approval gate for all shell and filesystem modifications.</li>
-            <li>Designed a planner/executor agent architecture (CTO + 5 specialist roles) with per-role tool scoping and live task-status streaming to a custom webview UI.</li>
+            <li>Built a VS Code extension implementing a planner/executor multi-agent system (CTO + 5 role-scoped specialists) wrapping the Claude Agent SDK as an embedded library.</li>
+            <li>Engineered a capability-based security model: intercepted and paused all privileged agent tool calls for explicit human approval before filesystem or shell execution.</li>
           </ul>
         </div>
 
@@ -963,8 +963,8 @@
             <span class="meta">2026</span>
           </div>
           <ul>
-            <li>Built an autonomous job-application agent that sources, ranks, and auto-submits applications daily via a serverless cron pipeline (Next.js, Vercel Postgres/Blob, Claude API).</li>
-            <li>Implemented a dual local/serverless PDF-rendering pipeline (Puppeteer / @sparticuz-chromium) to generate tailored resumes.</li>
+            <li>Built an autonomous cron pipeline (Next.js, Vercel Cron, Claude API, Neon Postgres) that daily sources, classifies, and auto-submits applications with database-backed idempotency.</li>
+            <li>Designed a dual-runtime rendering engine using local Puppeteer and serverless @sparticuz/chromium to compile custom HTML resumes to PDF within Vercel's serverless size constraints.</li>
           </ul>
         </div>
 
@@ -974,8 +974,8 @@
             <span class="meta">2025</span>
           </div>
           <ul>
-            <li>Developed a persistent, tick-based multi-agent city simulation (Express/Node.js) with a public observer dashboard and petition system, running on self-funded infrastructure.</li>
-            <li>Designed a tick-based simulation loop and SSE (Server-Sent Events) stream to publish real-time KV world state updates across 9 public REST endpoints.</li>
+            <li>Developed a persistent, tick-based world simulation engine (Express/Node.js) coordinating autonomous agent governance (proposals/voting), economics, and zoning.</li>
+            <li>Engineered a 'Healing Mode' circuit breaker to throttle autonomous actions when stability metrics degrade; streamed real-time state via Server-Sent Events (SSE) across 9 public endpoints.</li>
           </ul>
         </div>
       </section>
