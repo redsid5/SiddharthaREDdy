@@ -1533,7 +1533,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
         // --- 7. Compiler Execution Metrics Canvas (ARENAHQ) ---
         const arenaCanvas = document.getElementById('arenaCanvas');
         if (arenaCanvas) {
-            const ctx = arenaCanvas.getContext('2d');
+            const ctx = arenaCanvas ? arenaCanvas.getContext('2d') : null; if (!ctx) return;
             let w = arenaCanvas.width = arenaCanvas.offsetWidth;
             let h = arenaCanvas.height = arenaCanvas.offsetHeight;
             let hoveredBarIdx = -1;
