@@ -18,21 +18,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Siddartha Reddy Munugala — Resume</title>
 
-<!-- Google Fonts: DM Sans, Outfit, Fira Code, IBM Plex Mono, Cinzel & Cormorant -->
+<script>
+  // Theme initialization to prevent FOUC
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark');
+  }
+
+  function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+      }
+  }
+</script>
+
+<!-- Google Fonts: Plus Jakarta Sans, Space Grotesk & Syne -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=IBM+Plex+Mono:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS Play CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
+    darkMode: 'class',
     theme: {
       extend: {
         fontFamily: {
-          sans: ['Outfit', 'sans-serif'],
-          mono: ['Fira Code', 'monospace'],
-          cinzel: ['Cinzel', 'serif'],
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          mono: ['"Space Grotesk"', 'monospace'],
+          display: ['Syne', 'sans-serif'],
         }
       }
     }
@@ -185,29 +206,55 @@
   /* CSS Focus ring style overrides for keyboard accessibility */
   @media screen {
     :focus-visible {
-        outline: 2px solid #d4af37;
+        outline: 2px solid var(--focus-ring);
         outline-offset: 4px;
     }
   }
 
   /* Digital/Web screen overrides */
   @media screen {
+    :root {
+      --bg-color: #f7f7f7;
+      --grid-color: rgba(0, 0, 0, 0.015);
+      --text-primary: #0a0a0a;
+      --text-secondary: #52525b;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --card-bg: #ffffff;
+      --accent-glow: radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.01) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.01) 0%, transparent 40%);
+      --focus-ring: #0a0a0a;
+    }
+    
+    .dark {
+      --bg-color: #030002;
+      --grid-color: rgba(255, 255, 255, 0.01);
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --border-color: rgba(255, 255, 255, 0.06);
+      --card-bg: #09090b;
+      --accent-glow: radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.04) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+      --focus-ring: #d4af37;
+    }
+
     body {
       scrollbar-width: thin;
-      scrollbar-color: rgba(220, 38, 38, 0.2) transparent;
-      background-color: #030002;
-      color: #f3f4f6;
-      font-family: 'Outfit', sans-serif;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .dark body {
+      scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
     }
     .page-container {
-      background-color: #030002;
+      background-color: var(--bg-color);
       background-image: 
-        radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
-        radial-gradient(rgba(220, 38, 38, 0.02) 1px, transparent 0);
+        var(--accent-glow),
+        radial-gradient(var(--grid-color) 1px, transparent 0);
       background-size: 100% 100%, 100% 100%, 24px 24px;
       overflow-y: auto;
       scroll-behavior: smooth;
+      transition: background-color 0.4s ease;
     }
     /* Elegant Custom Scrollbars */
     .page-container::-webkit-scrollbar, aside::-webkit-scrollbar {
@@ -481,71 +528,76 @@
   }
 </style>
 </head>
-<body class="h-full flex flex-col md:flex-row overflow-hidden">
-
-  <!-- Left Sidebar (Screen viewing only) -->
-  <aside class="no-print md:w-80 bg-[#0f0204]/80 backdrop-blur-xl border-r border-rose-950/40 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto z-40">
+<body class="h-full flex flex-col md:flex-row overflow-hidden">  <!-- Left Sidebar (Screen viewing only) -->
+  <aside class="no-print md:w-80 bg-white dark:bg-[#09090b] border-r border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto z-40">
     <div class="space-y-6">
-      <!-- Heading back to portfolio -->
-      <a href="index.html" aria-label="Go back to main portfolio page" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-950/20 border border-rose-900/30 hover:bg-rose-900/30 hover:border-rose-800/40 text-rose-300 hover:text-rose-200 font-medium text-xs transition-all duration-300">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back to Portfolio
-      </a>
+      <div class="flex items-center justify-between gap-3">
+        <!-- Heading back to portfolio -->
+        <a href="index.html" aria-label="Go back to main portfolio page" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white font-medium text-xs transition-all duration-300">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to Portfolio
+        </a>
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="w-8 h-8 rounded-lg border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/40 transition-colors" aria-label="Toggle theme">
+          <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
 
       <!-- Headshot & Profile -->
       <div class="flex flex-col items-center text-center space-y-3 pt-2">
-        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-amber-500/40 shadow-2xl shadow-red-950/50">
+        <div class="w-20 h-20 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-lg">
           <img src="minimal_anime_avatar.jpg" alt="Headshot of Siddartha Reddy Munugala, Software Engineer" class="w-full h-full object-cover object-top scale-110">
         </div>
         <div class="space-y-1">
-          <h2 class="text-base font-extrabold text-white tracking-tight font-cinzel">Siddartha Reddy</h2>
-          <p id="resume-title" class="text-xs text-rose-500 font-mono font-medium">Software Engineer</p>
+          <h2 class="text-base font-extrabold text-zinc-900 dark:text-white tracking-tight font-display">Siddartha Reddy</h2>
+          <p id="resume-title" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono font-medium">Software Engineer</p>
           <div class="pt-1">
-            <span id="active-version-badge" class="bg-rose-950/40 text-rose-400 border border-rose-900/40 px-2 py-0.5 rounded font-mono text-[9px]">Standard Active</span>
+            <span id="active-version-badge" class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800/80 px-2 py-0.5 rounded font-mono text-[9px]">Standard Active</span>
           </div>
         </div>
       </div>
 
       <!-- Quick Action Buttons -->
-      <button onclick="window.print()" aria-label="Print resume or save as PDF" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white font-bold text-xs transition-all duration-300 shadow-lg shadow-amber-600/20 hover:shadow-rose-500/40 flex items-center justify-center gap-2 active:scale-95">
+      <button onclick="window.print()" aria-label="Print resume or save as PDF" class="w-full py-2.5 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-bold text-xs transition-colors flex items-center justify-center gap-2 active:scale-95 shadow-md">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
         Print / Save PDF
       </button>
 
       <!-- Version Switcher (Standard and Startup are public) -->
-      <div class="border-t border-white/5 pt-5 space-y-2">
-        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Select Version</span>
-        <div class="grid grid-cols-2 gap-1.5 bg-black/60 p-1 rounded-xl border border-rose-950/40">
-          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-rose-600 text-white shadow-lg">
+      <div class="border-t border-zinc-200 dark:border-zinc-800/80 pt-5 space-y-2">
+        <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Select Version</span>
+        <div class="grid grid-cols-2 gap-1.5 bg-zinc-100 dark:bg-zinc-900 p-1 rounded-xl border border-zinc-200 dark:border-zinc-800/80">
+          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-sm">
             Standard
           </button>
-          <button onclick="switchVersion('startup')" id="btn-version-startup" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white">
+          <button onclick="switchVersion('startup')" id="btn-version-startup" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
             Startup
           </button>
         </div>
       </div>
 
       <!-- Passcode Unlock Card (For BAD RESUME only) -->
-      <div class="border-t border-white/5 pt-5 space-y-2">
-        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Unlock BAD RESUME</span>
+      <div class="border-t border-zinc-200 dark:border-zinc-800/80 pt-5 space-y-2">
+        <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Unlock BAD RESUME</span>
         <div class="flex gap-2">
-          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-black/60 border border-rose-950/40 px-3 py-1.5 rounded-lg text-white text-xs focus:outline-none focus:border-rose-500/50 transition-colors font-mono">
-          <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition-all active:scale-95">
+          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 px-3 py-1.5 rounded-lg text-zinc-900 dark:text-white text-xs focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors font-mono">
+          <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-bold text-xs transition-all active:scale-95">
             Unlock
           </button>
         </div>
-        <div id="passcode-message" class="text-[10px] text-gray-500 font-mono hidden"></div>
+        <div id="passcode-message" class="text-[10px] text-zinc-500 font-mono hidden"></div>
       </div>
 
       <!-- ATS Telemetry HUD Widget -->
-      <div class="border-t border-white/5 pt-5 space-y-2">
-        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">ATS Compliance HUD</span>
-        <div class="bg-black/60 border border-indigo-500/10 rounded-xl p-4 font-mono text-[10px] space-y-3 relative overflow-hidden">
+      <div class="border-t border-zinc-200 dark:border-zinc-800/80 pt-5 space-y-2">
+        <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">ATS Compliance HUD</span>
+        <div class="bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 rounded-xl p-4 font-mono text-[10px] space-y-3 relative overflow-hidden">
           <!-- Scanner animation overlay -->
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent h-full w-full pointer-events-none animate-[scan_3s_linear_infinite]"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-500/5 to-transparent h-full w-full pointer-events-none animate-[scan_3s_linear_infinite]"></div>
           
-          <div class="flex justify-between items-center border-b border-white/5 pb-2">
-            <span class="text-[9px] font-bold text-gray-500">// TELEMETRY</span>
+          <div class="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800/80 pb-2">
+            <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500">// TELEMETRY</span>
             <span class="flex items-center gap-1">
               <span id="telemetry-pulse" class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
               <span id="telemetry-status" class="text-[8px] text-emerald-400 font-bold tracking-widest uppercase">Active</span>
