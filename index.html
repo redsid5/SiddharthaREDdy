@@ -982,12 +982,17 @@
                     ctx.fillText(hoveredNode.desc, 30, h - 36);
                 }
 
-            // --- Founder's Launch Simulator Engine ---
-            const simState = {
-                scope: 'lean',
-                privacy: 'blind',
-                research: 'interviews'
-            };
+                requestAnimationFrame(drawGraph);
+            }
+            drawGraph();
+        }
+
+        // --- Founder's Launch Simulator Engine ---
+        const simState = {
+            scope: 'lean',
+            privacy: 'blind',
+            research: 'interviews'
+        };
 
             window.setSim = function(key, val) {
                 simState[key] = val;
@@ -1076,8 +1081,6 @@
 
             // Set initial state
             setSim('scope', 'lean');
-
-            requestAnimationFrame(drawGraph);
         }
     </script>
 </body>
