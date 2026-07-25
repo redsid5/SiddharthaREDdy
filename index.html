@@ -75,6 +75,12 @@
             transition: width 0.3s, height 0.3s;
         }
 
+        /* CSS Focus ring style overrides for keyboard accessibility */
+        :focus-visible {
+            outline: 2px solid #6366f1;
+            outline-offset: 4px;
+        }
+
         /* Floating Nebulas */
         @keyframes pulse-slow {
             0%, 100% { opacity: 0.12; transform: scale(1); }
