@@ -18,10 +18,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Siddartha Reddy Munugala — Resume</title>
 
-<!-- Google Fonts: DM Sans, Outfit, Fira Code & IBM Plex Mono -->
+<!-- Google Fonts: DM Sans, Outfit, Fira Code, IBM Plex Mono, Cinzel & Cormorant -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=IBM+Plex+Mono:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=IBM+Plex+Mono:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@500;700;800;900&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS Play CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -32,6 +32,7 @@
         fontFamily: {
           sans: ['Outfit', 'sans-serif'],
           mono: ['Fira Code', 'monospace'],
+          cinzel: ['Cinzel', 'serif'],
         }
       }
     }
@@ -184,7 +185,7 @@
   /* CSS Focus ring style overrides for keyboard accessibility */
   @media screen {
     :focus-visible {
-        outline: 2px solid #6366f1;
+        outline: 2px solid #d4af37;
         outline-offset: 4px;
     }
   }
@@ -193,17 +194,17 @@
   @media screen {
     body {
       scrollbar-width: thin;
-      scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
-      background-color: #030712;
+      scrollbar-color: rgba(220, 38, 38, 0.2) transparent;
+      background-color: #030002;
       color: #f3f4f6;
       font-family: 'Outfit', sans-serif;
     }
     .page-container {
-      background-color: #030712;
+      background-color: #030002;
       background-image: 
-        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.04) 0%, transparent 40%),
-        radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
+        radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+        radial-gradient(rgba(220, 38, 38, 0.02) 1px, transparent 0);
       background-size: 100% 100%, 100% 100%, 24px 24px;
       overflow-y: auto;
       scroll-behavior: smooth;
@@ -483,30 +484,30 @@
 <body class="h-full flex flex-col md:flex-row overflow-hidden">
 
   <!-- Left Sidebar (Screen viewing only) -->
-  <aside class="no-print md:w-80 bg-slate-950/70 backdrop-blur-xl border-r border-white/10 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto z-40">
+  <aside class="no-print md:w-80 bg-[#0f0204]/80 backdrop-blur-xl border-r border-rose-950/40 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto z-40">
     <div class="space-y-6">
       <!-- Heading back to portfolio -->
-      <a href="index.html" aria-label="Go back to main portfolio page" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-gray-300 hover:text-white font-medium text-xs transition-all duration-300">
+      <a href="index.html" aria-label="Go back to main portfolio page" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-950/20 border border-rose-900/30 hover:bg-rose-900/30 hover:border-rose-800/40 text-rose-300 hover:text-rose-200 font-medium text-xs transition-all duration-300">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Back to Portfolio
       </a>
 
       <!-- Headshot & Profile -->
       <div class="flex flex-col items-center text-center space-y-3 pt-2">
-        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-indigo-500/30 shadow-2xl shadow-indigo-500/10">
-          <img src="siddartha_headshot.jpg" alt="Headshot of Siddartha Reddy Munugala, Software Engineer" class="w-full h-full object-cover">
+        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-amber-500/40 shadow-2xl shadow-red-950/50">
+          <img src="anime_hero.jpg" alt="Headshot of Siddartha Reddy Munugala, Software Engineer" class="w-full h-full object-cover object-top scale-110">
         </div>
         <div class="space-y-1">
-          <h2 class="text-base font-extrabold text-white tracking-tight">Siddartha Reddy</h2>
-          <p id="resume-title" class="text-xs text-indigo-400 font-mono font-medium">Software Engineer</p>
+          <h2 class="text-base font-extrabold text-white tracking-tight font-cinzel">Siddartha Reddy</h2>
+          <p id="resume-title" class="text-xs text-rose-500 font-mono font-medium">Software Engineer</p>
           <div class="pt-1">
-            <span id="active-version-badge" class="bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded font-mono text-[9px]">Standard Active</span>
+            <span id="active-version-badge" class="bg-rose-950/40 text-rose-400 border border-rose-900/40 px-2 py-0.5 rounded font-mono text-[9px]">Standard Active</span>
           </div>
         </div>
       </div>
 
       <!-- Quick Action Buttons -->
-      <button onclick="window.print()" aria-label="Print resume or save as PDF" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-xs transition-all duration-300 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/40 flex items-center justify-center gap-2 active:scale-95">
+      <button onclick="window.print()" aria-label="Print resume or save as PDF" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white font-bold text-xs transition-all duration-300 shadow-lg shadow-amber-600/20 hover:shadow-rose-500/40 flex items-center justify-center gap-2 active:scale-95">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
         Print / Save PDF
       </button>
@@ -514,8 +515,8 @@
       <!-- Version Switcher (Standard and Startup are public) -->
       <div class="border-t border-white/5 pt-5 space-y-2">
         <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Select Version</span>
-        <div class="grid grid-cols-2 gap-1.5 bg-slate-900/60 p-1 rounded-xl border border-white/5">
-          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow-lg">
+        <div class="grid grid-cols-2 gap-1.5 bg-black/60 p-1 rounded-xl border border-rose-950/40">
+          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-rose-600 text-white shadow-lg">
             Standard
           </button>
           <button onclick="switchVersion('startup')" id="btn-version-startup" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white">
@@ -528,8 +529,8 @@
       <div class="border-t border-white/5 pt-5 space-y-2">
         <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Unlock BAD RESUME</span>
         <div class="flex gap-2">
-          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-slate-900 border border-white/5 px-3 py-1.5 rounded-lg text-white text-xs focus:outline-none focus:border-indigo-500/50 transition-colors font-mono">
-          <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all active:scale-95">
+          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-black/60 border border-rose-950/40 px-3 py-1.5 rounded-lg text-white text-xs focus:outline-none focus:border-rose-500/50 transition-colors font-mono">
+          <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition-all active:scale-95">
             Unlock
           </button>
         </div>
@@ -1157,10 +1158,10 @@
         if (titleEl) titleEl.innerText = 'Software Engineer';
         if (badge) {
           badge.textContent = 'Standard Active';
-          badge.className = 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+          badge.className = 'bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStd) {
-          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow-lg';
+          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-rose-600 text-white shadow-lg';
         }
         // Telemetry update
         if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-400 font-bold text-xs'; }
@@ -1187,10 +1188,10 @@
         if (titleEl) titleEl.innerText = 'Startup Resume';
         if (badge) {
           badge.textContent = 'Startup Active';
-          badge.className = 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+          badge.className = 'bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStart) {
-          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-cyan-600 text-white shadow-lg';
+          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-amber-600 text-white shadow-lg';
         }
         // Telemetry update
         if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-400 font-bold text-xs'; }
@@ -1258,7 +1259,7 @@
         switchVersion('startup');
         if (msg) {
           msg.textContent = '🔓 Startup version active!';
-          msg.className = 'text-[10px] text-cyan-400 font-mono block';
+          msg.className = 'text-[10px] text-amber-400 font-mono block';
         }
         if (input) input.value = 'startup';
       } else {

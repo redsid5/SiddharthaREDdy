@@ -27,10 +27,10 @@
     <meta name="keywords" content="Siddartha Reddy Munugala, redsid5, Software Engineer, Full-Stack Developer, Product Builder, AI Systems Engineer, USD">
     <meta name="author" content="Siddartha Reddy Munugala">
     
-    <!-- Google Fonts: Outfit & Fira Code -->
+    <!-- Google Fonts: Cinzel, Cormorant Garamond, Outfit & Fira Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,6 +41,8 @@
                     fontFamily: {
                         sans: ['Outfit', 'sans-serif'],
                         mono: ['Fira Code', 'monospace'],
+                        cinzel: ['Cinzel', 'serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
                     }
                 }
             }
@@ -50,13 +52,13 @@
     <style type="text/css">
         body {
             scrollbar-width: thin;
-            scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
-            background-color: #030712;
+            scrollbar-color: rgba(220, 38, 38, 0.2) transparent;
+            background-color: #030002;
             color: #f3f4f6;
             font-family: 'Outfit', sans-serif;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
+                radial-gradient(rgba(220, 38, 38, 0.02) 1px, transparent 0);
             background-size: 24px 24px;
         }
         
@@ -67,7 +69,7 @@
             left: var(--cursor-x, 0px);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, rgba(99, 102, 241, 0) 70%);
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.04) 0%, rgba(212, 175, 55, 0.02) 40%, transparent 70%);
             transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 1;
@@ -77,29 +79,31 @@
 
         /* CSS Focus ring style overrides for keyboard accessibility */
         :focus-visible {
-            outline: 2px solid #6366f1;
+            outline: 2px solid #d4af37;
             outline-offset: 4px;
         }
 
         /* Floating Nebulas */
         @keyframes pulse-slow {
             0%, 100% { opacity: 0.12; transform: scale(1); }
-            50% { opacity: 0.20; transform: scale(1.08); }
+            50% { opacity: 0.22; transform: scale(1.08); }
         }
-        .nebula-indigo {
+        .nebula-crimson {
+            background: radial-gradient(circle at 10% 10%, rgba(220, 38, 38, 0.05) 0%, transparent 60%);
             animation: pulse-slow 10s ease-in-out infinite;
         }
-        .nebula-cyan {
+        .nebula-gold {
+            background: radial-gradient(circle at 90% 90%, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
             animation: pulse-slow 14s ease-in-out infinite;
         }
 
         /* Interactive Card Glow Effect (Glassmorphism 2.0) */
         .glass-card {
             position: relative;
-            background: rgba(17, 24, 39, 0.45);
+            background: rgba(12, 2, 4, 0.65);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.08);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
         }
@@ -112,7 +116,8 @@
             bottom: 0;
             background: radial-gradient(
                 400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-                rgba(99, 102, 241, 0.16),
+                rgba(220, 38, 38, 0.15) 0%,
+                rgba(212, 175, 55, 0.08) 50%,
                 transparent 80%
             );
             z-index: 0;
@@ -125,10 +130,10 @@
         }
         .glass-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(99, 102, 241, 0.3);
+            border-color: rgba(212, 175, 55, 0.35);
             box-shadow: 
-                0 30px 60px -15px rgba(0, 0, 0, 0.8),
-                0 0 35px -5px rgba(99, 102, 241, 0.18);
+                0 30px 60px -15px rgba(0, 0, 0, 0.9),
+                0 0 35px -5px rgba(220, 38, 38, 0.15);
         }
 
         /* Glass Navigation */
@@ -172,8 +177,8 @@
 
     <!-- Ambient Glowing Nebulas (Background Layer) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute top-[-15%] left-[-15%] w-[60vw] h-[60vw] rounded-full bg-indigo-500/12 blur-[140px] nebula-indigo"></div>
-        <div class="absolute bottom-[-15%] right-[-15%] w-[60vw] h-[60vw] rounded-full bg-cyan-500/10 blur-[140px] nebula-cyan"></div>
+        <div class="absolute top-[-15%] left-[-15%] w-[60vw] h-[60vw] rounded-full bg-rose-950/15 blur-[140px] nebula-crimson"></div>
+        <div class="absolute bottom-[-15%] right-[-15%] w-[60vw] h-[60vw] rounded-full bg-amber-950/12 blur-[140px] nebula-gold"></div>
     </div>
 
     <!-- Navigation Header -->
@@ -210,20 +215,25 @@
         <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative py-6">
             
             <div class="md:col-span-7 space-y-6 text-center md:text-left flex flex-col items-center md:items-start relative z-10">
-                <div class="space-y-3">
-                    <div class="flex items-center justify-center md:justify-start gap-2">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-400 font-mono text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Available for Internships</span>
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/25 text-teal-400 font-mono text-[10px] font-bold">Class of 2027</span>
+                <div class="flex flex-col sm:flex-row items-center gap-5 w-full">
+                    <div class="w-20 h-20 rounded-2xl overflow-hidden border border-amber-500/40 shadow-lg shadow-red-950/40 shrink-0">
+                        <img src="anime_hero.jpg" alt="Siddartha Reddy Anime Hero" class="w-full h-full object-cover object-top scale-105">
                     </div>
-                    <p class="text-xs sm:text-sm font-mono text-blue-400 tracking-wider uppercase font-bold">
-                        Software Engineer & AI Product Builder
-                    </p>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                        Siddartha Reddy Munugala
-                    </h1>
+                    <div class="space-y-1.5 text-center sm:text-left">
+                        <div class="flex flex-wrap justify-center sm:justify-start gap-2 mb-1">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-400 font-mono text-[9px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Available for Internships</span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[9px] font-bold">Class of 2027</span>
+                        </div>
+                        <p class="text-xs font-mono text-rose-500 tracking-wider uppercase font-bold">
+                            Software Engineer & AI Product Builder
+                        </p>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-cinzel">
+                            Siddartha Reddy Munugala
+                        </h1>
+                    </div>
                 </div>
                 
-                <p class="text-gray-300 text-base sm:text-lg leading-relaxed font-medium max-w-xl">
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-cormorant font-medium max-w-xl">
                     I build real-time systems, AI workflows, and developer tools. Focused on architecting scalable full-stack applications, managing concurrent connection states, and designing data-driven automation.
                 </p>
                 
@@ -296,9 +306,11 @@
                         </div>
 
                         <!-- Right Panel: Editor & Code Runner -->
-                        <div class="w-7/12 p-3 bg-black/40 flex flex-col justify-between">
+                        <div class="w-7/12 p-3 bg-black/40 flex flex-col justify-between relative overflow-hidden bg-cover bg-center" style="background-image: url('anime_cyber.jpg');">
+                            <!-- Dark semi-transparent overlay to ensure text contrast -->
+                            <div class="absolute inset-0 bg-slate-950/85 backdrop-blur-[2.5px] z-0"></div>
                             <!-- Editor Header -->
-                            <div class="flex justify-between items-center border-b border-white/5 pb-2 mb-2 select-none">
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2 mb-2 select-none relative z-10">
                                 <span id="active-file-title" class="font-mono text-[9px] text-gray-400">src/bio.sh</span>
                                 <button id="run-button" onclick="runConsoleCodeSim()" class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 text-emerald-400 font-mono text-[9px] font-bold transition-all active:scale-95">
                                     <span>▶ Run</span>
@@ -306,7 +318,7 @@
                             </div>
 
                             <!-- Editor Code Pane -->
-                            <div class="font-mono text-[10px] leading-relaxed overflow-x-auto text-gray-300 flex-grow select-text min-h-[120px]">
+                            <div class="font-mono text-[10px] leading-relaxed overflow-x-auto text-gray-300 flex-grow select-text min-h-[120px] relative z-10">
                                 <!-- bio.sh Code -->
                                 <div id="code-bio" class="flex gap-2">
                                     <div class="text-gray-600 select-none text-right w-3">1<br>2<br>3<br>4<br>5</div>
@@ -321,27 +333,27 @@ curl https://siddartha.dev
                                 <!-- prism.py Code -->
                                 <div id="code-prism" class="hidden flex gap-2">
                                     <div class="text-gray-600 select-none text-right w-3">1<br>2<br>3<br>4<br>5</div>
-                                    <pre class="space-y-0.5"><span class="text-blue-400">import</span> tree_sitter
-<span class="text-blue-400">import</span> xgboost <span class="text-blue-400">as</span> xgb
+                                    <pre class="space-y-0.5"><span class="text-blue-400">import tree_sitter</span>
+<span class="text-blue-400">import xgboost as xgb</span>
 
-<span class="text-blue-400">def</span> <span class="text-teal-400">eval_risk</span>(ast):
-    <span class="text-blue-400">return</span> model.predict(ast)</pre>
+def <span class="text-teal-400">eval_risk</span>(ast):
+    return model.predict(ast)</pre>
                                 </div>
 
                                 <!-- vibein.ts Code -->
                                 <div id="code-vibein" class="hidden flex gap-2">
                                     <div class="text-gray-600 select-none text-right w-3">1<br>2<br>3<br>4<br>5</div>
-                                    <pre class="space-y-0.5"><span class="text-blue-400">import</span> { WebSocket } <span class="text-blue-400">from</span> <span class="text-teal-400">'ws'</span>;
+                                    <pre class="space-y-0.5"><span class="text-blue-400">import { WebSocket } from 'ws';</span>
 
-<span class="text-blue-400">const</span> ws = <span class="text-blue-400">new</span> WebSocket(url);
-ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
-  sock.on(<span class="text-teal-400">'message'</span>, (msg) =&gt; {});
+const ws = new WebSocket(url);
+ws.on('connection', (sock) => {
+  sock.on('message', (msg) => {});
 });</pre>
                                 </div>
                             </div>
 
                             <!-- Terminal Output Pane -->
-                            <div class="mt-2 pt-2 border-t border-white/5 select-none">
+                            <div class="mt-2 pt-2 border-t border-white/5 select-none relative z-10">
                                 <div class="text-gray-500 font-mono text-[8px] uppercase tracking-wider mb-1 font-bold">Terminal Output</div>
                                 <div id="terminal-out-console" class="font-mono text-[9px] text-gray-400 bg-black/60 p-2 rounded border border-white/5 h-16 overflow-y-auto leading-relaxed select-text">
                                     Click "Run" to execute the active file.
@@ -533,8 +545,10 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                         </div>
                         
                         <!-- Interactive bezier audio waveform Canvas -->
-                        <div class="relative w-full h-36 rounded-xl overflow-hidden border border-white/5 bg-black/50">
-                            <canvas id="ekoCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                        <div class="relative w-full h-36 rounded-xl overflow-hidden border border-white/5 bg-black/50 bg-cover bg-center" style="background-image: url('anime_audio.jpg');">
+                            <!-- Dark crimson-vibe overlay for text readability -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                            <canvas id="ekoCanvas" class="absolute inset-0 w-full h-full mix-blend-screen"></canvas>
                         </div>
 
                         <p class="text-xs text-gray-300 font-semibold leading-relaxed">AI-assisted multi-track DAW, voice-preserving dubbing pipeline, and quantum recommendation system.</p>
@@ -1239,7 +1253,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 }
 
                 // Sonar ring
-                ctx.strokeStyle = 'rgba(99, 102, 241, 0.04)';
+                ctx.strokeStyle = 'rgba(220, 38, 38, 0.06)';
                 ctx.beginPath();
                 ctx.arc(w / 2, h / 2, Math.min(w, h) * 0.45, 0, Math.PI * 2);
                 ctx.stroke();
@@ -1247,7 +1261,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 angle += 0.008;
                 const endX = w / 2 + Math.cos(angle) * Math.min(w, h) * 0.45;
                 const endY = h / 2 + Math.sin(angle) * Math.min(w, h) * 0.45;
-                ctx.strokeStyle = 'rgba(99, 102, 241, 0.12)';
+                ctx.strokeStyle = 'rgba(220, 38, 38, 0.2)';
                 ctx.beginPath();
                 ctx.moveTo(w / 2, h / 2);
                 ctx.lineTo(endX, endY);
@@ -1280,7 +1294,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                     if (n.x < 5 || n.x > w - 5) n.vx *= -1;
                     if (n.y < 5 || n.y > h - 5) n.vy *= -1;
 
-                    ctx.fillStyle = idx % 2 === 0 ? '#4f46e5' : '#06b6d4';
+                    ctx.fillStyle = idx % 2 === 0 ? '#dc2626' : '#e2b13c';
                     ctx.beginPath();
                     ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
                     ctx.fill();
@@ -1290,7 +1304,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                         const other = nodes[j];
                         const dist = Math.hypot(n.x - other.x, n.y - other.y);
                         if (dist < 50) {
-                            ctx.strokeStyle = `rgba(99, 102, 241, ${(1 - dist / 50) * 0.25})`;
+                            ctx.strokeStyle = `rgba(220, 38, 38, ${(1 - dist / 50) * 0.25})`;
                             ctx.lineWidth = 0.5;
                             ctx.beginPath();
                             ctx.moveTo(n.x, n.y);
@@ -1300,11 +1314,11 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                     }
                 });
 
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.7)';
+                ctx.fillStyle = 'rgba(212, 175, 55, 0.85)';
                 ctx.font = '8px monospace';
                 ctx.fillText('SCAN: AST_GRAPH_NODES', 8, 14);
                 ctx.fillText(`NODES: ${nodes.length} (interactive)`, 8, 24);
-                ctx.fillStyle = 'rgba(6, 114, 241, 0.7)';
+                ctx.fillStyle = 'rgba(220, 38, 38, 0.85)';
                 ctx.fillText(`RISK_RATIO: ${(0.05 + Math.abs(Math.sin(angle)) * 0.75).toFixed(4)}`, w - 110, 14);
                 requestAnimationFrame(drawPrism);
             }
@@ -1357,9 +1371,9 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 // We draw multiple overlaid semi-transparent bezier audio waveforms
                 const numWaves = 3;
                 const colors = [
-                    'rgba(99, 102, 241, 0.25)', // Indigo
-                    'rgba(6, 182, 212, 0.35)',  // Cyan
-                    'rgba(168, 85, 247, 0.4)'   // Purple
+                    'rgba(220, 38, 38, 0.25)',  // Crimson Red
+                    'rgba(212, 175, 55, 0.25)',  // Champagne Gold
+                    'rgba(239, 68, 68, 0.35)'   // Bright Crimson
                 ];
 
                 for (let i = 0; i < numWaves; i++) {
@@ -1404,7 +1418,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 ctx.stroke();
 
                 // Telemetry overlays
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.8)';
+                ctx.fillStyle = 'rgba(212, 175, 55, 0.85)';
                 ctx.font = '8px monospace';
                 ctx.fillText('PIPELINE: EKO_VOICE_DUBBING', 8, 14);
                 
@@ -1413,7 +1427,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                     : "94.20";
                 ctx.fillText(`PROSODY_TRANSFER: ${prosodyScore}%`, 8, 24);
 
-                ctx.fillStyle = 'rgba(6, 182, 212, 0.8)';
+                ctx.fillStyle = 'rgba(220, 38, 38, 0.85)';
                 ctx.fillText('MODE: DURATION_BUDGET_SYNC', w - 145, 14);
                 
                 const latency = isHovered ? "185ms" : "210ms";
@@ -1459,13 +1473,13 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 timer += 0.5;
 
                 // Matchmaking pulses (rings)
-                ctx.strokeStyle = 'rgba(6, 182, 212, 0.06)';
+                ctx.strokeStyle = 'rgba(220, 38, 38, 0.08)';
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.arc(w / 3 + userPullX, h / 2 + userPullY, (timer % 50) * 1.5, 0, Math.PI * 2);
                 ctx.stroke();
 
-                ctx.strokeStyle = 'rgba(99, 102, 241, 0.06)';
+                ctx.strokeStyle = 'rgba(212, 175, 55, 0.08)';
                 ctx.beginPath();
                 ctx.arc((w * 2) / 3 + userPullX, h / 2 + userPullY, ((timer + 25) % 50) * 1.5, 0, Math.PI * 2);
                 ctx.stroke();
@@ -1474,9 +1488,9 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                 const userA = { x: w / 3 + userPullX, y: h / 2 + userPullY };
                 const userB = { x: (w * 2) / 3 + userPullX, y: h / 2 + userPullY };
 
-                ctx.fillStyle = '#06b6d4';
+                ctx.fillStyle = '#dc2626';
                 ctx.beginPath(); ctx.arc(userA.x, userA.y, 5, 0, Math.PI * 2); ctx.fill();
-                ctx.fillStyle = '#4f46e5';
+                ctx.fillStyle = '#e2b13c';
                 ctx.beginPath(); ctx.arc(userB.x, userB.y, 5, 0, Math.PI * 2); ctx.fill();
 
                 // Draw active streams
@@ -1494,7 +1508,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                         target: userB,
                         progress: 0,
                         speed: 0.025,
-                        color: '#06b6d4'
+                        color: '#dc2626'
                     });
                 }
                 if (Math.random() < 0.1) {
@@ -1504,7 +1518,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                         target: userA,
                         progress: 0,
                         speed: 0.025,
-                        color: '#4f46e5'
+                        color: '#e2b13c'
                     });
                 }
 
@@ -1525,11 +1539,11 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                     }
                 }
 
-                ctx.fillStyle = 'rgba(6, 182, 212, 0.7)';
+                ctx.fillStyle = 'rgba(220, 38, 38, 0.85)';
                 ctx.font = '8px monospace';
                 ctx.fillText('PORT: VIBEIN_WEBSOCKETS', 8, 14);
                 ctx.fillText('MATCHMAKER: active_intent', 8, 24);
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.7)';
+                ctx.fillStyle = 'rgba(212, 175, 55, 0.85)';
                 ctx.fillText(`CONC_PACKETS: 821`, w - 105, 14);
                 requestAnimationFrame(drawVibein);
             }
@@ -1592,7 +1606,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                     const y = h / 2 - 15;
 
                     // Grid details
-                    ctx.strokeStyle = hoveredBarIdx === idx ? 'rgba(99, 102, 241, 0.4)' : 'rgba(255, 255, 255, 0.03)';
+                    ctx.strokeStyle = hoveredBarIdx === idx ? 'rgba(212, 175, 55, 0.45)' : 'rgba(255, 255, 255, 0.03)';
                     ctx.strokeRect(x, y, barW, barH);
 
                     // Hover speeds up compilation
@@ -1607,7 +1621,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
 
                     const percent = Math.min(test.val / test.maxTime, 1);
                     if (test.status === 'PENDING') {
-                        ctx.fillStyle = 'rgba(99, 102, 241, 0.15)';
+                        ctx.fillStyle = 'rgba(212, 175, 55, 0.2)';
                     } else if (test.status === 'PASS') {
                         ctx.fillStyle = 'rgba(16, 185, 129, 0.35)';
                     } else {
@@ -1617,7 +1631,7 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
 
                     ctx.font = '7px monospace';
                     if (test.status === 'PENDING') {
-                        ctx.fillStyle = '#6366f1';
+                        ctx.fillStyle = '#d4af37';
                         ctx.fillText('RUN...', x + 4, y + barH + 10);
                     } else {
                         ctx.fillStyle = test.status === 'PASS' ? '#10b981' : '#ef4444';
@@ -1637,11 +1651,11 @@ ws.on(<span class="text-teal-400">'connection'</span>, (sock) =&gt; {
                     });
                 }
 
-                ctx.fillStyle = 'rgba(6, 182, 212, 0.7)';
+                ctx.fillStyle = 'rgba(220, 38, 38, 0.85)';
                 ctx.font = '8px monospace';
                 ctx.fillText('SANDBOX: PISTON_SANDBOX_RUN', 8, 14);
                 ctx.fillText('CONCURRENT_STATE: RUNNING', 8, 24);
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.7)';
+                ctx.fillStyle = 'rgba(212, 175, 55, 0.85)';
                 ctx.fillText('COMPILE_PING: 4ms', w - 100, 14);
                 requestAnimationFrame(drawArena);
             }
