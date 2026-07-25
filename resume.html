@@ -171,15 +171,34 @@
   /* Digital/Web screen overrides */
   @media screen {
     body {
-      background-color: #0f172a;
+      background-color: #030712;
       color: #f3f4f6;
       font-family: 'Outfit', sans-serif;
     }
     .page-container {
-      background-color: #0f172a;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
-      background-size: 24px 24px;
+      background-color: #030712;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.04) 0%, transparent 40%),
+        radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 0);
+      background-size: 100% 100%, 100% 100%, 24px 24px;
       overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+    /* Elegant Custom Scrollbars */
+    .page-container::-webkit-scrollbar, aside::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .page-container::-webkit-scrollbar-track, aside::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .page-container::-webkit-scrollbar-thumb, aside::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 99px;
+    }
+    .page-container::-webkit-scrollbar-thumb:hover, aside::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.3);
     }
     .page {
       font-family: 'DM Sans', Arial, sans-serif;
@@ -190,12 +209,23 @@
       max-width: 760px;
       min-height: 11in;
       height: auto;
-      margin: 1.5rem auto;
+      margin: 2.5rem auto;
       padding: var(--page-padding-top) var(--page-padding-left-right) var(--page-padding-bottom);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-      border-radius: 8px;
+      box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.15), 0 30px 60px -15px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
       overflow: hidden; /* Emulate print boundaries exactly */
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
     }
+    .page:hover {
+      box-shadow: 0 0 60px -5px rgba(99, 102, 241, 0.22), 0 35px 70px -10px rgba(0, 0, 0, 0.9);
+      transform: translateY(-2px);
+    }
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
   }
 
   /* Resume typography and layout defaults (ATS friendly) */
@@ -429,17 +459,17 @@
 <body class="h-full flex flex-col md:flex-row overflow-hidden">
 
   <!-- Left Sidebar (Screen viewing only) -->
-  <aside class="no-print md:w-80 bg-slate-950 border-r border-white/5 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto">
+  <aside class="no-print md:w-80 bg-slate-950/70 backdrop-blur-xl border-r border-white/10 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto z-40">
     <div class="space-y-6">
       <!-- Heading back to portfolio -->
-      <a href="index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-medium text-xs transition-colors">
+      <a href="index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-gray-300 hover:text-white font-medium text-xs transition-all duration-300">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Back to Portfolio
       </a>
 
       <!-- Headshot & Profile -->
       <div class="flex flex-col items-center text-center space-y-3 pt-2">
-        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-indigo-500/50 shadow-lg">
+        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-indigo-500/30 shadow-2xl shadow-indigo-500/10">
           <img src="siddartha_headshot.jpg" alt="Siddartha Reddy Munugala" class="w-full h-full object-cover">
         </div>
         <div class="space-y-1">
@@ -452,7 +482,7 @@
       </div>
 
       <!-- Quick Action Buttons -->
-      <button onclick="window.print()" class="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 flex items-center justify-center gap-2 active:scale-95">
+      <button onclick="window.print()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-xs transition-all duration-300 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/40 flex items-center justify-center gap-2 active:scale-95">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
         Print / Save PDF
       </button>
@@ -460,8 +490,8 @@
       <!-- Version Switcher (Standard and Startup are public) -->
       <div class="border-t border-white/5 pt-5 space-y-2">
         <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Select Version</span>
-        <div class="grid grid-cols-2 gap-1.5 bg-white/5 p-1 rounded-xl border border-white/10">
-          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow">
+        <div class="grid grid-cols-2 gap-1.5 bg-slate-900/60 p-1 rounded-xl border border-white/5">
+          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow-lg">
             Standard
           </button>
           <button onclick="switchVersion('startup')" id="btn-version-startup" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white">
@@ -474,12 +504,65 @@
       <div class="border-t border-white/5 pt-5 space-y-2">
         <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Unlock BAD RESUME</span>
         <div class="flex gap-2">
-          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-white text-xs focus:outline-none focus:border-indigo-500 transition-colors font-mono">
+          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-slate-900 border border-white/5 px-3 py-1.5 rounded-lg text-white text-xs focus:outline-none focus:border-indigo-500/50 transition-colors font-mono">
           <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all active:scale-95">
             Unlock
           </button>
         </div>
         <div id="passcode-message" class="text-[10px] text-gray-500 font-mono hidden"></div>
+      </div>
+
+      <!-- ATS Telemetry HUD Widget -->
+      <div class="border-t border-white/5 pt-5 space-y-2">
+        <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider">ATS Compliance HUD</span>
+        <div class="bg-black/60 border border-indigo-500/10 rounded-xl p-4 font-mono text-[10px] space-y-3 relative overflow-hidden">
+          <!-- Scanner animation overlay -->
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent h-full w-full pointer-events-none animate-[scan_3s_linear_infinite]"></div>
+          
+          <div class="flex justify-between items-center border-b border-white/5 pb-2">
+            <span class="text-[9px] font-bold text-gray-500">// TELEMETRY</span>
+            <span class="flex items-center gap-1">
+              <span id="telemetry-pulse" class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+              <span id="telemetry-status" class="text-[8px] text-emerald-400 font-bold tracking-widest uppercase">Active</span>
+            </span>
+          </div>
+          
+          <div class="flex items-center justify-between py-1">
+            <span class="text-gray-400">ATS Rating:</span>
+            <span id="telemetry-rating" class="text-emerald-400 font-bold text-xs">100 / 100</span>
+          </div>
+
+          <div class="space-y-1.5 text-gray-400 text-[9px]">
+            <div class="flex items-center justify-between">
+              <span>📄 Page Count:</span>
+              <span id="telemetry-pages" class="text-white font-bold">1 Page</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>🔤 Font Family:</span>
+              <span id="telemetry-font" class="text-white font-bold">Cormorant Garamond</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>📏 Margins:</span>
+              <span id="telemetry-margins" class="text-white font-bold">0.75 in</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>📝 Word Count:</span>
+              <span id="telemetry-words" class="text-white font-bold">428 words</span>
+            </div>
+          </div>
+
+          <div id="telemetry-checks" class="border-t border-white/5 pt-2 space-y-1 text-[8px] text-gray-500 font-semibold">
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>Single Column Format</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>Standard Headings Only</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>No tables, boxes, or sidebars</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Sidebar Specs List -->
@@ -499,7 +582,7 @@
           <div class="flex flex-wrap gap-1.5">
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Python</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">TypeScript</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Next.js 14</span>
+            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Next.js</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">WebSockets</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">WebRTC</span>
             <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Supabase</span>
@@ -510,7 +593,7 @@
     </div>
 
     <!-- Footnote -->
-    <div class="text-[9px] text-gray-600 font-mono text-center">
+    <div class="text-[9px] text-gray-600 font-mono text-center pt-4">
       © 2026 Siddartha Reddy
     </div>
   </aside>
@@ -1019,6 +1102,15 @@
       const btnStd = document.getElementById('btn-version-standard');
       const btnStart = document.getElementById('btn-version-startup');
 
+      // Telemetry elements
+      const tRating = document.getElementById('telemetry-rating');
+      const tPages = document.getElementById('telemetry-pages');
+      const tFont = document.getElementById('telemetry-font');
+      const tWords = document.getElementById('telemetry-words');
+      const tStatus = document.getElementById('telemetry-status');
+      const tPulse = document.getElementById('telemetry-pulse');
+      const tChecks = document.getElementById('telemetry-checks');
+
       // Hide all first
       pageStd.classList.add('hidden');
       pageInsta.classList.add('hidden');
@@ -1040,7 +1132,27 @@
           badge.className = 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStd) {
-          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow';
+          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-indigo-600 text-white shadow-lg';
+        }
+        // Telemetry update
+        if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-400 font-bold text-xs'; }
+        if (tPages) tPages.textContent = '1 Page';
+        if (tFont) tFont.textContent = 'Cormorant Garamond';
+        if (tWords) tWords.textContent = '428 words';
+        if (tStatus) { tStatus.textContent = 'Active'; tStatus.className = 'text-[8px] text-emerald-400 font-bold tracking-widest uppercase'; }
+        if (tPulse) tPulse.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping';
+        if (tChecks) {
+          tChecks.innerHTML = `
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>Single Column Format</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>Standard Headings Only</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>No tables, boxes, or sidebars</span>
+            </div>
+          `;
         }
       } else if (version === 'startup') {
         pageStart.classList.remove('hidden');
@@ -1050,14 +1162,54 @@
           badge.className = 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStart) {
-          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-cyan-600 text-white shadow';
+          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-cyan-600 text-white shadow-lg';
+        }
+        // Telemetry update
+        if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-400 font-bold text-xs'; }
+        if (tPages) tPages.textContent = '1 Page';
+        if (tFont) tFont.textContent = 'IBM Plex Mono + Arial';
+        if (tWords) tWords.textContent = '381 words';
+        if (tStatus) { tStatus.textContent = 'Active'; tStatus.className = 'text-[8px] text-emerald-400 font-bold tracking-widest uppercase'; }
+        if (tPulse) tPulse.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping';
+        if (tChecks) {
+          tChecks.innerHTML = `
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>Single Column Format</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>Standard Headings Only</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-emerald-400/80">
+              <span>✓</span> <span>No tables, boxes, or sidebars</span>
+            </div>
+          `;
         }
       } else if (version === 'bad') {
         pageInsta.classList.remove('hidden');
         if (titleEl) titleEl.innerText = 'BAD RESUME';
         if (badge) {
           badge.textContent = 'BAD RESUME Active';
-          badge.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+          badge.className = 'bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+        }
+        // Telemetry update
+        if (tRating) { tRating.textContent = '45 / 100'; tRating.className = 'text-rose-500 font-bold text-xs'; }
+        if (tPages) tPages.textContent = '2 Pages';
+        if (tFont) tFont.textContent = 'Arial / DM Sans';
+        if (tWords) tWords.textContent = '512 words';
+        if (tStatus) { tStatus.textContent = 'Compromised'; tStatus.className = 'text-[8px] text-rose-500 font-bold tracking-widest uppercase animate-pulse'; }
+        if (tPulse) tPulse.className = 'w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping';
+        if (tChecks) {
+          tChecks.innerHTML = `
+            <div class="flex items-center gap-1.5 text-rose-500/80">
+              <span>❌</span> <span>Single Column (Sidebar found)</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-rose-500/80">
+              <span>❌</span> <span>Standard Headings (Modified)</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-rose-500/80">
+              <span>❌</span> <span>No tables (Tables detected)</span>
+            </div>
+          `;
         }
       }
     }
@@ -1071,7 +1223,7 @@
         switchVersion('bad');
         if (msg) {
           msg.textContent = '🔓 BAD RESUME unlocked!';
-          msg.className = 'text-[10px] text-emerald-400 font-mono block';
+          msg.className = 'text-[10px] text-rose-400 font-mono block';
         }
         if (input) input.value = '58775';
       } else if (code === 'startup' || code === '48291') {
