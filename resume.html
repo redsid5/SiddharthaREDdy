@@ -21,7 +21,7 @@
 <script>
   // Theme initialization to prevent FOUC
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (savedTheme === 'light') || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
   } else {
       document.documentElement.classList.remove('dark');
@@ -529,11 +529,11 @@
 </style>
 </head>
 <body class="h-full flex flex-col md:flex-row overflow-hidden">  <!-- Left Sidebar (Screen viewing only) -->
-  <aside class="no-print md:w-80 bg-white dark:bg-[#09090b] border-r border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto z-40">
+  <aside class="no-print md:w-80 bg-white dark:bg-zinc-50 dark:bg-[#09090b] border-r border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between shrink-0 select-none overflow-y-auto z-40">
     <div class="space-y-6">
       <div class="flex items-center justify-between gap-3">
         <!-- Heading back to portfolio -->
-        <a href="index.html" aria-label="Go back to main portfolio page" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white font-medium text-xs transition-all duration-300">
+        <a href="index.html" aria-label="Go back to main portfolio page" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-900 dark:text-white font-medium text-xs transition-all duration-300">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back to Portfolio
         </a>
@@ -550,7 +550,7 @@
           <img src="minimal_anime_avatar.jpg" alt="Headshot of Siddartha Reddy Munugala, Software Engineer" class="w-full h-full object-cover object-top scale-110">
         </div>
         <div class="space-y-1">
-          <h2 class="text-base font-extrabold text-zinc-900 dark:text-white tracking-tight font-display">Siddartha Reddy</h2>
+          <h2 class="text-base font-extrabold text-zinc-900 dark:text-zinc-900 dark:text-white tracking-tight font-display">Siddartha Reddy</h2>
           <p id="resume-title" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono font-medium">Software Engineer</p>
           <div class="pt-1">
             <span id="active-version-badge" class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800/80 px-2 py-0.5 rounded font-mono text-[9px]">Standard Active</span>
@@ -559,7 +559,7 @@
       </div>
 
       <!-- Quick Action Buttons -->
-      <button onclick="window.print()" aria-label="Print resume or save as PDF" class="w-full py-2.5 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-bold text-xs transition-colors flex items-center justify-center gap-2 active:scale-95 shadow-md">
+      <button onclick="window.print()" aria-label="Print resume or save as PDF" class="w-full py-2.5 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-zinc-900 dark:text-white dark:text-zinc-950 font-bold text-xs transition-colors flex items-center justify-center gap-2 active:scale-95 shadow-md">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
         Print / Save PDF
       </button>
@@ -568,10 +568,10 @@
       <div class="border-t border-zinc-200 dark:border-zinc-800/80 pt-5 space-y-2">
         <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Select Version</span>
         <div class="grid grid-cols-2 gap-1.5 bg-zinc-100 dark:bg-zinc-900 p-1 rounded-xl border border-zinc-200 dark:border-zinc-800/80">
-          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-sm">
+          <button onclick="switchVersion('standard')" id="btn-version-standard" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-zinc-900 dark:bg-white text-zinc-900 dark:text-white dark:text-zinc-900 shadow-sm">
             Standard
           </button>
-          <button onclick="switchVersion('startup')" id="btn-version-startup" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
+          <button onclick="switchVersion('startup')" id="btn-version-startup" class="py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-900 dark:text-white">
             Startup
           </button>
         </div>
@@ -581,8 +581,8 @@
       <div class="border-t border-zinc-200 dark:border-zinc-800/80 pt-5 space-y-2">
         <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Unlock BAD RESUME</span>
         <div class="flex gap-2">
-          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 px-3 py-1.5 rounded-lg text-zinc-900 dark:text-white text-xs focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors font-mono">
-          <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-bold text-xs transition-all active:scale-95">
+          <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 px-3 py-1.5 rounded-lg text-zinc-900 dark:text-zinc-900 dark:text-white text-xs focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors font-mono">
+          <button onclick="checkPasscode()" class="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-zinc-900 dark:text-white dark:text-zinc-950 font-bold text-xs transition-all active:scale-95">
             Unlock
           </button>
         </div>
@@ -600,42 +600,42 @@
             <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500">// TELEMETRY</span>
             <span class="flex items-center gap-1">
               <span id="telemetry-pulse" class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
-              <span id="telemetry-status" class="text-[8px] text-emerald-400 font-bold tracking-widest uppercase">Active</span>
+              <span id="telemetry-status" class="text-[8px] text-emerald-600 dark:text-emerald-400 font-bold tracking-widest uppercase">Active</span>
             </span>
           </div>
           
           <div class="flex items-center justify-between py-1">
-            <span class="text-gray-400">ATS Rating:</span>
-            <span id="telemetry-rating" class="text-emerald-400 font-bold text-xs">100 / 100</span>
+            <span class="text-zinc-600 dark:text-zinc-400">ATS Rating:</span>
+            <span id="telemetry-rating" class="text-emerald-600 dark:text-emerald-400 font-bold text-xs">100 / 100</span>
           </div>
 
-          <div class="space-y-1.5 text-gray-400 text-[9px]">
+          <div class="space-y-1.5 text-zinc-600 dark:text-zinc-400 text-[9px]">
             <div class="flex items-center justify-between">
               <span>📄 Page Count:</span>
-              <span id="telemetry-pages" class="text-white font-bold">1 Page</span>
+              <span id="telemetry-pages" class="text-zinc-900 dark:text-white font-bold">1 Page</span>
             </div>
             <div class="flex items-center justify-between">
               <span>🔤 Font Family:</span>
-              <span id="telemetry-font" class="text-white font-bold">Cormorant Garamond</span>
+              <span id="telemetry-font" class="text-zinc-900 dark:text-white font-bold">Cormorant Garamond</span>
             </div>
             <div class="flex items-center justify-between">
               <span>📏 Margins:</span>
-              <span id="telemetry-margins" class="text-white font-bold">0.75 in</span>
+              <span id="telemetry-margins" class="text-zinc-900 dark:text-white font-bold">0.75 in</span>
             </div>
             <div class="flex items-center justify-between">
               <span>📝 Word Count:</span>
-              <span id="telemetry-words" class="text-white font-bold">428 words</span>
+              <span id="telemetry-words" class="text-zinc-900 dark:text-white font-bold">428 words</span>
             </div>
           </div>
 
-          <div id="telemetry-checks" class="border-t border-white/5 pt-2 space-y-1 text-[8px] text-gray-500 font-semibold">
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+          <div id="telemetry-checks" class="border-t border-zinc-200 dark:border-white/5 pt-2 space-y-1 text-[8px] text-zinc-400 dark:text-zinc-500 font-semibold">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>Single Column Format</span>
             </div>
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>Standard Headings Only</span>
             </div>
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>No tables, boxes, or sidebars</span>
             </div>
           </div>
@@ -643,10 +643,10 @@
       </div>
 
       <!-- Sidebar Specs List -->
-      <div class="border-t border-white/5 pt-5 space-y-4 text-xs">
+      <div class="border-t border-zinc-200 dark:border-white/5 pt-5 space-y-4 text-xs">
         <div>
-          <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider mb-1">Contact Details</span>
-          <div class="space-y-1.5 text-gray-300 font-medium">
+          <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider mb-1">Contact Details</span>
+          <div class="space-y-1.5 text-zinc-700 dark:text-zinc-300 font-medium">
             <div class="flex items-center gap-2"><span>📧</span> <a href="mailto:Siddarth.lbf341@gmail.com" class="hover:text-indigo-400">Siddarth.lbf341@gmail.com</a></div>
             <div class="flex items-center gap-2"><span>🐙</span> <a href="https://github.com/Redsid5" target="_blank" class="hover:text-indigo-400">github.com/Redsid5</a></div>
             <div class="flex items-center gap-2"><span>💼</span> <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank" class="hover:text-indigo-400">LinkedIn Profile</a></div>
@@ -655,22 +655,22 @@
         </div>
 
         <div>
-          <span class="text-gray-500 font-mono text-[9px] block uppercase font-bold tracking-wider mb-1.5">Primary Competencies</span>
+          <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider mb-1.5">Primary Competencies</span>
           <div class="flex flex-wrap gap-1.5">
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Python</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">TypeScript</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Next.js</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">WebSockets</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">WebRTC</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">Supabase</span>
-            <span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-gray-300">LLM APIs</span>
+            <span class="bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-zinc-700 dark:text-zinc-300">Python</span>
+            <span class="bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-zinc-700 dark:text-zinc-300">TypeScript</span>
+            <span class="bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-zinc-700 dark:text-zinc-300">Next.js</span>
+            <span class="bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-zinc-700 dark:text-zinc-300">WebSockets</span>
+            <span class="bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-zinc-700 dark:text-zinc-300">WebRTC</span>
+            <span class="bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-zinc-700 dark:text-zinc-300">Supabase</span>
+            <span class="bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 px-2 py-0.5 rounded font-mono text-[9px] text-zinc-700 dark:text-zinc-300">LLM APIs</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Footnote -->
-    <div class="text-[9px] text-gray-600 font-mono text-center pt-4">
+    <div class="text-[9px] text-zinc-400 dark:text-zinc-600 font-mono text-center pt-4">
       © 2026 Siddartha Reddy
     </div>
   </aside>
@@ -1199,10 +1199,10 @@
 
       // Reset button classes
       if (btnStd) {
-        btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white';
+        btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-white';
       }
       if (btnStart) {
-        btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-gray-400 hover:text-white';
+        btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-white';
       }
 
       if (version === 'standard') {
@@ -1210,27 +1210,27 @@
         if (titleEl) titleEl.innerText = 'Software Engineer';
         if (badge) {
           badge.textContent = 'Standard Active';
-          badge.className = 'bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+          badge.className = 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStd) {
-          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-rose-600 text-white shadow-lg';
+          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-rose-600 text-zinc-900 dark:text-white shadow-lg';
         }
         // Telemetry update
-        if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-400 font-bold text-xs'; }
+        if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-600 dark:text-emerald-400 font-bold text-xs'; }
         if (tPages) tPages.textContent = '1 Page';
         if (tFont) tFont.textContent = 'Cormorant Garamond';
         if (tWords) tWords.textContent = '428 words';
-        if (tStatus) { tStatus.textContent = 'Active'; tStatus.className = 'text-[8px] text-emerald-400 font-bold tracking-widest uppercase'; }
+        if (tStatus) { tStatus.textContent = 'Active'; tStatus.className = 'text-[8px] text-emerald-600 dark:text-emerald-400 font-bold tracking-widest uppercase'; }
         if (tPulse) tPulse.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping';
         if (tChecks) {
           tChecks.innerHTML = `
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>Single Column Format</span>
             </div>
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>Standard Headings Only</span>
             </div>
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>No tables, boxes, or sidebars</span>
             </div>
           `;
@@ -1240,27 +1240,27 @@
         if (titleEl) titleEl.innerText = 'Startup Resume';
         if (badge) {
           badge.textContent = 'Startup Active';
-          badge.className = 'bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+          badge.className = 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStart) {
-          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-amber-600 text-white shadow-lg';
+          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-amber-600 text-zinc-900 dark:text-white shadow-lg';
         }
         // Telemetry update
-        if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-400 font-bold text-xs'; }
+        if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-600 dark:text-emerald-400 font-bold text-xs'; }
         if (tPages) tPages.textContent = '1 Page';
         if (tFont) tFont.textContent = 'IBM Plex Mono + Arial';
         if (tWords) tWords.textContent = '381 words';
-        if (tStatus) { tStatus.textContent = 'Active'; tStatus.className = 'text-[8px] text-emerald-400 font-bold tracking-widest uppercase'; }
+        if (tStatus) { tStatus.textContent = 'Active'; tStatus.className = 'text-[8px] text-emerald-600 dark:text-emerald-400 font-bold tracking-widest uppercase'; }
         if (tPulse) tPulse.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping';
         if (tChecks) {
           tChecks.innerHTML = `
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>Single Column Format</span>
             </div>
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>Standard Headings Only</span>
             </div>
-            <div class="flex items-center gap-1.5 text-emerald-400/80">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
               <span>✓</span> <span>No tables, boxes, or sidebars</span>
             </div>
           `;
@@ -1270,7 +1270,7 @@
         if (titleEl) titleEl.innerText = 'BAD RESUME';
         if (badge) {
           badge.textContent = 'BAD RESUME Active';
-          badge.className = 'bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
+          badge.className = 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         // Telemetry update
         if (tRating) { tRating.textContent = '45 / 100'; tRating.className = 'text-rose-500 font-bold text-xs'; }
@@ -1304,21 +1304,21 @@
         switchVersion('bad');
         if (msg) {
           msg.textContent = '🔓 BAD RESUME unlocked!';
-          msg.className = 'text-[10px] text-rose-400 font-mono block';
+          msg.className = 'text-[10px] text-rose-600 dark:text-rose-400 font-mono block';
         }
         if (input) input.value = '58775';
       } else if (code === 'startup' || code === '48291') {
         switchVersion('startup');
         if (msg) {
           msg.textContent = '🔓 Startup version active!';
-          msg.className = 'text-[10px] text-amber-400 font-mono block';
+          msg.className = 'text-[10px] text-amber-600 dark:text-amber-400 font-mono block';
         }
         if (input) input.value = 'startup';
       } else {
         if (code !== '') {
           if (msg && !codeFromUrl) {
             msg.textContent = '❌ Invalid passcode';
-            msg.className = 'text-[10px] text-rose-400 font-mono block';
+            msg.className = 'text-[10px] text-rose-600 dark:text-rose-400 font-mono block';
           }
         }
       }
