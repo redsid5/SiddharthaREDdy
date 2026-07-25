@@ -196,45 +196,82 @@
             </div>
         </section>
 
-        <!-- Command Pipeline -->
-        <section id="lab" class="border-t border-b border-editorial py-8">
-            <div class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono uppercase tracking-widest mb-6">// METHODOLOGY PIPELINE</div>
-            <div class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-9 gap-4 text-center">
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">01 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Observe</div>
+        <!-- Founder's Launch Simulator -->
+        <section id="lab" class="border-t border-b border-editorial py-10 space-y-6">
+            <div class="flex justify-between items-center">
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// FOUNDER'S LAUNCH SIMULATOR (SYSTEMS THINKING GAME)</span>
+                <span class="font-mono text-[9px] text-zinc-400 uppercase">// PLAYABLE FOR VCs & STRATEGISTS</span>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Controls Column -->
+                <div class="lg:col-span-6 space-y-6 font-mono text-[11px]">
+                    <!-- Control 1: Project Scope -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-bold text-zinc-400">
+                            <span>01 / PRODUCT SCOPE</span>
+                            <span id="label-scope" class="text-zinc-900 dark:text-white">Lean (1 Core Feature)</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="setSim('scope', 'lean')" id="btn-scope-lean" class="py-2 px-3 border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded text-center">Lean (1 Core Feature)</button>
+                            <button onclick="setSim('scope', 'bloated')" id="btn-scope-bloated" class="py-2 px-3 border border-editorial hover:border-zinc-400 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-semibold text-center">Bloated (10 Features)</button>
+                        </div>
+                    </div>
+
+                    <!-- Control 2: User Security Gating -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-bold text-zinc-400">
+                            <span>02 / PRIVACY GATING</span>
+                            <span id="label-privacy" class="text-zinc-900 dark:text-white">Double-Blind progressive</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="setSim('privacy', 'blind')" id="btn-privacy-blind" class="py-2 px-3 border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded text-center">Double-Blind progressive</button>
+                            <button onclick="setSim('privacy', 'open')" id="btn-privacy-open" class="py-2 px-3 border border-editorial hover:border-zinc-400 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-semibold text-center">Immediate Open Access</button>
+                        </div>
+                    </div>
+
+                    <!-- Control 3: User Research -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-bold text-zinc-400">
+                            <span>03 / CUSTOMER RESEARCH</span>
+                            <span id="label-research" class="text-zinc-900 dark:text-white">Interviews First</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="setSim('research', 'interviews')" id="btn-research-interviews" class="py-2 px-3 border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded text-center">Interviews First</button>
+                            <button onclick="setSim('research', 'code')" id="btn-research-code" class="py-2 px-3 border border-editorial hover:border-zinc-400 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-semibold text-center">No Research (Code Immediately)</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">02 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Research</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">03 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Interview</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">04 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Validate</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">05 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Prototype</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">06 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Build</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">07 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Measure</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">08 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Iterate</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">09 //</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider">Scale</div>
+
+                <!-- Simulation Output Column -->
+                <div class="lg:col-span-6 card-editorial rounded-lg p-6 space-y-6 font-mono text-xs shadow-xl">
+                    <div class="border-b border-editorial pb-2 text-zinc-400 font-bold uppercase tracking-wider">// REAL-TIME SIMULATED OUTCOMES</div>
+                    
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="space-y-1 border border-editorial p-3 rounded">
+                            <div class="text-[9px] text-zinc-400 uppercase">Launch Speed</div>
+                            <div id="sim-speed" class="text-base font-bold text-zinc-900 dark:text-white">2 Weeks</div>
+                        </div>
+                        <div class="space-y-1 border border-editorial p-3 rounded">
+                            <div class="text-[9px] text-zinc-400 uppercase">Monthly Infrastructure</div>
+                            <div id="sim-cost" class="text-base font-bold text-zinc-900 dark:text-white">$20/mo</div>
+                        </div>
+                        <div class="space-y-1 border border-editorial p-3 rounded">
+                            <div class="text-[9px] text-zinc-400 uppercase">Bilateral User Trust</div>
+                            <div id="sim-trust" class="text-base font-bold text-zinc-900 dark:text-white">High (98%)</div>
+                        </div>
+                        <div class="space-y-1 border border-editorial p-3 rounded">
+                            <div class="text-[9px] text-zinc-400 uppercase">User Retention Odds</div>
+                            <div id="sim-retention" class="text-base font-bold text-zinc-900 dark:text-white">Optimal (+42%)</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5 border-t border-editorial pt-4">
+                        <div class="text-[9px] text-zinc-400 uppercase font-bold">// STRATEGY ADVISORY VERDICT</div>
+                        <div id="sim-verdict" class="text-sm font-semibold text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans">
+                            Lean and validated. You shipped in 2 weeks, kept costs low, and users trust you. This is how you build a scalable startup.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -945,9 +982,102 @@
                     ctx.fillText(hoveredNode.desc, 30, h - 36);
                 }
 
-                requestAnimationFrame(drawGraph);
-            }
-            drawGraph();
+            // --- Founder's Launch Simulator Engine ---
+            const simState = {
+                scope: 'lean',
+                privacy: 'blind',
+                research: 'interviews'
+            };
+
+            window.setSim = function(key, val) {
+                simState[key] = val;
+                
+                // Update button styles
+                const options = {
+                    scope: ['lean', 'bloated'],
+                    privacy: ['blind', 'open'],
+                    research: ['interviews', 'code']
+                };
+
+                options[key].forEach(opt => {
+                    const btn = document.getElementById(`btn-${key}-${opt}`);
+                    const isSelected = opt === val;
+                    if (isSelected) {
+                        btn.className = "py-2 px-3 border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded text-center";
+                    } else {
+                        btn.className = "py-2 px-3 border border-editorial hover:border-zinc-400 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-semibold text-center";
+                    }
+                });
+
+                // Update label text
+                const labels = {
+                    scope: { lean: 'Lean (1 Core Feature)', bloated: 'Bloated (10 Features)' },
+                    privacy: { blind: 'Double-Blind progressive', open: 'Immediate Open Access' },
+                    research: { interviews: 'Interviews First', code: 'No Research (Code Immediately)' }
+                };
+                document.getElementById(`label-${key}`).innerText = labels[key][val];
+
+                // Calculate outcomes
+                let speed = "2 Weeks";
+                let cost = "$20/mo";
+                let trust = "High (98%)";
+                let retention = "Optimal (+42%)";
+                let verdict = "";
+
+                if (simState.scope === 'lean') {
+                    if (simState.research === 'interviews') {
+                        speed = "2 Weeks";
+                        cost = "$20/mo";
+                        if (simState.privacy === 'blind') {
+                            trust = "High (98%)";
+                            retention = "Optimal (+42%)";
+                            verdict = "Perfect build sequence. You validated customer friction, kept the launching footprint small, and structured progressive trust checkpoints. Highly optimal path.";
+                        } else {
+                            trust = "Medium (60%)";
+                            retention = "Modest (+12%)";
+                            verdict = "You shipped quickly but exposed identities immediately. User friction increases without progressive data gating, slowing down retention.";
+                        }
+                    } else { // no research
+                        speed = "4 Weeks";
+                        cost = "$150/mo";
+                        trust = "Low (35%)";
+                        retention = "Poor (-10%)";
+                        verdict = "Building a lean feature set without user validation is a gamble. You spent unnecessary time coding unvalidated logic, resulting in poor user retention.";
+                    }
+                } else { // bloated
+                    if (simState.research === 'interviews') {
+                        speed = "4 Months";
+                        cost = "$1,500/mo";
+                        trust = "Medium (55%)";
+                        retention = "Unstable (-5%)";
+                        verdict = "You talked to users but ignored their feedback by shipping a massive list of features. Your build time delayed the launch by 4 months, spiking server bills.";
+                    } else { // no research, bloated
+                        speed = "6 Months";
+                        cost = "$5,000/mo";
+                        if (simState.privacy === 'blind') {
+                            trust = "Low (30%)";
+                            retention = "Negative (-28%)";
+                            verdict = "You spent 6 months building a bloated product without user discovery. Even with privacy gating, users find the platform too confusing to stick around.";
+                        } else {
+                            trust = "Critical Risk (12%)";
+                            retention = "Churn Spiral (-45%)";
+                            verdict = "Startup nightmare scenario. You built a bloated app with zero security gates and no validation. Massive build delays, high bills, and complete user churn.";
+                        }
+                    }
+                }
+
+                // Write outcomes to DOM
+                document.getElementById('sim-speed').innerText = speed;
+                document.getElementById('sim-cost').innerText = cost;
+                document.getElementById('sim-trust').innerText = trust;
+                document.getElementById('sim-retention').innerText = retention;
+                document.getElementById('sim-verdict').innerText = verdict;
+            };
+
+            // Set initial state
+            setSim('scope', 'lean');
+
+            requestAnimationFrame(drawGraph);
         }
     </script>
 </body>
