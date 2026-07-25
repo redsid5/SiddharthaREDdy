@@ -358,6 +358,7 @@
 
   /* Print overrides: Strict 0.75in page margin to ensure ATS parsability and single-page budgeting */
   @media print {
+    /* Web print overrides: Disable Flex/Grid layouts during Edge/Chrome headless rendering */
     #page-standard {
       --page-padding-top: 0.75in;
       --page-padding-bottom: 0.75in;
