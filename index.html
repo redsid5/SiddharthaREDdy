@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Siddartha Reddy Munugala — Digital Headquarters</title>
+    <title>Siddartha Reddy — THE LAB</title>
     
     <script>
         // Theme initialization to prevent FOUC
@@ -54,6 +54,7 @@
             --text-secondary: #52525b;
             --border: rgba(0, 0, 0, 0.08);
             --card-bg: #fafafa;
+            --accent: #dc2626;
         }
         .dark {
             --bg: #000000;
@@ -61,6 +62,7 @@
             --text-secondary: #a1a1aa;
             --border: rgba(255, 255, 255, 0.08);
             --card-bg: #0c0c0e;
+            --accent: #d4af37;
         }
         body {
             background-color: var(--bg);
@@ -76,481 +78,445 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border);
         }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body class="min-h-full flex flex-col relative antialiased selection:bg-zinc-200 dark:selection:bg-zinc-800">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-editorial px-6 sm:px-12 py-4 flex justify-between items-center transition-colors">
+    <!-- Technical Blueprint Canvas Background -->
+    <canvas id="blueprint-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- Navigation Command Center -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/60 dark:bg-black/60 backdrop-blur-md border-b border-editorial px-6 sm:px-12 py-3 flex justify-between items-center transition-colors">
         <div class="flex items-center gap-3">
-            <a href="#" class="font-bold tracking-tight text-xs uppercase font-mono">
-                S. REDDY MUNUGALA
+            <a href="#" class="font-extrabold tracking-tight text-xs uppercase font-mono">
+                SID / LAB OS v1.0
             </a>
-            <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono">// DIGITAL HQ</span>
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 font-mono text-[8px] font-bold">
+                <span class="w-1 h-1 rounded-full bg-rose-600 animate-ping"></span> ACTIVE_EXPERIMENTS
+            </span>
         </div>
         
-        <div class="flex items-center gap-6 text-xs font-mono">
+        <div class="flex items-center gap-6 text-[10px] font-mono">
+            <a href="#lab" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">LAB</a>
             <a href="#products" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">PRODUCTS</a>
             <a href="#research" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">RESEARCH</a>
-            <a href="#thinking" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">THINKING</a>
-            <div class="relative group flex items-center">
-                <button class="text-zinc-900 dark:text-white hover:opacity-80 transition-colors font-semibold border-b border-zinc-950 dark:border-zinc-50 pb-0.5 flex items-center gap-1">
-                    RESUME
-                </button>
-                <div class="absolute right-0 top-full mt-2 w-48 rounded bg-white dark:bg-zinc-900 border border-editorial shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden text-xs">
-                    <a href="resume.html" class="block px-4 py-3 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors">Standard ATS</a>
-                    <a href="resume.html?passcode=startup" class="block px-4 py-3 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors">Startup Product</a>
-                </div>
-            </div>
+            <a href="#observations" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">NOTES</a>
+            <a href="#timeline" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">BUILD LOG</a>
+            <a href="resume.html" class="text-zinc-900 dark:text-white font-bold border-b border-zinc-900 dark:border-white">RESUME</a>
             
-            <button onclick="toggleTheme()" class="w-8 h-8 rounded border border-editorial flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" aria-label="Toggle theme">
-                <svg class="w-3.5 h-3.5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg class="w-3.5 h-3.5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <button onclick="toggleTheme()" class="w-7 h-7 rounded border border-editorial flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" aria-label="Toggle theme">
+                <svg class="w-3 h-3 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="w-3 h-3 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
             </button>
         </div>
     </nav>
 
-    <!-- Main Content Container -->
-    <main class="max-w-6xl mx-auto w-full px-6 sm:px-12 pt-32 pb-24 space-y-36">
+    <!-- Main OS Container -->
+    <main class="max-w-6xl mx-auto w-full px-6 sm:px-12 pt-32 pb-24 space-y-40 relative z-10">
         
-        <!-- Hero Section -->
-        <section class="space-y-8 py-12 max-w-4xl">
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] text-zinc-900 dark:text-white font-display">
-                I design systems and build products that solve real problems.
-            </h1>
-            
-            <p class="text-zinc-600 dark:text-zinc-400 text-lg sm:text-xl leading-relaxed max-w-3xl">
-                I am a technical generalist and product builder studying computer science at the University of South Dakota. I investigate user friction first, then write deliberate code to validate hypotheses and scale AI workflows, real-time architectures, and growth loops.
-            </p>
-            
-            <div class="flex flex-wrap gap-4 pt-4 font-mono text-xs">
-                <a href="#products" class="bg-zinc-900 text-white dark:bg-white dark:text-black hover:opacity-90 py-3 px-6 rounded font-semibold transition-opacity">
-                    View Products
-                </a>
-                <a href="#thinking" class="border border-editorial hover:bg-zinc-50 dark:hover:bg-zinc-950 py-3 px-6 rounded font-semibold transition-colors">
-                    Read Observations
-                </a>
+        <!-- Hero Telemetry Dashboard -->
+        <section id="hero" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start py-8">
+            <div class="md:col-span-8 space-y-6">
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// SYSTEM OVERVIEW</span>
+                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.02] font-display text-zinc-900 dark:text-white">
+                    I build products people actually need.
+                </h1>
+                <p class="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-2xl">
+                    This is the digital playground and operating system of a product builder. I study human behavior first, identify bottlenecks, validate hypotheses, design scalable architectures, and ship products that scale.
+                </p>
+                <div class="flex gap-4 pt-2 font-mono text-xs">
+                    <a href="#products" class="bg-zinc-900 text-white dark:bg-white dark:text-black hover:opacity-90 py-3 px-6 rounded font-semibold transition-opacity">
+                        Explore Products
+                    </a>
+                    <a href="#playground" class="border border-editorial hover:bg-zinc-50 dark:hover:bg-zinc-900/40 py-3 px-6 rounded font-semibold transition-colors">
+                        Open Playground
+                    </a>
+                </div>
             </div>
-        </section>
+            
+            <!-- Bloomberg-style Telemetry Card -->
+            <div class="md:col-span-4 card-editorial rounded-lg p-5 font-mono text-[10px] space-y-4 shadow-xl">
+                <div class="flex justify-between items-center border-b border-editorial pb-2">
+                    <span class="font-bold text-zinc-500 uppercase">// COGNITIVE STATUS</span>
+                    <span class="flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-emerald-600 dark:text-emerald-400 uppercase font-bold text-[9px]">ONLINE</span>
+                    </span>
+                </div>
+                
+                <div class="space-y-2">
+                    <div class="flex justify-between">
+                        <span class="text-zinc-400">Current Focus:</span>
+                        <span class="text-zinc-900 dark:text-white font-semibold">AI, Product Systems</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-zinc-400">Experiments Running:</span>
+                        <span class="text-zinc-900 dark:text-white font-semibold">4 Active</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-zinc-400">Products Shipped:</span>
+                        <span class="text-zinc-900 dark:text-white font-semibold">8 Total</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-zinc-400">Observations Logged:</span>
+                        <span class="text-zinc-900 dark:text-white font-semibold">29 Entries</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-zinc-400">Coffee Intake:</span>
+                        <span class="text-rose-600 dark:text-rose-400 font-bold uppercase">Dangerously High</span>
+                    </div>
+                </div>
 
-        <!-- Process Pipeline Section -->
-        <section class="border-t border-b border-editorial py-10">
-            <div class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono uppercase tracking-widest mb-6">// METHODOLOGY PIPELINE</div>
-            <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-4 text-center">
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">01</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Observe</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">02</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Research</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">03</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Interview</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">04</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Validate</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">05</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Prototype</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">06</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Build</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">07</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Measure</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">08</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Iterate</div>
-                </div>
-                <div class="space-y-1">
-                    <div class="font-mono text-xs font-bold text-zinc-400">09</div>
-                    <div class="text-xs font-semibold uppercase tracking-wider">Scale</div>
+                <div class="border-t border-editorial pt-2 text-[9px] text-zinc-400 leading-normal">
+                    <span>OS LOAD: STABLE // PACKET LOSS: 0.00% // RADAR: SWEEPING</span>
                 </div>
             </div>
         </section>
 
-        <!-- Products / Startup Case Studies Section -->
-        <section id="products" class="space-y-24">
+        <!-- Command Pipeline -->
+        <section id="lab" class="border-t border-b border-editorial py-8">
+            <div class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono uppercase tracking-widest mb-6">// METHODOLOGY LOGIC</div>
+            <div class="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-9 gap-4 text-center">
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">01 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Observe</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">02 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Research</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">03 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Interview</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">04 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Validate</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">05 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Prototype</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">06 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Build</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">07 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Measure</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">08 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Iterate</div>
+                </div>
+                <div class="space-y-1">
+                    <div class="font-mono text-xs font-bold text-zinc-400">09 //</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider">Scale</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classified Products (Startup Case Studies) -->
+        <section id="products" class="space-y-16">
             <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">Selected Products & Validations</h2>
-                <p class="text-xs text-zinc-400 dark:text-zinc-500 font-mono">// Case studies structured as startup validation narratives</p>
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// SECURE FILES</span>
+                <h2 class="text-3xl font-extrabold tracking-tight font-display">Classified Products</h2>
             </div>
 
-            <!-- Case Study 1: Scout -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 border-t border-editorial">
-                <!-- Meta column -->
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="space-y-2">
-                        <span class="text-[9px] font-mono uppercase bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-400 px-2.5 py-0.5 rounded font-bold">Featured Product</span>
-                        <h3 class="text-2xl font-bold tracking-tight">Scout</h3>
-                        <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">Real-time edge visual companion for blind users.</p>
+            <!-- Case 1: Scout -->
+            <div class="border border-editorial rounded-lg p-6 sm:p-10 space-y-8 bg-zinc-50/50 dark:bg-zinc-950/20">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-editorial pb-4 gap-4">
+                    <div>
+                        <span class="font-mono text-[9px] text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/40 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // SCOUT</span>
+                        <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">On-Device Visual Assist Companion</h3>
                     </div>
-                    
-                    <div class="space-y-3 text-xs font-mono">
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">SHIPPED DATE</span>
-                            <span>June 2026</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">CORE METRIC</span>
-                            <span class="font-bold text-emerald-600 dark:text-emerald-400">150ms latency / 75% on-device</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">LINKS</span>
-                            <div class="flex gap-3">
-                                <a href="https://scoutboy.vercel.app/" target="_blank" class="underline hover:text-zinc-600">Live app ↗</a>
-                                <a href="https://github.com/Redsid5/Scout" target="_blank" class="underline hover:text-zinc-600">GitHub ↗</a>
-                            </div>
-                        </div>
+                    <div class="text-right font-mono text-xs">
+                        <span class="text-zinc-400 uppercase text-[9px] block">VERIFIED METRIC</span>
+                        <span class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">150ms Street Inference</span>
                     </div>
                 </div>
-                
-                <!-- Content column -->
-                <div class="lg:col-span-8 space-y-6 text-sm leading-relaxed">
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Problem</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Blind and low-vision individuals face severe lag (2–4 seconds) with cloud-reliant assistive vision apps, making active navigation unsafe. Native mobile SDKs also erect high download barriers for transient tasks.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Research & User Validation</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Interviewed 20+ low-vision users to study assistive flows. Discovered that system latency and audio interruptions from screen readers (VoiceOver) were the primary drop-off triggers.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Hypothesis & Technology</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            By building a client-side execution hierarchy (Tier 1: TensorFlow.js COCO-SSD running in browser WebGL, Tier 2: local OCR, Tier 3: cloud LLM fallback), we could handle 70%+ of simple scans locally under 150ms.
-                        </p>
-                    </div>
 
-                    <div class="card-editorial p-5 rounded-lg font-mono text-[11px] space-y-1.5">
-                        <div class="font-bold text-xs mb-1 uppercase text-zinc-700 dark:text-zinc-300">// Verified Architecture Metrics</div>
-                        <div>- On-Device Object Classification Loop: 80 - 120ms</div>
-                        <div>- Safari Autoplay Constraint Override: Configured custom audio context loop</div>
-                        <div>- Edge Execution Ratio: 75% client-side (Zero API cost)</div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-xs">
+                    <div class="md:col-span-4 space-y-4">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">MISSION</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">Build an ultra-fast visual interpreter for blind users that bypasses iOS native install barriers.</p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">OBSERVATIONS</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">VoiceOver delays and cloud-roundtrip latencies (2-4 seconds) cause low-vision users to drop off assistive platforms quickly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-8 space-y-4 leading-relaxed text-sm">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">SYSTEM ARCHITECTURE</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">
+                                Implemented a browser-native inference hierarchy: Tier 1 executes object classification locally in WebGL via TensorFlow.js COCO-SSD (80-120ms); Tier 2 processes document OCR on-device; Tier 3 routes only complex visual queries to Gemini 1.5 Flash. Bypassed iOS browser SpeechSynthesis autoplay gates using a cyclic user-triggered dummy audio context.
+                            </p>
+                        </div>
+                        <div class="flex gap-4 font-mono text-xs pt-2">
+                            <a href="https://scoutboy.vercel.app/" target="_blank" class="underline hover:text-zinc-500">Launch Scout App ↗</a>
+                            <a href="https://github.com/Redsid5/Scout" target="_blank" class="underline hover:text-zinc-500">Explore Architecture ↗</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Case Study 2: PRISM -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 border-t border-editorial">
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="space-y-2">
-                        <span class="text-[9px] font-mono uppercase bg-blue-100 text-blue-800 dark:bg-blue-950/40 dark:text-blue-400 px-2.5 py-0.5 rounded font-bold">Research Prototype</span>
-                        <h3 class="text-2xl font-bold tracking-tight">PRISM</h3>
-                        <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">Gated capability security proxy for coding agents.</p>
+            <!-- Case 2: PRISM -->
+            <div class="border border-editorial rounded-lg p-6 sm:p-10 space-y-8 bg-zinc-50/50 dark:bg-zinc-950/20">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-editorial pb-4 gap-4">
+                    <div>
+                        <span class="font-mono text-[9px] text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-950/40 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // PRISM</span>
+                        <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">Capability-Gated Agent Proxy</h3>
                     </div>
-                    
-                    <div class="space-y-3 text-xs font-mono">
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">SHIPPED DATE</span>
-                            <span>May 2026</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">STATUS</span>
-                            <span class="font-bold">Code Sandbox Verified</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">LINKS</span>
-                            <span class="text-zinc-400">GitHub Private (Academic/Patent Review)</span>
-                        </div>
+                    <div class="text-right font-mono text-xs">
+                        <span class="text-zinc-400 uppercase text-[9px] block">SECURITY STATE</span>
+                        <span class="font-bold text-blue-600 dark:text-blue-400 text-sm">Deterministic Shell Interceptor</span>
                     </div>
                 </div>
-                
-                <div class="lg:col-span-8 space-y-6 text-sm leading-relaxed">
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Problem</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Autonomous VS Code agents (like Devin) possess direct shell and filesystem execution blocks. Standard text-based system prompts fail to prevent malicious bash commands or accidental local directory wipes.
-                        </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-xs">
+                    <div class="md:col-span-4 space-y-4">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">MISSION</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">Enforce strict least-privilege capability gates on autonomous coding agents (Claude SDK) inside VS Code workspaces.</p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">OBSERVATIONS</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">Prompting directives are easily subverted or ignored. Coding agents need hardware/process level security boundaries.</p>
+                        </div>
                     </div>
                     
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Hypothesis & Build</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            We hypothesized that security must be enforced in the runtime execution engine rather than the LLM context. Built a TypeScript proxy layer that intercepts agent calls, matches them against a user-defined capability list, and flags non-allowlisted actions for prompt authorization.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Lessons Learned</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Multi-agent setups require isolation at the process sandbox boundary (gRPC loops). Prompt guidelines are easily bypassed, but strict syntax checking at the shell proxy guarantees security.
-                        </p>
+                    <div class="md:col-span-8 space-y-4 leading-relaxed text-sm">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">SYSTEM ARCHITECTURE</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">
+                                Built a security middleware proxy in TypeScript. The system intercepts agent tool executions (e.g. file writes, shell tasks) before process evaluation, mapping calls against a strict schema. Flagged executions prompt the user with interactive approval webviews.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Case Study 3: EKO -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 border-t border-editorial">
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="space-y-2">
-                        <span class="text-[9px] font-mono uppercase bg-teal-100 text-teal-800 dark:bg-teal-950/40 dark:text-teal-400 px-2.5 py-0.5 rounded font-bold">Product Platform</span>
-                        <h3 class="text-2xl font-bold tracking-tight">EKO</h3>
-                        <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">Real-time voice synthesis and quantum mood matching.</p>
+            <!-- Case 3: EKO -->
+            <div class="border border-editorial rounded-lg p-6 sm:p-10 space-y-8 bg-zinc-50/50 dark:bg-zinc-950/20">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-editorial pb-4 gap-4">
+                    <div>
+                        <span class="font-mono text-[9px] text-teal-600 dark:text-teal-400 bg-teal-100 dark:bg-teal-950/40 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // EKO</span>
+                        <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">Real-Time Voice Dubbing & Quantum Matcher</h3>
                     </div>
-                    
-                    <div class="space-y-3 text-xs font-mono">
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">SHIPPED DATE</span>
-                            <span>April 2026</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">CORE INNOVATION</span>
-                            <span class="font-bold text-teal-600 dark:text-teal-400">Variational Quantum Circuits (4-Qubit)</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">LINKS</span>
-                            <div class="flex gap-3">
-                                <a href="https://eko-self.vercel.app/" target="_blank" class="underline hover:text-zinc-600">Open Platform ↗</a>
-                            </div>
-                        </div>
+                    <div class="text-right font-mono text-xs">
+                        <span class="text-zinc-400 uppercase text-[9px] block">SYSTEM METRIC</span>
+                        <span class="font-bold text-teal-600 dark:text-teal-400 text-sm">FastAPI Multi-Threaded Audio Pipeline</span>
                     </div>
                 </div>
-                
-                <div class="lg:col-span-8 space-y-6 text-sm leading-relaxed">
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Problem</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Digital audio voice-dubbing pipelines are computationally heavy and exceed serverless runtime budgets, causing high latency in multi-track audio alignment.
-                        </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-xs">
+                    <div class="md:col-span-4 space-y-4">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">MISSION</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">Optimize compute budgets of heavy PyTorch DSP separator architectures.</p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">RESEARCH HYPOTHESIS</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">Offloading multi-track Librosa/Demucs computations to un-throttled Cloud Run instances solves CPU serverless time limits.</p>
+                        </div>
                     </div>
                     
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Research & Execution</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Wrapped PyTorch Demucs stem-separation and Whisper transcription into FastAPI containers deployed on non-throttled Cloud Run instances. Introduced a Pennylane variational quantum simulator to test hybrid classical-quantum models for mood recommendation vector matching.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Lessons Learned</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            While quantum simulator runtimes are bottlenecked by classical CPU overhead, they validated stable gradient flow during backpropagation, proving the viability of hybrid neural nets in recommendation modules.
-                        </p>
+                    <div class="md:col-span-8 space-y-4 leading-relaxed text-sm">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">SYSTEM DESIGN</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">
+                                Deployed FastAPI containers with dedicated PyTorch runtimes. Integrated a simulated 4-qubit quantum variational circuit using PennyLane to evaluate mood-based matching vectors, validating forward backpropagation gradients across hybrid networks.
+                            </p>
+                        </div>
+                        <div class="flex gap-4 font-mono text-xs pt-2">
+                            <a href="https://eko-self.vercel.app/" target="_blank" class="underline hover:text-zinc-500">Open Platform ↗</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Case Study 4: VibeIn -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-8 border-t border-editorial">
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="space-y-2">
-                        <span class="text-[9px] font-mono uppercase bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200 px-2.5 py-0.5 rounded font-bold">Social Network</span>
-                        <h3 class="text-2xl font-bold tracking-tight">VibeIn</h3>
-                        <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">Anonymous progressive matchmaking network.</p>
+            <!-- Case 4: VibeIn -->
+            <div class="border border-editorial rounded-lg p-6 sm:p-10 space-y-8 bg-zinc-50/50 dark:bg-zinc-950/20">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-editorial pb-4 gap-4">
+                    <div>
+                        <span class="font-mono text-[9px] text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // VIBEIN</span>
+                        <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">Bilateral progressive disclosure matcher</h3>
                     </div>
-                    
-                    <div class="space-y-3 text-xs font-mono">
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">SHIPPED DATE</span>
-                            <span>October 2025</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">VERIFIED METRIC</span>
-                            <span class="font-bold">821 Users / 40% DAU Retention</span>
-                        </div>
-                        <div>
-                            <span class="text-zinc-400 uppercase text-[9px] block">LINKS</span>
-                            <div class="flex gap-3">
-                                <a href="https://vibein.us" target="_blank" class="underline hover:text-zinc-600">vibein.us ↗</a>
-                            </div>
-                        </div>
+                    <div class="text-right font-mono text-xs">
+                        <span class="text-zinc-400 uppercase text-[9px] block">REGISTRY AUDIT</span>
+                        <span class="font-bold text-zinc-900 dark:text-white text-sm">821 Registered Users / 40% Retention</span>
                     </div>
                 </div>
-                
-                <div class="lg:col-span-8 space-y-6 text-sm leading-relaxed">
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Problem</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Professional networking platforms force premature identity disclosure, leading to spam and bias before establishing bilateral matching interests.
-                        </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-xs">
+                    <div class="md:col-span-4 space-y-4">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">MISSION</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">Design a privacy-preserving professional network that gates identity leakages.</p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">USER RESEARCH</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">Conducted 50+ interviews with founders; found that progressive data reveal states (bio ➔ credentials ➔ contact) built 80% higher trust.</p>
+                        </div>
                     </div>
                     
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Research & Validation</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Interviewed 50+ startup builders and investors. Validated that progressive profile disclosure (unlocking details in stages: Bio ➔ Experience ➔ Contact) built higher trust and increased match quality.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">Build & Architecture</span>
-                        <p class="text-zinc-700 dark:text-zinc-300">
-                            Engineered the frontend using Next.js 16 and React 19. Enforced data integrity across multi-step entry forms using React Hook Form, @vercel/blob for private media storage, and strict Zod validation schemas.
-                        </p>
+                    <div class="md:col-span-8 space-y-4 leading-relaxed text-sm">
+                        <div>
+                            <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">SYSTEM IMPLEMENTATION</span>
+                            <p class="text-zinc-700 dark:text-zinc-300">
+                                Engineered using Next.js 16 and React 19. Set up schema validation blocks with React Hook Form and Zod resolvers to prevent data leaks. Deployed on high-frequency Vercel branch deployment pipelines.
+                            </p>
+                        </div>
+                        <div class="flex gap-4 font-mono text-xs pt-2">
+                            <a href="https://vibein.us" target="_blank" class="underline hover:text-zinc-500">vibein.us ↗</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Research Lab Section -->
+        <!-- Intelligence Research Reports -->
         <section id="research" class="space-y-12 border-t border-editorial pt-16">
             <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">Active Research Lab</h2>
-                <p class="text-xs text-zinc-400 dark:text-zinc-500 font-mono">// System studies, user flow experiments, and sector investigations</p>
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// SECTOR INVESTIGATIONS</span>
+                <h2 class="text-3xl font-extrabold tracking-tight font-display">Intelligence Reports</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card-editorial p-6 rounded-lg space-y-4">
-                    <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">01 / AI WORKFLOWS</span>
-                    <h3 class="text-lg font-bold tracking-tight">Agent Security Sandboxing</h3>
-                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        Studied the vulnerabilities of prompt directives in agent systems. Mapped execution loops and established run-time authorization security boundaries to replace porous system prompt directives.
-                    </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Report 1 -->
+                <div class="card-editorial rounded-lg p-5 space-y-4 relative">
+                    <div class="flex justify-between items-center text-[9px] font-mono text-zinc-400">
+                        <span>SPORTS</span>
+                        <span class="text-rose-600 dark:text-rose-400 font-bold uppercase">87% Done</span>
+                    </div>
+                    <h3 class="text-base font-bold tracking-tight text-zinc-900 dark:text-white">Edge telemetry</h3>
+                    <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Analyzing performance footprint of visual classifiers inside browser background workers.</p>
                 </div>
-                
-                <div class="card-editorial p-6 rounded-lg space-y-4">
-                    <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">02 / INTERACTION</span>
-                    <h3 class="text-lg font-bold tracking-tight">Progressive Trust Matrices</h3>
-                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        Designed matching logic based on mutual verification states. Tested disclosure matrices that prevent identity leaks until bilateral validation criteria are met.
-                    </p>
+                <!-- Report 2 -->
+                <div class="card-editorial rounded-lg p-5 space-y-4 relative">
+                    <div class="flex justify-between items-center text-[9px] font-mono text-zinc-400">
+                        <span>FILM</span>
+                        <span class="text-amber-600 dark:text-amber-400 font-bold uppercase">ACTIVE</span>
+                    </div>
+                    <h3 class="text-base font-bold tracking-tight text-zinc-900 dark:text-white">Dubbing Runtimes</h3>
+                    <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Gating stem-separations within dedicated FastAPI docker configurations.</p>
                 </div>
-                
-                <div class="card-editorial p-6 rounded-lg space-y-4">
-                    <span class="font-mono text-[9px] text-zinc-400 uppercase block tracking-wider">03 / COMPILATION</span>
-                    <h3 class="text-lg font-bold tracking-tight">Edge vs. Cloud Inference</h3>
-                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        Measured memory footprints of WASM object classification models running inside web workers. Established dynamic fallback criteria for servers when client battery or hardware limits are reached.
-                    </p>
+                <!-- Report 3 -->
+                <div class="card-editorial rounded-lg p-5 space-y-4 relative">
+                    <div class="flex justify-between items-center text-[9px] font-mono text-zinc-400">
+                        <span>AI AGENTS</span>
+                        <span class="text-emerald-600 dark:text-emerald-400 font-bold uppercase">RUNNING</span>
+                    </div>
+                    <h3 class="text-base font-bold tracking-tight text-zinc-900 dark:text-white">Sandbox Interceptors</h3>
+                    <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Securing filesystems from prompt command injections at proxy level.</p>
+                </div>
+                <!-- Report 4 -->
+                <div class="card-editorial rounded-lg p-5 space-y-4 relative">
+                    <div class="flex justify-between items-center text-[9px] font-mono text-zinc-400">
+                        <span>SOCIAL</span>
+                        <span class="text-zinc-400 font-bold uppercase">COLLECTING</span>
+                    </div>
+                    <h3 class="text-base font-bold tracking-tight text-zinc-900 dark:text-white">Disclosure Gates</h3>
+                    <p class="text-[11px] text-zinc-500 dark:text-zinc-400 leading-normal">Optimizing bilateral consent matrices in anonymous networking matching loops.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Thinking / Field Notes Section -->
-        <section id="thinking" class="space-y-12 border-t border-editorial pt-16">
+        <!-- Thinking Observations (Single Sentence Cards) -->
+        <section id="observations" class="space-y-12 border-t border-editorial pt-16">
             <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">Thinking & Field Notes</h2>
-                <p class="text-xs text-zinc-400 dark:text-zinc-500 font-mono">// System design observations and product strategy critiques</p>
-            </div>
-
-            <div class="space-y-8">
-                <article class="space-y-2">
-                    <div class="flex items-center gap-4 text-xs font-mono text-zinc-400">
-                        <span>OBSERVATION 01</span>
-                        <span>•</span>
-                        <span>JULY 2026</span>
-                    </div>
-                    <h3 class="text-xl font-bold hover:underline cursor-pointer">Prompt Gating is a Leaky Security Model</h3>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-4xl">
-                        Relying on system prompts (e.g. "Do not delete files") to prevent agent execution failures is unsafe. AI agents process guidelines probabilistically. True runtime security must be gated by deterministic process interceptors that intercept actual API calls and bash commands, completely separate from the LLM execution thread.
-                    </p>
-                </article>
-
-                <article class="space-y-2 pt-6 border-t border-editorial">
-                    <div class="flex items-center gap-4 text-xs font-mono text-zinc-400">
-                        <span>OBSERVATION 02</span>
-                        <span>•</span>
-                        <span>MAY 2026</span>
-                    </div>
-                    <h3 class="text-xl font-bold hover:underline cursor-pointer">Designing for the Edge: A Latency First Approach</h3>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-4xl">
-                        For transient user flows (like street navigation), loading a heavy mobile app is a friction point. However, web workers running lightweight on-device TF.js models achieve sub-150ms classifications. A hybrid pipeline (local detection falling back to cloud APIs only when accuracy drops) optimizes user latency while protecting cloud operating budgets.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <!-- LinkedIn Insights Section -->
-        <section id="linkedin" class="space-y-12 border-t border-editorial pt-16">
-            <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">LinkedIn Critiques & Insights</h2>
-                <p class="text-xs text-zinc-400 dark:text-zinc-500 font-mono">// Regular product observations, validation analysis, and experiments shared online</p>
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// COGNITIVE FILED LOGS</span>
+                <h2 class="text-3xl font-extrabold tracking-tight font-display">Observations</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card-editorial p-6 rounded-lg space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                <!-- Thought 1 -->
+                <div class="card-editorial rounded-lg p-6 space-y-4 border border-editorial hover:border-zinc-400 dark:hover:border-zinc-500 cursor-pointer transition-colors" onclick="toggleThought('thought-1')">
                     <div class="flex justify-between items-center text-xs font-mono text-zinc-400">
-                        <span>POST EXCERPT</span>
-                        <a href="https://www.linkedin.com/in/siddartha-reddy-munugala-95b35a333/" target="_blank" class="underline">View Post ↗</a>
+                        <span>OBSERVATION // 01</span>
+                        <span class="text-zinc-400 font-bold tracking-widest text-[9px] uppercase font-mono">Expand +</span>
                     </div>
-                    <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
-                        "The primary bottleneck of modern AI wrappers isn't the API cost—it is the time-to-value friction. If your product takes 5 seconds to load and requires a native install just to scan a document, the user has already solved it manually. We must optimize edge pipelines to deliver initial on-device value in under 200ms."
+                    <p class="text-lg font-bold text-zinc-900 dark:text-white leading-tight">
+                        Most startups fail before writing code.
                     </p>
+                    <div id="thought-1" class="hidden text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed border-t border-editorial pt-4 mt-2">
+                        They solve problems that nobody actually experiences. Product builders must prioritize validating market demand and user bottlenecks through rigorous interviews before deploying systems.
+                    </div>
                 </div>
-                <div class="card-editorial p-6 rounded-lg space-y-4">
+
+                <!-- Thought 2 -->
+                <div class="card-editorial rounded-lg p-6 space-y-4 border border-editorial hover:border-zinc-400 dark:hover:border-zinc-500 cursor-pointer transition-colors" onclick="toggleThought('thought-2')">
                     <div class="flex justify-between items-center text-xs font-mono text-zinc-400">
-                        <span>PRODUCT ANALYSIS</span>
-                        <a href="https://www.linkedin.com/in/siddartha-reddy-munugala-95b35a333/" target="_blank" class="underline">View Post ↗</a>
+                        <span>OBSERVATION // 02</span>
+                        <span class="text-zinc-400 font-bold tracking-widest text-[9px] uppercase font-mono">Expand +</span>
                     </div>
-                    <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
-                        "Progressive disclosure is a trust engine. Gating details (e.g. bio first, then experience, then contact details) gives users control over their data footprint. We must build form validators and routers that respect progressive bilateral authorization states."
+                    <p class="text-lg font-bold text-zinc-900 dark:text-white leading-tight">
+                        Prompt security gating is a leaky model.
                     </p>
+                    <div id="thought-2" class="hidden text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed border-t border-editorial pt-4 mt-2">
+                        AI models evaluate guidelines probabilistically. True runtime filesystem and shell isolation must be enforced deterministically at the interpreter boundary, completely decoupled from LLM prompts.
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Capabilities & Experience Section -->
-        <section id="capabilities" class="space-y-12 border-t border-editorial pt-16">
-            <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">Capabilities & Expertise</h2>
-                <p class="text-xs text-zinc-400 dark:text-zinc-500 font-mono">// Domain mapping showing cross-functional execution skills</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-                <div class="space-y-2">
-                    <h3 class="font-bold font-display text-base">AI & Systems</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400">
-                        Configuring edge-inference models, hybrid client-server routing pipelines, local database logs, and gRPC process isolation sandboxes.
-                    </p>
-                </div>
-                <div class="space-y-2">
-                    <h3 class="font-bold font-display text-base">Product & Growth</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400">
-                        Leading user friction research, defining core value metric loops, progressive disclosure matching systems, and organic acquisition funnels.
-                    </p>
-                </div>
-                <div class="space-y-2">
-                    <h3 class="font-bold font-display text-base">Technical Execution</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400">
-                        Deploying Next.js, React, TypeScript frontends, FastAPI python microservices, PyTorch, pennyLane quantum simulators, and branch-based CI/CD workflows.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Timeline Section -->
+        <!-- Human Build Log -->
         <section id="timeline" class="space-y-12 border-t border-editorial pt-16">
             <div class="space-y-2">
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">Product Shipping Log</h2>
-                <p class="text-xs text-zinc-400 dark:text-zinc-500 font-mono">// Chronological record of system builds and milestones</p>
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// SHIPPED CHRONICLES</span>
+                <h2 class="text-3xl font-extrabold tracking-tight font-display">Build Log</h2>
             </div>
-
+            
             <div class="space-y-6 font-mono text-xs max-w-3xl">
                 <div class="flex gap-8 py-4 border-b border-editorial">
-                    <span class="text-zinc-400 w-24 shrink-0">JUNE 2026</span>
+                    <span class="text-zinc-400 w-24 shrink-0">JULY 25, 2026</span>
                     <div class="space-y-1">
-                        <span class="font-bold text-zinc-950 dark:text-white">Shipped Scout Visual Edge System</span>
-                        <p class="text-zinc-500 text-[11px]">Bypassed iOS screen reader constraints; achieved 150ms local execution.</p>
+                        <span class="font-bold text-zinc-950 dark:text-white">Finished 20+ Assistive User Interviews</span>
+                        <p class="text-zinc-500 text-[11px]">Validated iOS VoiceOver lag constraints; adjusted edge-inference classifications.</p>
                     </div>
                 </div>
                 <div class="flex gap-8 py-4 border-b border-editorial">
-                    <span class="text-zinc-400 w-24 shrink-0">APRIL 2026</span>
+                    <span class="text-zinc-400 w-24 shrink-0">JULY 24, 2026</span>
                     <div class="space-y-1">
-                        <span class="font-bold text-zinc-950 dark:text-white">Shipped EKO Voice Platform</span>
-                        <p class="text-zinc-500 text-[11px]">Implemented multi-track separation microservices and simulated quantum recommendation modules.</p>
+                        <span class="font-bold text-zinc-950 dark:text-white">Removed Cloud Synthesis route</span>
+                        <p class="text-zinc-500 text-[11px]">Deleted heavy cloud TTS APIs, migrating 100% of speech rendering on-device.</p>
                     </div>
                 </div>
                 <div class="flex gap-8 py-4 border-b border-editorial">
-                    <span class="text-zinc-400 w-24 shrink-0">OCTOBER 2025</span>
+                    <span class="text-zinc-400 w-24 shrink-0">JULY 21, 2026</span>
                     <div class="space-y-1">
-                        <span class="font-bold text-zinc-950 dark:text-white">Launched VibeIn Matchmaking Network</span>
-                        <p class="text-zinc-500 text-[11px]">Scaled registry to 821 users with 40% retention under strict Zod validation flows.</p>
+                        <span class="font-bold text-zinc-950 dark:text-white">Optimized Simulated Quantum Recommendation</span>
+                        <p class="text-zinc-500 text-[11px]">Enforced 4-qubit simulated Pennylane backpropagation logic across audio recommendation stems.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Playground: Interactive Knowledge Graph of the Brain (Signature Animation) -->
+        <section id="playground" class="space-y-12 border-t border-editorial pt-16">
+            <div class="space-y-2">
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// KNOWLEDGE GRAPH</span>
+                <h2 class="text-3xl font-extrabold tracking-tight font-display">Mind Map Playground</h2>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">Hover nodes to witness real-time force-directed springs reorganizing the system.</p>
+            </div>
+            
+            <div class="relative w-full h-[400px] border border-editorial rounded-lg bg-zinc-50/50 dark:bg-black/60 overflow-hidden">
+                <canvas id="mindmap-canvas" class="absolute inset-0 w-full h-full cursor-pointer"></canvas>
             </div>
         </section>
 
@@ -568,5 +534,275 @@
 
     </main>
 
+    <script>
+        // Toggle thinking observations
+        function toggleThought(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // --- 1. Blueprint Canvas Backdrop ---
+        const bpCanvas = document.getElementById('blueprint-canvas');
+        if (bpCanvas) {
+            const ctx = bpCanvas.getContext('2d');
+            let w = bpCanvas.width = window.innerWidth;
+            let h = bpCanvas.height = window.innerHeight;
+            let mx = w/2, my = h/2;
+
+            window.addEventListener('resize', () => {
+                w = bpCanvas.width = window.innerWidth;
+                h = bpCanvas.height = window.innerHeight;
+            });
+            window.addEventListener('mousemove', (e) => {
+                mx = e.clientX;
+                my = e.clientY;
+            });
+
+            let time = 0;
+            function drawBlueprint() {
+                ctx.clearRect(0, 0, w, h);
+                const isDark = document.documentElement.classList.contains('dark');
+                
+                ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.02)' : 'rgba(0, 0, 0, 0.02)';
+                ctx.lineWidth = 0.5;
+
+                // Fine grid
+                const gridSize = 40;
+                for (let x = 0; x < w; x += gridSize) {
+                    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+                }
+                for (let y = 0; y < h; y += gridSize) {
+                    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+                }
+
+                // Radar rings
+                ctx.strokeStyle = isDark ? 'rgba(220, 38, 38, 0.015)' : 'rgba(220, 38, 38, 0.012)';
+                for (let r = 80; r < Math.max(w, h); r += 160) {
+                    ctx.beginPath();
+                    const cx = w/2 + Math.sin(time*0.4)*60;
+                    const cy = h/2 + Math.cos(time*0.4)*60;
+                    ctx.arc(cx, cy, r, 0, Math.PI*2);
+                    ctx.stroke();
+                }
+
+                // Live status text
+                ctx.fillStyle = isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.15)';
+                ctx.font = '8px monospace';
+                ctx.fillText(`LOC: [43.4323, -97.9892]`, 25, 25);
+                ctx.fillText(`TRK: [${mx.toFixed(0)}, ${my.toFixed(0)}]`, w - 160, 25);
+                ctx.fillText(`PING: 14ms`, 25, h - 25);
+                ctx.fillText(`FPS: 60`, w - 80, h - 25);
+
+                // Radar sweeps
+                ctx.strokeStyle = isDark ? 'rgba(220, 38, 38, 0.018)' : 'rgba(220, 38, 38, 0.015)';
+                ctx.beginPath();
+                ctx.moveTo(w/2, h/2);
+                ctx.lineTo(w/2 + Math.cos(time * 0.15) * 400, h/2 + Math.sin(time * 0.15) * 400);
+                ctx.stroke();
+
+                time += 0.02;
+                requestAnimationFrame(drawBlueprint);
+            }
+            drawBlueprint();
+        }
+
+        // --- 2. Interactive Mind Map Graph Canvas ---
+        const mmCanvas = document.getElementById('mindmap-canvas');
+        if (mmCanvas) {
+            const ctx = mmCanvas.getContext('2d');
+            let w = mmCanvas.width = mmCanvas.offsetWidth;
+            let h = mmCanvas.height = mmCanvas.offsetHeight;
+            let mouseX = -1000;
+            let mouseY = -1000;
+
+            window.addEventListener('resize', () => {
+                if (mmCanvas) {
+                    w = mmCanvas.width = mmCanvas.offsetWidth;
+                    h = mmCanvas.height = mmCanvas.offsetHeight;
+                }
+            });
+
+            mmCanvas.addEventListener('mousemove', (e) => {
+                const rect = mmCanvas.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            });
+            mmCanvas.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+
+            const nodes = [
+                // Products
+                { id: 'scout', name: 'Scout', x: w*0.3, y: h*0.4, vx: 0, vy: 0, type: 'product', desc: 'Assistive Visual companion' },
+                { id: 'prism', name: 'PRISM', x: w*0.5, y: h*0.3, vx: 0, vy: 0, type: 'product', desc: 'Secure agent sandbox proxy' },
+                { id: 'eko', name: 'EKO', x: w*0.7, y: h*0.4, vx: 0, vy: 0, type: 'product', desc: 'Quantum voice synth DAW' },
+                { id: 'vibein', name: 'VibeIn', x: w*0.4, y: h*0.7, vx: 0, vy: 0, type: 'product', desc: 'Progressive privacy matcher' },
+                
+                // Domains
+                { id: 'ai', name: 'AI Systems', x: w*0.2, y: h*0.2, vx: 0, vy: 0, type: 'domain', desc: 'Edge & local inferences' },
+                { id: 'sports', name: 'Sports Tech', x: w*0.8, y: h*0.2, vx: 0, vy: 0, type: 'domain', desc: 'FastAPI telemetry streams' },
+                { id: 'growth', name: 'Growth Loops', x: w*0.1, y: h*0.6, vx: 0, vy: 0, type: 'domain', desc: 'Organic retention matrices' },
+                { id: 'research', name: 'User Research', x: w*0.9, y: h*0.6, vx: 0, vy: 0, type: 'domain', desc: 'Friction audit diagnostics' },
+
+                // Stack
+                { id: 'next', name: 'Next.js', x: w*0.3, y: h*0.2, vx: 0, vy: 0, type: 'tech', desc: 'Frontend frameworks' },
+                { id: 'pytorch', name: 'PyTorch', x: w*0.7, y: h*0.3, vx: 0, vy: 0, type: 'tech', desc: 'DSP separating autoencoders' },
+                { id: 'quantum', name: 'Quantum Stems', x: w*0.8, y: h*0.5, vx: 0, vy: 0, type: 'tech', desc: 'Pennylane simulated backprops' },
+                { id: 'wasm', name: 'WASM edge', x: w*0.2, y: h*0.5, vx: 0, vy: 0, type: 'tech', desc: 'On-device client processing' }
+            ];
+
+            const links = [
+                { source: 'scout', target: 'next' },
+                { source: 'scout', target: 'wasm' },
+                { source: 'scout', target: 'ai' },
+                { source: 'prism', target: 'ai' },
+                { source: 'prism', target: 'wasm' },
+                { source: 'eko', target: 'pytorch' },
+                { source: 'eko', target: 'quantum' },
+                { source: 'eko', target: 'sports' },
+                { source: 'vibein', target: 'next' },
+                { source: 'vibein', target: 'growth' },
+                { source: 'vibein', target: 'research' },
+                { source: 'growth', target: 'research' }
+            ];
+
+            let hoveredNode = null;
+
+            function drawGraph() {
+                ctx.clearRect(0, 0, w, h);
+                const isDark = document.documentElement.classList.contains('dark');
+
+                // Update physics
+                nodes.forEach((n, idx) => {
+                    // Pull to center
+                    const cx = w / 2;
+                    const cy = h / 2;
+                    n.vx += (cx - n.x) * 0.005;
+                    n.vy += (cy - n.y) * 0.005;
+
+                    // Repulsion between nodes
+                    for (let i = idx + 1; i < nodes.length; i++) {
+                        const other = nodes[i];
+                        const dx = other.x - n.x;
+                        const dy = other.y - n.y;
+                        const dist = Math.hypot(dx, dy) || 1;
+                        if (dist < 100) {
+                            const force = (100 - dist) * 0.08;
+                            n.vx -= (dx / dist) * force;
+                            n.vy -= (dy / dist) * force;
+                            other.vx += (dx / dist) * force;
+                            other.vy += (dy / dist) * force;
+                        }
+                    }
+
+                    // Mouse interaction
+                    const mdx = mouseX - n.x;
+                    const mdy = mouseY - n.y;
+                    const mdist = Math.hypot(mdx, mdy) || 1;
+                    if (mdist < 120) {
+                        const force = (120 - mdist) * 0.15;
+                        n.vx -= (mdx / mdist) * force;
+                        n.vy -= (mdy / mdist) * force;
+                    }
+
+                    // Apply friction and move
+                    n.vx *= 0.85;
+                    n.vy *= 0.85;
+                    n.x += n.vx;
+                    n.y += n.vy;
+
+                    // Boundary constraints
+                    n.x = Math.max(20, Math.min(w - 20, n.x));
+                    n.y = Math.max(20, Math.min(h - 20, n.y));
+                });
+
+                // Spring forces on links
+                links.forEach(l => {
+                    const sNode = nodes.find(n => n.id === l.source);
+                    const tNode = nodes.find(n => n.id === l.target);
+                    if (sNode && tNode) {
+                        const dx = tNode.x - sNode.x;
+                        const dy = tNode.y - sNode.y;
+                        const dist = Math.hypot(dx, dy) || 1;
+                        const spring = (dist - 120) * 0.03;
+                        sNode.vx += (dx / dist) * spring;
+                        sNode.vy += (dy / dist) * spring;
+                        tNode.vx -= (dx / dist) * spring;
+                        tNode.vy -= (dy / dist) * spring;
+                    }
+                });
+
+                // Draw links
+                links.forEach(l => {
+                    const sNode = nodes.find(n => n.id === l.source);
+                    const tNode = nodes.find(n => n.id === l.target);
+                    if (sNode && tNode) {
+                        const isHighlighted = hoveredNode && (hoveredNode.id === l.source || hoveredNode.id === l.target);
+                        ctx.strokeStyle = isHighlighted
+                            ? (isDark ? 'rgba(212, 175, 55, 0.4)' : 'rgba(220, 38, 38, 0.4)')
+                            : (isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.04)');
+                        ctx.lineWidth = isHighlighted ? 1.5 : 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(sNode.x, sNode.y);
+                        ctx.lineTo(tNode.x, tNode.y);
+                        ctx.stroke();
+                    }
+                });
+
+                // Draw nodes
+                hoveredNode = null;
+                nodes.forEach(n => {
+                    const radius = n.type === 'product' ? 10 : 7;
+                    const isMouseOver = Math.hypot(mouseX - n.x, mouseY - n.y) < radius + 8;
+                    if (isMouseOver) hoveredNode = n;
+
+                    // Node body
+                    if (isMouseOver) {
+                        ctx.fillStyle = isDark ? '#d4af37' : '#dc2626';
+                    } else {
+                        ctx.fillStyle = n.type === 'product' 
+                            ? (isDark ? '#e4e4e7' : '#27272a') 
+                            : (isDark ? '#71717a' : '#a1a1aa');
+                    }
+                    
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, radius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Text labels
+                    ctx.font = 'bold 9px monospace';
+                    ctx.fillStyle = isMouseOver 
+                        ? (isDark ? '#ffffff' : '#000000') 
+                        : (isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)');
+                    ctx.fillText(n.name, n.x + radius + 5, n.y + 3);
+                });
+
+                // Display info overlay if hovering
+                if (hoveredNode) {
+                    ctx.fillStyle = isDark ? 'rgba(20, 20, 25, 0.9)' : 'rgba(255, 255, 255, 0.9)';
+                    ctx.strokeStyle = isDark ? 'rgba(212, 175, 55, 0.3)' : 'rgba(220, 38, 38, 0.3)';
+                    ctx.lineWidth = 1;
+                    ctx.fillRect(20, h - 70, 250, 50);
+                    ctx.strokeRect(20, h - 70, 250, 50);
+
+                    ctx.font = 'bold 10px monospace';
+                    ctx.fillStyle = isDark ? '#ffffff' : '#000000';
+                    ctx.fillText(`NODE: ${hoveredNode.name.toUpperCase()} [${hoveredNode.type.toUpperCase()}]`, 30, h - 52);
+                    
+                    ctx.font = '9px sans-serif';
+                    ctx.fillStyle = isDark ? '#a1a1aa' : '#52525b';
+                    ctx.fillText(hoveredNode.desc, 30, h - 36);
+                }
+
+                requestAnimationFrame(drawGraph);
+            }
+            drawGraph();
+        }
+    </script>
 </body>
 </html>
