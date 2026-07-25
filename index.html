@@ -217,7 +217,7 @@
             <div class="md:col-span-7 space-y-6 text-center md:text-left flex flex-col items-center md:items-start relative z-10">
                 <div class="flex flex-col sm:flex-row items-center gap-5 w-full">
                     <div class="w-20 h-20 rounded-2xl overflow-hidden border border-amber-500/40 shadow-lg shadow-red-950/40 shrink-0">
-                        <img src="anime_hero.jpg" alt="Siddartha Reddy Anime Hero" class="w-full h-full object-cover object-top scale-105">
+                        <img src="minimal_anime_avatar.jpg" alt="Siddartha Reddy Anime Hero" class="w-full h-full object-cover object-top scale-105">
                     </div>
                     <div class="space-y-1.5 text-center sm:text-left">
                         <div class="flex flex-wrap justify-center sm:justify-start gap-2 mb-1">
@@ -306,9 +306,7 @@
                         </div>
 
                         <!-- Right Panel: Editor & Code Runner -->
-                        <div class="w-7/12 p-3 bg-black/40 flex flex-col justify-between relative overflow-hidden bg-cover bg-center" style="background-image: url('anime_cyber.jpg');">
-                            <!-- Dark semi-transparent overlay to ensure text contrast -->
-                            <div class="absolute inset-0 bg-slate-950/85 backdrop-blur-[2.5px] z-0"></div>
+                        <div class="w-7/12 p-3 bg-black/40 flex flex-col justify-between relative overflow-hidden">
                             <!-- Editor Header -->
                             <div class="flex justify-between items-center border-b border-white/5 pb-2 mb-2 select-none relative z-10">
                                 <span id="active-file-title" class="font-mono text-[9px] text-gray-400">src/bio.sh</span>
@@ -545,10 +543,8 @@ ws.on('connection', (sock) => {
                         </div>
                         
                         <!-- Interactive bezier audio waveform Canvas -->
-                        <div class="relative w-full h-36 rounded-xl overflow-hidden border border-white/5 bg-black/50 bg-cover bg-center" style="background-image: url('anime_audio.jpg');">
-                            <!-- Dark crimson-vibe overlay for text readability -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                            <canvas id="ekoCanvas" class="absolute inset-0 w-full h-full mix-blend-screen"></canvas>
+                        <div class="relative w-full h-36 rounded-xl overflow-hidden border border-white/5 bg-[#09090b]">
+                            <canvas id="ekoCanvas" class="absolute inset-0 w-full h-full"></canvas>
                         </div>
 
                         <p class="text-xs text-gray-300 font-semibold leading-relaxed">AI-assisted multi-track DAW, voice-preserving dubbing pipeline, and quantum recommendation system.</p>
