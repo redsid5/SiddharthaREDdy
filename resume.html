@@ -181,6 +181,14 @@
     margin-bottom: 2px;
   }
 
+  /* CSS Focus ring style overrides for keyboard accessibility */
+  @media screen {
+    :focus-visible {
+        outline: 2px solid #6366f1;
+        outline-offset: 4px;
+    }
+  }
+
   /* Digital/Web screen overrides */
   @media screen {
     body {
