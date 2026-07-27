@@ -77,18 +77,98 @@
     --base-line-height: 1.3;
   }
 
-  /* Scoped CSS variables for Instawork resume */
+  /* Scoped CSS variables and overrides for Instawork (bad resume) */
   #page-instawork {
-    --page-padding-top: 22px;
-    --page-padding-bottom: 25px;
-    --page-padding-left-right: 52px;
-    --section-margin-top: 7px;
-    --section-label-margin-bottom: 3px;
-    --entry-margin-bottom: 3px;
-    --li-margin-bottom: 0.5px;
-    --skills-line-height: 1.25;
-    --base-font-size: 8.5px;
-    --base-line-height: 1.25;
+    --page-padding-top: 28px;
+    --page-padding-bottom: 32px;
+    --page-padding-left-right: 34px;
+    --base-font-size: 14px;
+    --base-line-height: 1.35;
+    background: #ffffff;
+    color: #111827;
+    font-family: Arial, Helvetica, sans-serif !important;
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: var(--page-padding-top) var(--page-padding-left-right) var(--page-padding-bottom);
+  }
+  #page-instawork header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  #page-instawork h1 {
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 0 0 6px;
+    letter-spacing: 0.2px;
+    font-weight: bold;
+    color: #111827;
+  }
+  #page-instawork .contact {
+    font-size: 13px;
+    color: #4b5563;
+  }
+  #page-instawork .contact a {
+    color: inherit;
+    text-decoration: none;
+  }
+  #page-instawork section {
+    margin-top: 14px;
+  }
+  #page-instawork h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    margin: 0 0 8px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #d1d5db;
+    font-weight: bold;
+    color: #111827;
+  }
+  #page-instawork p {
+    margin: 0;
+    font-size: 14px;
+    color: #111827;
+  }
+  #page-instawork .entry {
+    margin-bottom: 11px;
+  }
+  #page-instawork .entry-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: baseline;
+  }
+  #page-instawork .role {
+    font-weight: 700;
+    font-size: 14px;
+    color: #111827;
+  }
+  #page-instawork .date {
+    color: #4b5563;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+  #page-instawork .sub {
+    color: #4b5563;
+    margin-top: 2px;
+    font-size: 13px;
+  }
+  #page-instawork ul {
+    margin: 5px 0 0 18px;
+    padding: 0;
+    list-style-type: disc;
+  }
+  #page-instawork li {
+    margin-bottom: 3px;
+    font-size: 14px;
+    color: #111827;
+  }
+  #page-instawork .skills p {
+    margin-bottom: 4px;
+  }
+  #page-instawork .label {
+    font-weight: 700;
   }
 
   /* Scoped CSS variables for Startup resume */
@@ -471,6 +551,31 @@
     #page-instawork, #page-instawork * {
       font-family: Arial, sans-serif !important;
     }
+    #page-instawork h1 {
+      font-size: 22px !important;
+    }
+    #page-instawork h2 {
+      font-size: 11px !important;
+      margin-bottom: 6px !important;
+    }
+    #page-instawork .role {
+      font-size: 11px !important;
+    }
+    #page-instawork .contact, #page-instawork .sub, #page-instawork .date {
+      font-size: 10px !important;
+    }
+    #page-instawork p, #page-instawork li {
+      font-size: 11px !important;
+    }
+    #page-instawork li {
+      margin-bottom: 2px !important;
+    }
+    #page-instawork section {
+      margin-top: 10px !important;
+    }
+    #page-instawork .entry {
+      margin-bottom: 8px !important;
+    }
     #page-startup {
       font-family: Arial, sans-serif !important;
     }
@@ -538,11 +643,29 @@
         --section-margin-top: 14px !important;
       }
       #page-instawork {
-        --base-font-size: 10px !important;
-        --page-padding-left-right: 20px !important;
-        --page-padding-top: 20px !important;
-        --page-padding-bottom: 20px !important;
-        --section-margin-top: 12px !important;
+        margin: 1.5rem 1rem !important;
+        padding: 24px 20px !important;
+        min-height: auto !important;
+        height: auto !important;
+        border-radius: 8px !important;
+      }
+      #page-instawork h1 {
+        font-size: 20px !important;
+      }
+      #page-instawork h2 {
+        font-size: 11px !important;
+      }
+      #page-instawork .role {
+        font-size: 12px !important;
+      }
+      #page-instawork .contact, #page-instawork .sub, #page-instawork .date {
+        font-size: 11px !important;
+      }
+      #page-instawork p, #page-instawork li {
+        font-size: 12px !important;
+      }
+      #page-instawork section {
+        margin-top: 10px !important;
       }
       #page-startup {
         --base-font-size: 11px !important;
@@ -864,180 +987,165 @@
 
     <!-- RUBINBROWN RESUME (Passcode: 58775) -->
     <div id="page-instawork" class="page hidden">
-      <!-- HEADER -->
-      <div class="header-name">Siddartha Reddy Munugala</div>
-      <div class="contact">
-        New Jersey <span class="sep">&bull;</span>
-        <a href="tel:6362621008">(636) 262-1008</a> <span class="sep">&bull;</span>
-        <a href="mailto:Siddarth.lbf341@gmail.com">Siddarth.lbf341@gmail.com</a> <span class="sep">&bull;</span>
-        <a href="https://github.com/Redsid5" target="_blank">github.com/Redsid5</a> <span class="sep">&bull;</span>
-        <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank">linkedin.com/in/siddartharm</a> <span class="sep">&bull;</span>
-        vibein.us <span class="sep">&bull;</span> arenahq.us
-      </div>
-
-      <!-- SUMMARY -->
-      <section class="section">
-        <div class="section-title">Summary</div>
-        <p class="summary">
-          Computer Science student and full-stack engineer with hands-on experience building and shipping AI-powered products, real-time web applications, and ML pipelines. Two live platforms with 1,621 combined users, 20% active retention. Currently building EKO, a proprietary AI audio platform with 821 users and 40% DAU. Comfortable owning full-stack architecture, deployment, debugging, and rapid iteration in fast-paced environments.
-        </p>
-      </section>
-
-      <!-- EDUCATION -->
-      <section class="section">
-        <div class="section-title">Education</div>
-        <div class="entry">
-          <div class="row">
-            <span class="bold">University of South Dakota</span>
-            <span class="meta">Vermillion, SD | Expected May 2027</span>
-          </div>
-          <div class="subline">B.S. Computer Science — Minor in Innovation &amp; Entrepreneurship</div>
-          <div class="small">Relevant Coursework: Data Structures, Algorithms, Systems Programming, Database Systems, Software Engineering</div>
+      <header>
+        <h1>Siddartha Reddy Munugala</h1>
+        <div class="contact">
+          New Jersey | (636) 262-1008 | <a href="mailto:siddarth.lbf341@gmail.com">siddarth.lbf341@gmail.com</a> |
+          <a href="https://github.com/Redsid5" target="_blank" rel="noopener noreferrer">github.com/Redsid5</a> |
+          <a href="https://linkedin.com/in/siddartha-reddy-munugala-95b35a333" target="_blank" rel="noopener noreferrer">linkedin.com/in/siddartha-reddy-munugala-95b35a333</a>
         </div>
+      </header>
+
+      <section>
+        <h2>Professional Summary</h2>
+        <p>Software engineer, startup builder, and product operator with hands-on experience building AI-powered full-stack products, leading zero-to-one development, and operating live user-facing systems. Co-founded VibeIn LLC and led product development, pitch materials, business positioning, presentations, growth planning, and technical execution across consumer, real-time, and AI platforms. Brings a mix of software engineering, entrepreneurship, sports production operations, fan engagement, brand storytelling, content scripting, and workflow automation for student organizations and early-stage ventures.</p>
       </section>
 
-      <!-- SKILLS -->
-      <section class="section">
-        <div class="section-title">Technical Skills</div>
-        <div class="skills-block">
-          <strong>Languages:</strong> Python, TypeScript, JavaScript, SQL<br>
-          <strong>Frameworks:</strong> Next.js 14, React, Node.js, FastAPI, Tailwind CSS<br>
-          <strong>AI / ML:</strong> XGBoost, SHAP, PyTorch, Claude API, Gemini API, OpenAI API, LangChain, Whisper, Google Lyria 3, RAG, prompt engineering, agentic workflows<br>
-          <strong>Infrastructure:</strong> Supabase, PostgreSQL, Neon Postgres, Redis, Docker, Vercel, Render, Git, GitHub Actions<br>
-          <strong>Other:</strong> WebRTC, WebSockets, REST APIs, FFmpeg, Demucs, CodeMirror 6, tree-sitter, NetworkX
-        </div>
+      <section class="skills">
+        <h2>Core Technical Skills</h2>
+        <p><span class="label">Languages:</span> Python, TypeScript, JavaScript, SQL, HTML, CSS</p>
+        <p><span class="label">Frameworks &amp; Libraries:</span> Next.js, React, Node.js, FastAPI, Express, Tailwind CSS, React Hook Form, Zod, CodeMirror</p>
+        <p><span class="label">AI &amp; Automation:</span> Gemini API, Claude API, OpenAI API, LLM workflows, prompt design, AI email assistance, OCR, computer vision, speech and audio pipelines, workflow automation</p>
+        <p><span class="label">Cloud &amp; Data:</span> Supabase, PostgreSQL, Neon Postgres, Vercel, Render, Google Cloud Run, Vercel Blob, Drizzle ORM</p>
+        <p><span class="label">Architecture &amp; Protocols:</span> REST APIs, WebRTC, WebSockets, Realtime systems, CI/CD, row-level security, system design, multi-tenant product architecture</p>
+        <p><span class="label">Product &amp; Business:</span> Product operations, entrepreneurship, startup growth, pitch deck creation, presentations, user interviews, fan engagement strategy, brand development, script writing, creator support</p>
       </section>
 
-      <!-- EXPERIENCE -->
-      <section class="section">
-        <div class="section-title">Experience</div>
+      <section>
+        <h2>Experience</h2>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">Co-Founder &amp; Lead Engineer — VibeIn / ArenaHQ</span>
-            <span class="meta">Jan 2025 – Present</span>
+          <div class="entry-header">
+            <div class="role">Co-Founder &amp; Lead Developer, VibeIn LLC</div>
+            <div class="date">Jan 2025 - Present</div>
           </div>
-          <div class="entry-sub">vibein.us · arenahq.us</div>
+          <div class="sub">Startup Founder | Product, Engineering, Growth, and Business Operations</div>
           <ul>
-            <li>Built and shipped two full-stack web applications (Next.js 14, Supabase, WebRTC, Twilio, Gemini AI) serving 1,621 combined registered users with 20% active retention pre-beta.</li>
-            <li>Resolved 8+ critical production incidents — RLS authentication failures, Gemini API deprecation, broken SMS/WhatsApp notifications, Supabase Realtime failures — under hard deployment deadlines.</li>
-            <li>Implemented row-level security, real-time chat, peer recommendation matrices, and P2P camera authentication for live exam proctoring.</li>
-            <li>Conducted 50+ user interviews to drive feature iteration; managed end-to-end Vercel deployment pipelines with 99%+ uptime across both platforms.</li>
+            <li>Co-founded VibeIn LLC and led end-to-end product development across VibeIn, ArenaHQ, and related startup initiatives, owning architecture, feature development, deployment, product direction, and technical execution.</li>
+            <li>Built startup positioning materials including pitch decks, product narratives, presentations, and founder-facing demos used to communicate market value, user pain points, roadmap, and growth vision.</li>
+            <li>Combined technical execution with entrepreneurship by shaping business models, validating ideas through user feedback, and turning concepts into production-ready web platforms using modern vibecoding and rapid prototyping tools.</li>
+            <li>Drove zero-to-one development across full-stack systems involving AI integrations, real-time communication, authentication, dashboards, and user engagement workflows while handling live production fixes under tight deadlines.</li>
           </ul>
         </div>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">Production Operations Staff — USD Athletics</span>
-            <span class="meta">Aug 2025 – Present</span>
+          <div class="entry-header">
+            <div class="role">Production Operations Staff, USD Athletics</div>
+            <div class="date">Aug 2025 - Present</div>
           </div>
-          <div class="entry-sub">University of South Dakota · Part-Time On-Campus</div>
+          <div class="sub">University of South Dakota Athletics</div>
           <ul>
-            <li>Operate live-event audio systems, stadium display boards, and broadcast cues for NCAA athletics events under zero-tolerance real-time production constraints.</li>
+            <li>Supported real game-day production and sports fan experience operations by coordinating live camera, audio, stadium board, and in-venue production workflows for athletics events.</li>
+            <li>Worked in fast-paced live-event conditions where timing, crowd energy, communication, and fan engagement directly affected the quality of the event experience.</li>
+            <li>Contributed to the behind-the-scenes technical execution that connects sports, media production, and audience experience in a live collegiate athletics environment.</li>
           </ul>
         </div>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">IT Coordinator &amp; Publicity Chair — NSLS Executive Board</span>
-            <span class="meta">Sep 2024 – Present</span>
+          <div class="entry-header">
+            <div class="role">IT Coordinator &amp; Publicity Chair, NSLS Executive Board</div>
+            <div class="date">Sep 2024 - Present</div>
           </div>
-          <div class="entry-sub">University of South Dakota</div>
+          <div class="sub">University of South Dakota Chapter</div>
           <ul>
-            <li>Built member tracking pipelines, communication scripts, and recruitment dashboards; automated onboarding workflows reducing latency by 50% using Python and Google Apps Script.</li>
+            <li>Managed chapter technology operations, communications support, and publicity workflows for student membership engagement and executive board coordination.</li>
+            <li>Built Excel and spreadsheet-based member tracking systems, automated outreach workflows, and improved communication processes for onboarding and follow-up.</li>
+            <li>Implemented automation for recurring email tasks and explored AI-assisted Q&amp;A response workflows to help answer student questions from NSLS members more efficiently.</li>
+            <li>Supported chapter branding, recruitment messaging, and operational coordination across events, member communication, and internal admin tasks.</li>
           </ul>
         </div>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">Freelance Brand &amp; Content Consultant</span>
-            <span class="meta">Jun 2019 – Dec 2022</span>
+          <div class="entry-header">
+            <div class="role">Freelance Brand, Content &amp; Creator Consultant</div>
+            <div class="date">Jun 2019 - Dec 2022</div>
           </div>
-          <div class="entry-sub">Independent · Remote</div>
+          <div class="sub">Independent Freelance Work</div>
           <ul>
-            <li>Managed brand identities and distribution campaigns for 10+ internet creators and small businesses; maintained 100% client retention across 3+ years under NDA.</li>
+            <li>Worked with influencers, creators, and small brands on content planning, brand identity development, script writing, and short-form advertising concepts.</li>
+            <li>Helped clients shape messaging for brand campaigns, influencer advertisements, social media content, and audience-facing storytelling.</li>
+            <li>Created short scripts, campaign ideas, and content direction aligned with product goals, audience tone, and creator brand positioning.</li>
+            <li>Delivered freelance support across branding, creative ideation, promotion strategy, and execution support for digital-first businesses.</li>
           </ul>
         </div>
       </section>
 
-      <!-- PROJECTS -->
-      <section class="section">
-        <div class="section-title">Projects</div>
+      <section>
+        <h2>Projects</h2>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">EKO — AI Background Music &amp; Voice Dubbing System</span>
-            <span class="meta">2026 – Present</span>
+          <div class="entry-header">
+            <div class="role">ArenaHQ</div>
+            <div class="date">2025 - Present</div>
           </div>
           <ul>
-            <li>Built a three-mode AI audio platform: Studio (vocal sketch to 10 BGM variations via Google Lyria 3), BGM Dub (scene-energy-matched music generation), and Voice Dub (multilingual speech replacement via Demucs stem separation and faster-whisper transcription).</li>
-            <li>Resolved critical memory constraint on 2GB Render container by migrating from local MusicGen-small (1.8GB RAM) to HuggingFace Inference API (~400MB); fixed silent loop failures causing single-variation generation bug.</li>
-            <li>821 registered users, 40% DAU at zero paid acquisition cost. ArXiv preprint (cs.SD) in progress. Stack: Next.js 14, FastAPI, Neon Postgres, Vercel, Render, Gemini Flash, Demucs, librosa.</li>
+            <li>Built a real-time competitive platform combining live coding, WebRTC video verification, matchmaking, and multi-user session coordination for skill-based technical competition.</li>
+            <li>Designed product flows around trust, live participation, creator-style engagement, and interactive user experiences that connect technology, performance, and competitive community building.</li>
           </ul>
         </div>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">PRISM — PR Risk Intelligence &amp; Structural Modeling</span>
-            <span class="meta">2026</span>
+          <div class="entry-header">
+            <div class="role">VibeIn</div>
+            <div class="date">2025 - Present</div>
           </div>
           <ul>
-            <li>ML pipeline predicting post-merge engineering risk from 45 engineered features (AST complexity via tree-sitter, dependency graphs via NetworkX, code churn); XGBoost classifier with SHAP explainability; validated at AUC &ge; 0.80, cross-repo generalization gap DELTA-AUC less than 0.05.</li>
-            <li>Authored two formal research proposals with full mathematical appendices for USD faculty and external mentorship review.</li>
+            <li>Developed a flagship social product focused on intentional connection, product-led growth, and user engagement, combining full-stack engineering with startup experimentation and founder-led iteration.</li>
+            <li>Used rapid prototyping and vibecoding workflows to turn concepts into shipped product surfaces, test engagement ideas, and build business value around a live startup concept.</li>
           </ul>
         </div>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">COGN — Cognitive Integrity Layer for AI Codebases</span>
-            <span class="meta">2026</span>
+          <div class="entry-header">
+            <div class="role">Scout</div>
+            <div class="date">2026</div>
           </div>
           <ul>
-            <li>Open-source CI/CD GitHub Action that scores pull requests for cognitive drift — measurable reasoning-pattern shifts introduced by AI-generated code — against repository baselines using three custom primitives.</li>
+            <li>Built a real-time AI vision assistant that combined camera input, local computer vision, OCR, and cloud AI fallback for fast scene understanding and accessibility support.</li>
+            <li>Demonstrated practical experience working at the intersection of camera systems, real-time inference, user safety, and production-ready web engineering.</li>
           </ul>
         </div>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">ALASKA — Encrypted AI Assistant for Military Veterans</span>
-            <span class="meta">2026 · Top-10 Hackathon Finish</span>
+          <div class="entry-header">
+            <div class="role">eko</div>
+            <div class="date">2026 - Present</div>
           </div>
           <ul>
-            <li>Built in 48 hours: AES-256-GCM encrypted LLM assistant with VA routing algorithm, crisis detection, and accessibility modes.</li>
+            <li>Engineered an AI audio platform spanning music generation, voice dubbing, signal processing, and backend rendering workflows across web and Python services.</li>
+            <li>Worked on technically demanding audio pipelines involving voice, sound generation, processing logic, and AI-assisted media creation.</li>
           </ul>
         </div>
 
         <div class="entry">
-          <div class="row">
-            <span class="bold">PETRI-Verse — Autonomous Multi-Agent AI Simulation</span>
-            <span class="meta">2025</span>
+          <div class="entry-header">
+            <div class="role">PETRI-Verse</div>
+            <div class="date">2025</div>
           </div>
           <ul>
-            <li>Concurrent 62-agent LLM civilization simulation with tick-based event loop; produced an original AI safety finding around emergent self_modify() behavior patterns across agents.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="row">
-            <span class="bold">WTFcode — Natural Language Developer CLI</span>
-            <span class="meta">2026</span>
-          </div>
-          <ul>
-            <li>Multi-agent agentic developer tool converting natural language to structured multi-step reasoning and code execution pipelines; reduced token overhead 90% via directory import-map compression.</li>
+            <li>Built a persistent multi-agent simulation with autonomous decision systems, live state updates, and research-oriented experimentation around agent behavior and governance.</li>
           </ul>
         </div>
       </section>
 
-      <!-- LEADERSHIP -->
-      <section class="section">
-        <div class="section-title">Leadership &amp; Activities</div>
+      <section>
+        <h2>Education</h2>
         <div class="entry">
-          <ul>
-            <li>AI &amp; Entrepreneurship Workshop Facilitator (Self-Initiated, Offline) — lead community sessions for teenagers ages 13 to 16 on AI in daily life, business fundamentals, customer discovery, product building, and public speaking skills.</li>
-            <li>USD INFORMS (Beacom School of Business) — authored 10-week strategic operational plan; built chapter admin portal.</li>
-            <li>NSLS Executive Board — IT Coordinator and Publicity Chair. USD Marketing Club member.</li>
-          </ul>
+          <div class="entry-header">
+            <div class="role">B.A. in Computer Science, Minor in Innovation and Entrepreneurship</div>
+            <div class="date">Expected May 2027</div>
+          </div>
+          <div class="sub">University of South Dakota</div>
         </div>
+      </section>
+
+      <section>
+        <h2>Leadership &amp; Entrepreneurship</h2>
+        <ul>
+          <li>Founder-minded builder with experience connecting product development, branding, technical execution, presentations, and business storytelling for early-stage startup ideas.</li>
+          <li>Led AI and entrepreneurship workshops for younger students focused on technology, product thinking, communication, and business creativity.</li>
+          <li>Blends software engineering with product operations, audience understanding, sports fan experience, creator marketing, and startup execution.</li>
+        </ul>
       </section>
     </div>
 
