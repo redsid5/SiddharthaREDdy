@@ -123,7 +123,7 @@
     letter-spacing: 1.1px;
     margin: 0 0 8px;
     padding-bottom: 3px;
-    border-bottom: 1px solid #d1d5db;
+    border-block-end: 1px solid #d1d5db;
     font-weight: bold;
     color: #111827;
   }
@@ -1000,12 +1000,12 @@
       </header>
 
       <section>
-        <h2>Professional Summary</h2>
+        <h2>Summary</h2>
         <p>Software engineer, startup builder, and product operator with hands-on experience building AI-powered full-stack products, leading zero-to-one development, and operating live user-facing systems. Co-founded VibeIn LLC and led product development, pitch materials, business positioning, presentations, growth planning, and technical execution across consumer, real-time, and AI platforms. Brings a mix of software engineering, entrepreneurship, sports production operations, fan engagement, brand storytelling, content scripting, and workflow automation for student organizations and early-stage ventures.</p>
       </section>
 
       <section class="skills">
-        <h2>Core Technical Skills</h2>
+        <h2>Skills</h2>
         <p><span class="label">Languages:</span> Python, TypeScript, JavaScript, SQL, HTML, CSS</p>
         <p><span class="label">Frameworks &amp; Libraries:</span> Next.js, React, Node.js, FastAPI, Express, Tailwind CSS, React Hook Form, Zod, CodeMirror</p>
         <p><span class="label">AI &amp; Automation:</span> Gemini API, Claude API, OpenAI API, LLM workflows, prompt design, AI email assistance, OCR, computer vision, speech and audio pipelines, workflow automation</p>
@@ -1143,7 +1143,7 @@
       </section>
 
       <section>
-        <h2>Leadership &amp; Entrepreneurship</h2>
+        <h2>Leadership</h2>
         <ul>
           <li>Founder-minded builder with experience connecting product development, branding, technical execution, presentations, and business storytelling for early-stage startup ideas.</li>
           <li>Led AI and entrepreneurship workshops for younger students focused on technology, product thinking, communication, and business creativity.</li>
@@ -1398,28 +1398,28 @@
         }
       } else if (version === 'bad') {
         pageInsta.classList.remove('hidden');
-        if (titleEl) titleEl.innerText = 'BAD RESUME';
+        if (titleEl) titleEl.innerText = 'Instawork Resume';
         if (badge) {
-          badge.textContent = 'BAD RESUME Active';
+          badge.textContent = 'Instawork Active';
           badge.className = 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         // Telemetry update
-        if (tRating) { tRating.textContent = '45 / 100'; tRating.className = 'text-rose-500 font-bold text-xs'; }
-        if (tPages) tPages.textContent = '2 Pages';
-        if (tFont) tFont.textContent = 'Arial / DM Sans';
-        if (tWords) tWords.textContent = '512 words';
-        if (tStatus) { tStatus.textContent = 'Compromised'; tStatus.className = 'text-[8px] text-rose-500 font-bold tracking-widest uppercase animate-pulse'; }
-        if (tPulse) tPulse.className = 'w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping';
+        if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-600 dark:text-emerald-400 font-bold text-xs'; }
+        if (tPages) tPages.textContent = '1 Page';
+        if (tFont) tFont.textContent = 'Clarity City + Arial';
+        if (tWords) tWords.textContent = '494 words';
+        if (tStatus) { tStatus.textContent = 'Active'; tStatus.className = 'text-[8px] text-emerald-600 dark:text-emerald-400 font-bold tracking-widest uppercase'; }
+        if (tPulse) tPulse.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping';
         if (tChecks) {
           tChecks.innerHTML = `
-            <div class="flex items-center gap-1.5 text-rose-500/80">
-              <span>❌</span> <span>Single Column (Sidebar found)</span>
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
+              <span>✓</span> <span>Single Column Format</span>
             </div>
-            <div class="flex items-center gap-1.5 text-rose-500/80">
-              <span>❌</span> <span>Standard Headings (Modified)</span>
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
+              <span>✓</span> <span>Standard Headings Only</span>
             </div>
-            <div class="flex items-center gap-1.5 text-rose-500/80">
-              <span>❌</span> <span>No tables (Tables detected)</span>
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400/80">
+              <span>✓</span> <span>No tables, boxes, or sidebars</span>
             </div>
           `;
         }
