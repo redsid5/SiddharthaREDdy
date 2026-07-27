@@ -705,20 +705,22 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
           Print / Save PDF
         </button>
-
         <!-- Version Switcher -->
-        <div class="bg-zinc-100 dark:bg-zinc-900 p-0.5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 flex">
-          <button onclick="switchVersion('standard')" id="btn-version-standard" class="flex-1 py-1.5 rounded text-[10px] md:text-xs font-bold font-mono transition-all text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-sm">
+        <div class="bg-zinc-100 dark:bg-zinc-900 p-0.5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 flex gap-0.5">
+          <button onclick="switchVersion('standard')" id="btn-version-standard" class="flex-1 py-1.5 rounded text-[10px] md:text-xs font-bold font-mono transition-all text-center text-zinc-500 dark:text-zinc-400">
             Standard
           </button>
-          <button onclick="switchVersion('startup')" id="btn-version-startup" class="flex-1 py-1.5 rounded text-[10px] md:text-xs font-bold font-mono transition-all text-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
+          <button onclick="switchVersion('startup')" id="btn-version-startup" class="flex-1 py-1.5 rounded text-[10px] md:text-xs font-bold font-mono transition-all text-center text-zinc-500 dark:text-zinc-400">
             Startup
+          </button>
+          <button onclick="handleBadClick()" id="btn-version-bad" class="flex-1 py-1.5 rounded text-[10px] md:text-xs font-bold font-mono transition-all text-center text-zinc-400 dark:text-zinc-600 line-through opacity-75">
+            🔒 Bad
           </button>
         </div>
       </div>
 
-      <!-- Passcode Unlock Card (Hidden on mobile for space) -->
-      <div class="hidden md:block border-t border-zinc-200 dark:border-zinc-800/80 pt-4 space-y-2">
+      <!-- Passcode Unlock Card -->
+      <div id="passcode-container" class="border-t border-zinc-200 dark:border-zinc-800/80 pt-4 space-y-2">
         <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">Unlock BAD RESUME</span>
         <div class="flex gap-2">
           <input type="password" id="passcode-input" placeholder="Enter Passcode..." class="flex-grow bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 px-3 py-1.5 rounded-lg text-zinc-900 dark:text-white text-xs focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors font-mono">
@@ -729,8 +731,8 @@
         <div id="passcode-message" class="text-[10px] text-zinc-500 font-mono hidden"></div>
       </div>
 
-      <!-- ATS Telemetry HUD Widget (Hidden on mobile for space) -->
-      <div class="hidden md:block border-t border-zinc-200 dark:border-zinc-800/80 pt-4 space-y-2">
+      <!-- ATS Telemetry HUD Widget -->
+      <div id="ats-hud-container" class="border-t border-zinc-200 dark:border-zinc-800/80 pt-4 space-y-2">
         <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">ATS Compliance HUD</span>
         <div class="bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 rounded-xl p-4 font-mono text-[10px] space-y-3 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-500/5 to-transparent h-full w-full pointer-events-none animate-[scan_3s_linear_infinite]"></div>
@@ -1283,12 +1285,24 @@
           </ul>
         </div>
       </section>
-    </div>
 
-  </main>
-
-  <!-- Passcode checking script -->
   <script>
+    let isBadUnlocked = false;
+
+    function handleBadClick() {
+      if (isBadUnlocked) {
+        switchVersion('bad');
+      } else {
+        const input = document.getElementById('passcode-input');
+        if (input) {
+          input.focus();
+          input.placeholder = "Enter passcode 58775...";
+          input.classList.add('animate-bounce');
+          setTimeout(() => input.classList.remove('animate-bounce'), 1000);
+        }
+      }
+    }
+
     function switchVersion(version) {
       const pageStd = document.getElementById('page-standard');
       const pageInsta = document.getElementById('page-instawork');
@@ -1298,6 +1312,7 @@
 
       const btnStd = document.getElementById('btn-version-standard');
       const btnStart = document.getElementById('btn-version-startup');
+      const btnBad = document.getElementById('btn-version-bad');
 
       // Telemetry elements
       const tRating = document.getElementById('telemetry-rating');
@@ -1314,11 +1329,15 @@
       pageStart.classList.add('hidden');
 
       // Reset button classes
-      if (btnStd) {
-        btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-white';
-      }
-      if (btnStart) {
-        btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-white';
+      const defaultBtnClass = 'flex-1 py-1.5 rounded text-[10px] md:text-xs font-bold font-mono transition-all text-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white';
+      if (btnStd) btnStd.className = defaultBtnClass;
+      if (btnStart) btnStart.className = defaultBtnClass;
+      if (btnBad) {
+        if (isBadUnlocked) {
+          btnBad.className = defaultBtnClass;
+        } else {
+          btnBad.className = 'flex-1 py-1.5 rounded text-[10px] md:text-xs font-bold font-mono transition-all text-center text-zinc-400 dark:text-zinc-600 line-through opacity-75';
+        }
       }
 
       if (version === 'standard') {
@@ -1329,7 +1348,7 @@
           badge.className = 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStd) {
-          btnStd.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-rose-600 text-zinc-900 dark:text-white shadow-lg';
+          btnStd.className = 'flex-1 py-1.5 rounded text-[10px] font-bold font-mono transition-all text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-sm';
         }
         // Telemetry update
         if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-600 dark:text-emerald-400 font-bold text-xs'; }
@@ -1359,7 +1378,7 @@
           badge.className = 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded font-mono text-[9px]';
         }
         if (btnStart) {
-          btnStart.className = 'py-1.5 px-3 rounded-lg text-xs font-bold font-mono transition-all text-center bg-amber-600 text-zinc-900 dark:text-white shadow-lg';
+          btnStart.className = 'flex-1 py-1.5 rounded text-[10px] font-bold font-mono transition-all text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-sm';
         }
         // Telemetry update
         if (tRating) { tRating.textContent = '100 / 100'; tRating.className = 'text-emerald-600 dark:text-emerald-400 font-bold text-xs'; }
@@ -1382,6 +1401,13 @@
           `;
         }
       } else if (version === 'bad') {
+        isBadUnlocked = true;
+        const btnBad = document.getElementById('btn-version-bad');
+        if (btnBad) {
+          btnBad.textContent = 'Bad';
+          btnBad.setAttribute('onclick', "switchVersion('bad')");
+          btnBad.className = 'flex-1 py-1.5 rounded text-[10px] font-bold font-mono transition-all text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-sm';
+        }
         pageInsta.classList.remove('hidden');
         if (titleEl) titleEl.innerText = 'Instawork Resume';
         if (badge) {
@@ -1417,6 +1443,12 @@
       const code = (codeFromUrl || (input ? input.value.trim() : '')).toLowerCase();
 
       if (code === '58775') {
+        isBadUnlocked = true;
+        const btnBad = document.getElementById('btn-version-bad');
+        if (btnBad) {
+          btnBad.textContent = 'Bad';
+          btnBad.setAttribute('onclick', "switchVersion('bad')");
+        }
         switchVersion('bad');
         if (msg) {
           msg.textContent = '🔓 BAD RESUME unlocked!';
