@@ -93,7 +93,7 @@
 <body class="min-h-full flex flex-col relative antialiased selection:bg-zinc-200 dark:selection:bg-zinc-800">
 
     <!-- Terminal Loader Overlay -->
-    <div id="loader-overlay" class="fixed inset-0 bg-black z-[100] flex flex-col justify-center items-start p-10 font-mono text-xs text-zinc-400 gap-2 transition-opacity duration-700 pointer-events-none">
+    <div id="loader-overlay" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-[100] flex flex-col justify-center items-start p-10 font-mono text-xs text-zinc-400 gap-2 transition-opacity duration-700 pointer-events-none">
         <div id="loader-terminal-content" class="max-w-xl space-y-1">
             <!-- Simulated console logs -->
             <div id="log-1" class="hidden text-zinc-600">SYS // Initialize Boot Protocol v2.4.9...</div>
@@ -134,7 +134,7 @@
     </nav>
 
     <!-- Main OS Container -->
-    <main class="max-w-6xl mx-auto w-full px-6 sm:px-12 pt-32 pb-24 space-y-40 relative z-10">
+    <main class="max-w-6xl mx-auto w-full px-6 sm:px-12 pt-32 pb-24 space-y-24 relative z-10">
         
         <!-- Hero Telemetry Dashboard -->
         <section id="hero" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start py-8">
@@ -144,7 +144,7 @@
                     I build systems that turn observations into products.
                 </h1>
                 <p class="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-2xl">
-                    I investigate user friction constraints, formulate validation models, design secure edge architectures, and deploy scalable products. Technology is secondary to discovering actual problems worth solving.
+                    <span class="text-zinc-950 dark:text-white font-semibold">I am a software engineer, AI builder, and startup co-founder.</span> I investigate user friction constraints, formulate validation models, design secure edge architectures, and deploy scalable products. Technology is secondary to discovering actual problems worth solving.
                 </p>
                 <!-- Stacked highlighted roles (Chris Abra style) -->
                 <div class="flex flex-wrap gap-2 pt-1">
@@ -161,12 +161,15 @@
                         technical generalist
                     </span>
                 </div>
-                <div class="flex gap-4 pt-2 font-mono text-xs">
+                <div class="flex flex-wrap gap-4 pt-2 font-mono text-xs">
                     <a href="#products" class="bg-zinc-900 text-white dark:bg-white dark:text-black hover:opacity-90 py-3 px-6 rounded font-semibold transition-opacity">
                         Explore Systems
                     </a>
                     <a href="#radar" class="border border-editorial hover:bg-zinc-50 dark:hover:bg-zinc-900/40 py-3 px-6 rounded font-semibold transition-colors">
                         Launch Radar
+                    </a>
+                    <a href="mailto:Siddarth.lbf341@gmail.com" class="border border-zinc-900 dark:border-white hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-black py-3 px-6 rounded font-semibold transition-colors">
+                        Get in Touch ➔
                     </a>
                 </div>
             </div>
@@ -211,7 +214,7 @@
         </section>
 
         <!-- Founder's Launch Simulator -->
-        <section id="lab" class="border-t border-b border-editorial py-10 space-y-6">
+        <section id="lab" class="border-t border-b border-editorial py-8 space-y-6">
             <div class="flex justify-between items-center">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// FOUNDER'S LAUNCH SIMULATOR (SYSTEMS THINKING GAME)</span>
                 <span class="font-mono text-[9px] text-zinc-400 uppercase">// PLAYABLE FOR VCs & STRATEGISTS</span>
@@ -226,7 +229,7 @@
                             <span>01 / PRODUCT SCOPE</span>
                             <span id="label-scope" class="text-zinc-900 dark:text-white">Lean (1 Core Feature)</span>
                         </div>
-                        <div class="grid grid-cols-2 gap-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             <button onclick="setSim('scope', 'lean')" id="btn-scope-lean" class="py-2 px-3 border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded text-center">Lean (1 Core Feature)</button>
                             <button onclick="setSim('scope', 'bloated')" id="btn-scope-bloated" class="py-2 px-3 border border-editorial hover:border-zinc-400 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-semibold text-center">Bloated (10 Features)</button>
                         </div>
@@ -238,7 +241,7 @@
                             <span>02 / PRIVACY GATING</span>
                             <span id="label-privacy" class="text-zinc-900 dark:text-white">Double-Blind progressive</span>
                         </div>
-                        <div class="grid grid-cols-2 gap-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             <button onclick="setSim('privacy', 'blind')" id="btn-privacy-blind" class="py-2 px-3 border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded text-center">Double-Blind progressive</button>
                             <button onclick="setSim('privacy', 'open')" id="btn-privacy-open" class="py-2 px-3 border border-editorial hover:border-zinc-400 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-semibold text-center">Immediate Open Access</button>
                         </div>
@@ -250,7 +253,7 @@
                             <span>03 / CUSTOMER RESEARCH</span>
                             <span id="label-research" class="text-zinc-900 dark:text-white">Interviews First</span>
                         </div>
-                        <div class="grid grid-cols-2 gap-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             <button onclick="setSim('research', 'interviews')" id="btn-research-interviews" class="py-2 px-3 border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded text-center">Interviews First</button>
                             <button onclick="setSim('research', 'code')" id="btn-research-code" class="py-2 px-3 border border-editorial hover:border-zinc-400 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors font-semibold text-center">No Research (Code Immediately)</button>
                         </div>
@@ -259,29 +262,29 @@
 
                 <!-- Simulation Output Column -->
                 <div class="lg:col-span-6 card-editorial rounded-lg p-6 space-y-6 font-mono text-xs shadow-xl">
-                    <div class="border-b border-editorial pb-2 text-zinc-400 font-bold uppercase tracking-wider">// REAL-TIME SIMULATED OUTCOMES</div>
+                    <div class="border-b border-editorial pb-2 text-zinc-400 font-bold uppercase tracking-wider">// SYSTEM DYNAMICS MODEL OUTPUT (SIMULATED)</div>
                     
                     <div class="grid grid-cols-2 gap-4 text-center">
-                        <div class="space-y-1 border border-editorial p-3 rounded">
-                            <div class="text-[9px] text-zinc-400 uppercase">Launch Speed</div>
+                        <div class="space-y-1 border border-editorial p-3 rounded bg-zinc-500/5">
+                            <div class="text-[9px] text-zinc-400 uppercase">[EST] Launch Speed</div>
                             <div id="sim-speed" class="text-base font-bold text-zinc-900 dark:text-white">2 Weeks</div>
                         </div>
-                        <div class="space-y-1 border border-editorial p-3 rounded">
-                            <div class="text-[9px] text-zinc-400 uppercase">Monthly Infrastructure</div>
+                        <div class="space-y-1 border border-editorial p-3 rounded bg-zinc-500/5">
+                            <div class="text-[9px] text-zinc-400 uppercase">[EST] Infrastructure Cost</div>
                             <div id="sim-cost" class="text-base font-bold text-zinc-900 dark:text-white">$20/mo</div>
                         </div>
-                        <div class="space-y-1 border border-editorial p-3 rounded">
-                            <div class="text-[9px] text-zinc-400 uppercase">Bilateral User Trust</div>
+                        <div class="space-y-1 border border-editorial p-3 rounded bg-zinc-500/5">
+                            <div class="text-[9px] text-zinc-400 uppercase">[EST] Bilateral User Trust</div>
                             <div id="sim-trust" class="text-base font-bold text-zinc-900 dark:text-white">High (98%)</div>
                         </div>
-                        <div class="space-y-1 border border-editorial p-3 rounded">
-                            <div class="text-[9px] text-zinc-400 uppercase">User Retention Odds</div>
+                        <div class="space-y-1 border border-editorial p-3 rounded bg-zinc-500/5">
+                            <div class="text-[9px] text-zinc-400 uppercase">[EST] Retention Shift</div>
                             <div id="sim-retention" class="text-base font-bold text-zinc-900 dark:text-white">Optimal (+42%)</div>
                         </div>
                     </div>
 
                     <div class="space-y-1.5 border-t border-editorial pt-4">
-                        <div class="text-[9px] text-zinc-400 uppercase font-bold">// STRATEGY ADVISORY VERDICT</div>
+                        <div class="text-[9px] text-zinc-400 uppercase font-bold">// MODEL ADVISORY VERDICT (SIMULATED)</div>
                         <div id="sim-verdict" class="text-sm font-semibold text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans">
                             Lean and validated. You shipped in 2 weeks, kept costs low, and users trust you. This is how you build a scalable startup.
                         </div>
@@ -290,7 +293,7 @@
         </section>
 
         <!-- System Dynamics Feedback Loop Simulator -->
-        <section id="system-dynamics" class="border-b border-editorial py-10 space-y-6">
+        <section id="system-dynamics" class="border-b border-editorial py-8 space-y-6">
             <div class="flex justify-between items-center">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// SYSTEM DYNAMICS SANDBOX (FEEDBACK LOOP ENGINE)</span>
                 <span class="font-mono text-[9px] text-zinc-400 uppercase">// INTERACTIVE SYSTEM TELEMETRY</span>
@@ -337,21 +340,21 @@
                     </div>
 
                     <div class="w-full md:w-[40%] space-y-4">
-                        <div class="border-b border-editorial pb-2 text-zinc-400 font-bold uppercase tracking-wider text-[9px]">// TELEMETRY READOUT</div>
+                        <div class="border-b border-editorial pb-2 text-zinc-400 font-bold uppercase tracking-wider text-[9px]">// MODEL TELEMETRY READOUT (SIMULATED)</div>
                         
                         <div class="space-y-2">
                             <div class="flex justify-between">
-                                <span class="text-zinc-400">Peak Scale:</span>
+                                <span class="text-zinc-400">Simulated Peak:</span>
                                 <span id="dyn-peak" class="text-zinc-900 dark:text-white font-bold">142,500 MAU</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-zinc-400">System State:</span>
+                                <span class="text-zinc-400">Simulated State:</span>
                                 <span id="dyn-state" class="text-emerald-500 font-bold">Exponential Scale</span>
                             </div>
                         </div>
 
                         <div class="space-y-1.5 border-t border-editorial pt-3">
-                            <div class="text-[9px] text-zinc-400 uppercase font-bold">// DYNAMICS VERDICT</div>
+                            <div class="text-[9px] text-zinc-400 uppercase font-bold">// DYNAMICS VERDICT (SIMULATED)</div>
                             <div id="dyn-verdict" class="text-[11px] font-semibold text-zinc-800 dark:text-zinc-200 leading-normal font-sans">
                                 Reinforcing viral loop exceeds churn margin. System achieved self-sustaining growth.
                             </div>
@@ -451,6 +454,10 @@
                                 Built a security middleware proxy in TypeScript. The system intercepts agent tool executions (e.g. file writes, shell tasks) before process evaluation, mapping calls against a strict schema. Flagged executions prompt the user with interactive approval webviews.
                             </p>
                         </div>
+                        <div class="flex gap-4 font-mono text-xs pt-2">
+                            <span class="text-zinc-400">Demo/Code Locked under NDA //</span>
+                            <a href="https://github.com/Redsid5/prism-sandbox" target="_blank" class="underline hover:text-zinc-500">Explore Mock Architecture ↗</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -495,6 +502,7 @@
                         </div>
                         <div class="flex gap-4 font-mono text-xs pt-2">
                             <a href="https://eko-self.vercel.app/" target="_blank" class="underline hover:text-zinc-500">Open Platform ↗</a>
+                            <a href="https://github.com/Redsid5/eko" target="_blank" class="underline hover:text-zinc-500">Explore Pipeline ↗</a>
                         </div>
                     </div>
                 </div>
@@ -514,7 +522,7 @@
                     </div>
                     <div class="text-right font-mono text-xs">
                         <span class="text-zinc-400 uppercase text-[9px] block">REGISTRY AUDIT</span>
-                        <span class="font-bold text-zinc-900 dark:text-white text-sm">821 Registered Users / 40% Retention</span>
+                        <span class="font-bold text-zinc-900 dark:text-white text-sm">821 Registered Users / 40% Day-30 Retention</span>
                     </div>
                 </div>
 
@@ -539,6 +547,7 @@
                         </div>
                         <div class="flex gap-4 font-mono text-xs pt-2">
                             <a href="https://vibein.us" target="_blank" class="underline hover:text-zinc-500">vibein.us ↗</a>
+                            <a href="https://github.com/Redsid5/vibein" target="_blank" class="underline hover:text-zinc-500">Explore Architecture ↗</a>
                         </div>
                     </div>
                 </div>
@@ -546,7 +555,7 @@
         </section>
 
         <!-- Capabilities & Systems Stack (Chris Abra style) -->
-        <section id="capabilities" class="space-y-12 border-t border-editorial pt-16">
+        <section id="capabilities" class="space-y-10 border-t border-editorial pt-10">
             <div class="space-y-2">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// ARCHITECTURAL SKILLS & STACK</span>
                 <h2 class="text-3xl font-extrabold tracking-tight font-display text-zinc-900 dark:text-white">Capabilities &amp; Systems Stack</h2>
@@ -610,7 +619,7 @@
         </section>
 
         <!-- Future Radar Technology Tracker -->
-        <section id="radar" class="space-y-12 border-t border-editorial pt-16 grid grid-cols-1 md:grid-cols-12 gap-8">
+        <section id="radar" class="space-y-10 border-t border-editorial pt-10 grid grid-cols-1 md:grid-cols-12 gap-8">
             <div class="md:col-span-5 space-y-4">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// FORECASTING SYSTEMS</span>
                 <h2 class="text-3xl font-extrabold tracking-tight font-display">The Future Radar</h2>
@@ -631,7 +640,7 @@
         </section>
 
         <!-- Future Discovery Feed -->
-        <section id="discoveries" class="space-y-12 border-t border-editorial pt-16">
+        <section id="discoveries" class="space-y-10 border-t border-editorial pt-10">
             <div class="space-y-2">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// WEEKLY INSIGHT LOGS</span>
                 <h2 class="text-3xl font-extrabold tracking-tight font-display">Future Discoveries</h2>
@@ -677,7 +686,7 @@
         </section>
 
         <!-- Observations (Single Sentence Cards) -->
-        <section id="observations" class="space-y-12 border-t border-editorial pt-16">
+        <section id="observations" class="space-y-10 border-t border-editorial pt-10">
             <div class="space-y-2">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// COGNITIVE FIELD LOGS</span>
                 <h2 class="text-3xl font-extrabold tracking-tight font-display">Observations</h2>
@@ -715,7 +724,7 @@
         </section>
 
         <!-- Human Build Log -->
-        <section id="timeline" class="space-y-12 border-t border-editorial pt-16">
+        <section id="timeline" class="space-y-10 border-t border-editorial pt-10">
             <div class="space-y-2">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// SHIPPED CHRONICLES</span>
                 <h2 class="text-3xl font-extrabold tracking-tight font-display">Build Log</h2>
@@ -747,7 +756,7 @@
         </section>
 
         <!-- Signature: Spring-directed Mind Map Graph -->
-        <section id="playground" class="space-y-12 border-t border-editorial pt-16">
+        <section id="playground" class="space-y-10 border-t border-editorial pt-10">
             <div class="space-y-2">
                 <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// KNOWLEDGE GRAPH</span>
                 <h2 class="text-3xl font-extrabold tracking-tight font-display">Mind Map Graph</h2>
@@ -787,23 +796,58 @@
         // --- Terminal Loader Sequence ---
         const delay = (ms) => new Promise(res => setTimeout(res, ms));
         const overlay = document.getElementById('loader-overlay');
-        
+        let loaderDismissed = false;
+
+        function dismissLoader() {
+            if (loaderDismissed || !overlay) return;
+            loaderDismissed = true;
+            overlay.style.opacity = 0;
+            setTimeout(() => overlay.remove(), 400);
+            
+            // Clean up event listeners
+            window.removeEventListener('scroll', dismissLoader);
+            window.removeEventListener('click', dismissLoader);
+            window.removeEventListener('touchstart', dismissLoader);
+            window.removeEventListener('keydown', dismissLoader);
+        }
+
+        // Add user-initiated dismissal events
+        window.addEventListener('scroll', dismissLoader, { passive: true });
+        window.addEventListener('click', dismissLoader);
+        window.addEventListener('touchstart', dismissLoader, { passive: true });
+        window.addEventListener('keydown', dismissLoader);
+
         async function runLoader() {
             if (!overlay) return;
-            await delay(300);
+            
+            // Skip loader entirely if navigating directly to a section
+            if (window.location.hash) {
+                dismissLoader();
+                return;
+            }
+
+            await delay(100);
+            if (loaderDismissed) return;
             const l1 = document.getElementById('log-1'); if (l1) l1.classList.remove('hidden');
-            await delay(500);
+            
+            await delay(150);
+            if (loaderDismissed) return;
             const l2 = document.getElementById('log-2'); if (l2) l2.classList.remove('hidden');
-            await delay(400);
+            
+            await delay(100);
+            if (loaderDismissed) return;
             const l3 = document.getElementById('log-3'); if (l3) l3.classList.remove('hidden');
-            await delay(400);
+            
+            await delay(100);
+            if (loaderDismissed) return;
             const l4 = document.getElementById('log-4'); if (l4) l4.classList.remove('hidden');
-            await delay(600);
+            
+            await delay(150);
+            if (loaderDismissed) return;
             const l5 = document.getElementById('log-5'); if (l5) l5.classList.remove('hidden');
-            await delay(700);
-            overlay.style.opacity = 0;
-            await delay(700);
-            overlay.remove();
+            
+            await delay(200);
+            dismissLoader();
         }
         runLoader();
 
@@ -888,10 +932,12 @@
             ];
 
             let activeTarget = null;
-            radCanvas.addEventListener('mousemove', (e) => {
+            function checkRadarCoordinates(clientX, clientY, hitRadius = 12) {
                 const rect = radCanvas.getBoundingClientRect();
-                const mx = e.clientX - rect.left;
-                const my = e.clientY - rect.top;
+                const scaleX = size / (rect.width || 1);
+                const scaleY = size / (rect.height || 1);
+                const mx = (clientX - rect.left) * scaleX;
+                const my = (clientY - rect.top) * scaleY;
                 const cx = size/2;
                 const cy = size/2;
 
@@ -899,7 +945,7 @@
                 radTargets.forEach(t => {
                     const tx = cx + Math.cos(t.angle) * t.dist * cx * 0.9;
                     const ty = cy + Math.sin(t.angle) * t.dist * cy * 0.9;
-                    if (Math.hypot(mx - tx, my - ty) < 12) {
+                    if (Math.hypot(mx - tx, my - ty) < hitRadius) {
                         activeTarget = t;
                     }
                 });
@@ -911,7 +957,23 @@
                         <div>${activeTarget.desc}</div>
                     `;
                 }
+            }
+
+            radCanvas.addEventListener('mousemove', (e) => {
+                checkRadarCoordinates(e.clientX, e.clientY, 12);
             });
+
+            radCanvas.addEventListener('touchstart', (e) => {
+                if (e.touches && e.touches[0]) {
+                    checkRadarCoordinates(e.touches[0].clientX, e.touches[0].clientY, 20);
+                }
+            }, { passive: true });
+
+            radCanvas.addEventListener('touchmove', (e) => {
+                if (e.touches && e.touches[0]) {
+                    checkRadarCoordinates(e.touches[0].clientX, e.touches[0].clientY, 20);
+                }
+            }, { passive: true });
 
             function drawRadar() {
                 ctx.clearRect(0, 0, size, size);
@@ -985,6 +1047,20 @@
                 mouseY = e.clientY - rect.top;
             });
             mmCanvas.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+
+            function handleGraphTouch(e) {
+                if (e.touches && e.touches[0]) {
+                    const rect = mmCanvas.getBoundingClientRect();
+                    mouseX = e.touches[0].clientX - rect.left;
+                    mouseY = e.touches[0].clientY - rect.top;
+                }
+            }
+            mmCanvas.addEventListener('touchstart', handleGraphTouch, { passive: true });
+            mmCanvas.addEventListener('touchmove', handleGraphTouch, { passive: true });
+            mmCanvas.addEventListener('touchend', () => {
                 mouseX = -1000;
                 mouseY = -1000;
             });
