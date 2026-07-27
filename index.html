@@ -118,13 +118,12 @@
             </span>
         </div>
         
-        <div class="flex items-center gap-6 text-[10px] font-mono">
-            <a href="#lab" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">LAB</a>
+        <div class="flex items-center gap-4 sm:gap-6 text-[10px] font-mono">
+            <a href="#capabilities" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">STACK</a>
             <a href="#products" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">PRODUCTS</a>
-            <a href="#radar" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">RADAR</a>
-            <a href="#discoveries" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">DISCOVERIES</a>
-            <a href="#observations" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">NOTES</a>
-            <a href="#timeline" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">BUILD LOG</a>
+            <a href="#radar" class="hidden sm:inline text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">RADAR</a>
+            <a href="#discoveries" class="hidden md:inline text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">DISCOVERIES</a>
+            <a href="#timeline" class="hidden md:inline text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors">BUILD LOG</a>
             <a href="resume.html" class="text-zinc-900 dark:text-white font-bold border-b border-zinc-900 dark:border-white">RESUME</a>
             
             <button onclick="toggleTheme()" class="w-7 h-7 rounded border border-editorial flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" aria-label="Toggle theme">
@@ -147,6 +146,21 @@
                 <p class="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed max-w-2xl">
                     I investigate user friction constraints, formulate validation models, design secure edge architectures, and deploy scalable products. Technology is secondary to discovering actual problems worth solving.
                 </p>
+                <!-- Stacked highlighted roles (Chris Abra style) -->
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <span class="px-2.5 py-1 text-[10px] font-mono font-bold tracking-tight rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 uppercase select-none">
+                        product builder
+                    </span>
+                    <span class="px-2.5 py-1 text-[10px] font-mono font-bold tracking-tight rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 uppercase select-none">
+                        systems thinker
+                    </span>
+                    <span class="px-2.5 py-1 text-[10px] font-mono font-bold tracking-tight rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 uppercase select-none">
+                        AI engineer
+                    </span>
+                    <span class="px-2.5 py-1 text-[10px] font-mono font-bold tracking-tight rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 uppercase select-none">
+                        technical generalist
+                    </span>
+                </div>
                 <div class="flex gap-4 pt-2 font-mono text-xs">
                     <a href="#products" class="bg-zinc-900 text-white dark:bg-white dark:text-black hover:opacity-90 py-3 px-6 rounded font-semibold transition-opacity">
                         Explore Systems
@@ -360,6 +374,12 @@
                     <div>
                         <span class="font-mono text-[9px] text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/40 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // SCOUT</span>
                         <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">On-Device Visual Assist Companion</h3>
+                        <div class="flex flex-wrap gap-1 mt-1.5">
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">TensorFlow.js</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Tesseract.js OCR</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Gemini Flash</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Web Workers</span>
+                        </div>
                     </div>
                     <div class="text-right font-mono text-xs">
                         <span class="text-zinc-400 uppercase text-[9px] block">VERIFIED METRIC</span>
@@ -400,6 +420,11 @@
                     <div>
                         <span class="font-mono text-[9px] text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-950/40 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // PRISM</span>
                         <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">Capability-Gated Agent Proxy</h3>
+                        <div class="flex flex-wrap gap-1 mt-1.5">
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">TypeScript</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Claude SDK</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">VS Code API</span>
+                        </div>
                     </div>
                     <div class="text-right font-mono text-xs">
                         <span class="text-zinc-400 uppercase text-[9px] block">SECURITY STATE</span>
@@ -436,6 +461,12 @@
                     <div>
                         <span class="font-mono text-[9px] text-teal-600 dark:text-teal-400 bg-teal-100 dark:bg-teal-950/40 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // EKO</span>
                         <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">Real-Time Voice Dubbing & Quantum Matcher</h3>
+                        <div class="flex flex-wrap gap-1 mt-1.5">
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">FastAPI</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">PyTorch</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Demucs DSP</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">PennyLane</span>
+                        </div>
                     </div>
                     <div class="text-right font-mono text-xs">
                         <span class="text-zinc-400 uppercase text-[9px] block">SYSTEM METRIC</span>
@@ -475,6 +506,11 @@
                     <div>
                         <span class="font-mono text-[9px] text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded uppercase font-bold tracking-wider">PROJECT // VIBEIN</span>
                         <h3 class="text-2xl font-bold tracking-tight mt-1 text-zinc-900 dark:text-white">Bilateral progressive disclosure matcher</h3>
+                        <div class="flex flex-wrap gap-1 mt-1.5">
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Next.js 16</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Supabase</span>
+                            <span class="bg-zinc-100 dark:bg-zinc-900 border border-editorial px-2 py-0.5 rounded font-mono text-[8px] text-zinc-500 uppercase tracking-tight">Zod Schema</span>
+                        </div>
                     </div>
                     <div class="text-right font-mono text-xs">
                         <span class="text-zinc-400 uppercase text-[9px] block">REGISTRY AUDIT</span>
@@ -504,6 +540,70 @@
                         <div class="flex gap-4 font-mono text-xs pt-2">
                             <a href="https://vibein.us" target="_blank" class="underline hover:text-zinc-500">vibein.us ↗</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities & Systems Stack (Chris Abra style) -->
+        <section id="capabilities" class="space-y-12 border-t border-editorial pt-16">
+            <div class="space-y-2">
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// ARCHITECTURAL SKILLS & STACK</span>
+                <h2 class="text-3xl font-extrabold tracking-tight font-display text-zinc-900 dark:text-white">Capabilities &amp; Systems Stack</h2>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 max-w-xl">
+                    A look into the technologies, platforms, and strategies I leverage to design pipelines and ship products.
+                </p>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Group 1: Programming Languages -->
+                <div class="space-y-3">
+                    <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">01 / Programming Languages</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 select-none">Python</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 select-none">TypeScript</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 select-none">JavaScript</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 select-none">SQL</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 select-none">HTML / CSS</span>
+                    </div>
+                </div>
+
+                <!-- Group 2: Frameworks & Libraries -->
+                <div class="space-y-3">
+                    <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">02 / Frameworks &amp; Runtimes</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 select-none">Next.js 14/15/16</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 select-none">React</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 select-none">FastAPI</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 select-none">Node.js</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 select-none">Express</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 select-none">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 select-none">CodeMirror 6</span>
+                    </div>
+                </div>
+
+                <!-- Group 3: AI & Multi-Agent Workflows -->
+                <div class="space-y-3">
+                    <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">03 / AI &amp; Multi-Agent Stacks</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 select-none">Claude Agent SDK</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 select-none">PyTorch DSP</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 select-none">TensorFlow.js</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 select-none">Gemini API</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 select-none">OpenAI API</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 select-none">PennyLane Quantum</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 select-none">RAG Pipelines</span>
+                    </div>
+                </div>
+
+                <!-- Group 4: Currently Investigating -->
+                <div class="space-y-3 border-t border-editorial pt-6">
+                    <span class="text-zinc-400 dark:text-zinc-500 font-mono text-[9px] block uppercase font-bold tracking-wider">// CURRENT FOCUS AREAS (EXPANDING CAPABILITIES)</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20 select-none">WASM Edge Computing</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 select-none">Drizzle ORM</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 select-none">WebRTC Media Channels</span>
+                        <span class="px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 select-none">Deterministic Security Enclaves</span>
                     </div>
                 </div>
             </div>
