@@ -273,6 +273,77 @@
                         </div>
                     </div>
                 </div>
+        </section>
+
+        <!-- System Dynamics Feedback Loop Simulator -->
+        <section id="system-dynamics" class="border-b border-editorial py-10 space-y-6">
+            <div class="flex justify-between items-center">
+                <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">// SYSTEM DYNAMICS SANDBOX (FEEDBACK LOOP ENGINE)</span>
+                <span class="font-mono text-[9px] text-zinc-400 uppercase">// INTERACTIVE SYSTEM TELEMETRY</span>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Sliders Controls Column -->
+                <div class="lg:col-span-5 space-y-6 font-mono text-[11px]">
+                    <!-- Control 1: Virality Coefficient -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-bold text-zinc-400">
+                            <span>REINFORCING LOOP: VIRAL MARGIN</span>
+                            <span id="label-val-viral" class="text-zinc-900 dark:text-white">1.2x</span>
+                        </div>
+                        <input type="range" id="input-viral" min="0.5" max="2.0" step="0.1" value="1.2" oninput="updateDynamics()" class="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-zinc-900 dark:accent-white">
+                        <p class="text-[9px] text-zinc-400">How many new active users are organically referred by each current active user per cycle.</p>
+                    </div>
+
+                    <!-- Control 2: Churn Rate -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-bold text-zinc-400">
+                            <span>BALANCING LOOP: CHURN MARGIN</span>
+                            <span id="label-val-churn" class="text-zinc-900 dark:text-white">10%</span>
+                        </div>
+                        <input type="range" id="input-churn" min="2" max="30" step="1" value="10" oninput="updateDynamics()" class="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-zinc-900 dark:accent-white">
+                        <p class="text-[9px] text-zinc-400">The percentage of existing users who drop off the platform at the end of each cycle.</p>
+                    </div>
+
+                    <!-- Control 3: Initial Marketing Budget -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between font-bold text-zinc-400">
+                            <span>ACQUISITION: BUDGET ACCELERATOR</span>
+                            <span id="label-val-budget" class="text-zinc-900 dark:text-white">$1,000</span>
+                        </div>
+                        <input type="range" id="input-budget" min="100" max="5000" step="100" value="1000" oninput="updateDynamics()" class="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-zinc-900 dark:accent-white">
+                        <p class="text-[9px] text-zinc-400">Initial capital spent to seed the initial user population and kickstart the loop.</p>
+                    </div>
+                </div>
+
+                <!-- Simulation Output Plotting Column -->
+                <div class="lg:col-span-7 card-editorial rounded-lg p-6 space-y-6 font-mono text-xs shadow-xl flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-full md:w-[60%] aspect-[4/3] bg-zinc-100 dark:bg-zinc-950 rounded border border-editorial overflow-hidden relative">
+                        <canvas id="dynamics-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                    </div>
+
+                    <div class="w-full md:w-[40%] space-y-4">
+                        <div class="border-b border-editorial pb-2 text-zinc-400 font-bold uppercase tracking-wider text-[9px]">// TELEMETRY READOUT</div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-zinc-400">Peak Scale:</span>
+                                <span id="dyn-peak" class="text-zinc-900 dark:text-white font-bold">142,500 MAU</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-zinc-400">System State:</span>
+                                <span id="dyn-state" class="text-emerald-500 font-bold">Exponential Scale</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5 border-t border-editorial pt-3">
+                            <div class="text-[9px] text-zinc-400 uppercase font-bold">// DYNAMICS VERDICT</div>
+                            <div id="dyn-verdict" class="text-[11px] font-semibold text-zinc-800 dark:text-zinc-200 leading-normal font-sans">
+                                Reinforcing viral loop exceeds churn margin. System achieved self-sustaining growth.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1080,6 +1151,107 @@
 
             // Set initial state
             setSim('scope', 'lean');
+
+        // --- System Dynamics Feedback Loop Simulator Engine ---
+        window.updateDynamics = function() {
+            const viralVal = parseFloat(document.getElementById('input-viral').value);
+            const churnVal = parseFloat(document.getElementById('input-churn').value) / 100;
+            const budgetVal = parseFloat(document.getElementById('input-budget').value);
+
+            // Update sliders readouts
+            document.getElementById('label-val-viral').innerText = viralVal.toFixed(1) + 'x';
+            document.getElementById('label-val-churn').innerText = (churnVal * 100).toFixed(0) + '%';
+            document.getElementById('label-val-budget').innerText = '$' + budgetVal.toLocaleString();
+
+            const canvas = document.getElementById('dynamics-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width = canvas.offsetWidth;
+            const h = canvas.height = canvas.offsetHeight;
+
+            // Run system dynamics math loop
+            const cycles = 60;
+            let currentMAU = budgetVal * 5;
+            const data = [currentMAU];
+
+            let peakMAU = currentMAU;
+            let state = "Stable";
+            let verdict = "";
+
+            const netGrowthRate = viralVal - 1.0 - churnVal;
+
+            for (let t = 1; t < cycles; t++) {
+                const acquisition = (budgetVal * 2) * Math.exp(-t * 0.08);
+                const change = currentMAU * netGrowthRate;
+                currentMAU = Math.max(0, currentMAU + acquisition + change);
+                data.push(currentMAU);
+                if (currentMAU > peakMAU) peakMAU = currentMAU;
+            }
+
+            if (netGrowthRate > 0.05) {
+                state = "Exponential Scale";
+                verdict = "Reinforcing viral loop exceeds churn margin. System achieved self-sustaining organic growth. Cloud server auto-scaling triggered.";
+                document.getElementById('dyn-state').className = "text-emerald-500 font-bold";
+            } else if (netGrowthRate < -0.05) {
+                state = "Churn Collapse";
+                verdict = "Retention leakage exceeds virality. Acquisition budget burned with zero sustained scale. Users are leaving faster than they are referred.";
+                document.getElementById('dyn-state').className = "text-rose-500 font-bold";
+            } else {
+                state = "Linear Decay";
+                verdict = "Slow decline. Product survives on manual acquisitions without organic loop momentum. Highly fragile equilibrium.";
+                document.getElementById('dyn-state').className = "text-amber-500 font-bold";
+            }
+
+            document.getElementById('dyn-peak').innerText = Math.round(peakMAU).toLocaleString() + ' MAU';
+            document.getElementById('dyn-state').innerText = state;
+            document.getElementById('dyn-verdict').innerText = verdict;
+
+            // Draw coordinate graph on canvas
+            ctx.clearRect(0, 0, w, h);
+            const isDark = document.documentElement.classList.contains('dark');
+            ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.06)';
+            ctx.lineWidth = 0.5;
+
+            // Draw coordinate grid lines
+            const gridCols = 6;
+            const gridRows = 4;
+            for (let i = 0; i <= gridCols; i++) {
+                const x = (w / gridCols) * i;
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+            }
+            for (let i = 0; i <= gridRows; i++) {
+                const y = (h / gridRows) * i;
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+            }
+
+            // Plot data line
+            ctx.beginPath();
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = isDark ? '#d4af37' : '#dc2626';
+
+            data.forEach((val, t) => {
+                const x = (w / (cycles - 1)) * t;
+                const y = h - 20 - ((h - 40) * (val / (peakMAU || 1)));
+                if (t === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            ctx.stroke();
+
+            // Draw coordinate axis ticks
+            ctx.fillStyle = isDark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.4)';
+            ctx.font = '8px monospace';
+            ctx.fillText(`DAY 0`, 5, h - 5);
+            ctx.fillText(`DAY 60`, w - 40, h - 5);
+            ctx.fillText(`${Math.round(peakMAU).toLocaleString()} MAU`, 5, 12);
+        };
+
+        // Initialize dynamics
+        setTimeout(() => {
+            if (window.updateDynamics) window.updateDynamics();
+        }, 100);
     </script>
 </body>
 </html>
