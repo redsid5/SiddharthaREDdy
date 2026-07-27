@@ -498,9 +498,9 @@
   @media print {
     /* Web print overrides: Disable Flex/Grid layouts during Edge/Chrome headless rendering */
     #page-standard {
-      --page-padding-top: 0.75in;
-      --page-padding-bottom: 0.75in;
-      --page-padding-left-right: 0.75in;
+      --page-padding-top: 16mm;
+      --page-padding-bottom: 16mm;
+      --page-padding-left-right: 15mm;
       --section-margin-top: 6px;
       --section-label-margin-bottom: 2px;
       --entry-margin-bottom: 2px;
@@ -510,9 +510,9 @@
       --base-line-height: 1.10;
     }
     #page-instawork {
-      --page-padding-top: 0.75in;
-      --page-padding-bottom: 0.75in;
-      --page-padding-left-right: 0.75in;
+      --page-padding-top: 16mm;
+      --page-padding-bottom: 16mm;
+      --page-padding-left-right: 15mm;
       --section-margin-top: 8px;
       --section-label-margin-bottom: 3px;
       --entry-margin-bottom: 4px;
@@ -522,9 +522,9 @@
       --base-line-height: 1.15;
     }
     #page-startup {
-      --page-padding-top: 0.75in;
-      --page-padding-bottom: 0.75in;
-      --page-padding-left-right: 0.75in;
+      --page-padding-top: 16mm;
+      --page-padding-bottom: 16mm;
+      --page-padding-left-right: 15mm;
       --section-margin-top: 6px;
       --section-label-margin-bottom: 2px;
       --entry-margin-bottom: 2px;
@@ -554,29 +554,30 @@
       font-family: 'Clarity City', sans-serif !important;
     }
     #page-instawork h1 {
-      font-size: 22px !important;
+      font-size: 20px !important;
     }
     #page-instawork h2 {
-      font-size: 11px !important;
-      margin-bottom: 6px !important;
+      font-size: 10.5px !important;
+      margin-bottom: 4px !important;
     }
     #page-instawork .role {
-      font-size: 11px !important;
-    }
-    #page-instawork .contact, #page-instawork .sub, #page-instawork .date {
       font-size: 10px !important;
     }
+    #page-instawork .contact, #page-instawork .sub, #page-instawork .date {
+      font-size: 9px !important;
+    }
     #page-instawork p, #page-instawork li {
-      font-size: 11px !important;
+      font-size: 9.5px !important;
+      line-height: 1.25 !important;
     }
     #page-instawork li {
-      margin-bottom: 2px !important;
+      margin-bottom: 1.5px !important;
     }
     #page-instawork section {
-      margin-top: 10px !important;
+      margin-top: 8px !important;
     }
     #page-instawork .entry {
-      margin-bottom: 8px !important;
+      margin-bottom: 6px !important;
     }
     #page-startup {
       font-family: Arial, sans-serif !important;
@@ -625,7 +626,7 @@
       display: none !important;
     }
     @page { 
-      size: letter; 
+      size: A4; 
       margin: 0; 
     }
     /* Responsive screen styling for mobile/tablet */
