@@ -67,39 +67,38 @@
 
   /* Scoped CSS variables for standard resume */
   #page-standard {
-    --page-padding-top: 28px;
-    --page-padding-bottom: 32px;
+    --page-padding-top: 42px;
+    --page-padding-bottom: 50px;
     --page-padding-left-right: 52px;
-    --section-margin-top: 9px;
-    --section-label-margin-bottom: 4px;
-    --entry-margin-bottom: 4px;
-    --li-margin-bottom: 0.8px;
-    --skills-line-height: 1.35;
-    --base-font-size: 9.5px;
-    --base-line-height: 1.3;
+    --section-margin-top: 15px;
+    --section-label-margin-bottom: 8px;
+    --entry-margin-bottom: 9px;
+    --li-margin-bottom: 2.2px;
+    --skills-line-height: 1.6;
+    --base-font-size: 12.5px;
+    --base-line-height: 1.45;
   }
 
   /* Scoped CSS variables and overrides for Instawork (bad resume) */
   #page-instawork {
-    --page-padding-top: 28px;
-    --page-padding-bottom: 32px;
-    --page-padding-left-right: 34px;
-    --base-font-size: 14px;
-    --base-line-height: 1.35;
-    background: #ffffff;
-    color: #111827;
-    font-family: 'Clarity City', sans-serif;
-    max-width: 900px;
-    margin: 2.5rem auto;
-    padding: var(--page-padding-top) var(--page-padding-left-right) var(--page-padding-bottom);
+    --page-padding-top: 42px;
+    --page-padding-bottom: 50px;
+    --page-padding-left-right: 52px;
+    --section-margin-top: 15px;
+    --section-label-margin-bottom: 8px;
+    --entry-margin-bottom: 9px;
+    --li-margin-bottom: 2.2px;
+    --skills-line-height: 1.6;
+    --base-font-size: 12.5px;
+    --base-line-height: 1.45;
   }
   #page-instawork header {
     border-bottom: 2px solid #0f172a;
     padding-bottom: 10px;
-    margin-bottom: 14px;
+    margin-bottom: var(--section-margin-top);
   }
   #page-instawork h1 {
-    font-size: 28px;
+    font-size: calc(var(--base-font-size) * 2);
     line-height: 1.1;
     margin: 0 0 6px;
     letter-spacing: 0.2px;
@@ -107,7 +106,7 @@
     color: #111827;
   }
   #page-instawork .contact {
-    font-size: 13px;
+    font-size: calc(var(--base-font-size) * 0.93);
     color: #4b5563;
   }
   #page-instawork .contact a {
@@ -115,13 +114,13 @@
     text-decoration: none;
   }
   #page-instawork section {
-    margin-top: 14px;
+    margin-top: var(--section-margin-top);
   }
   #page-instawork h2 {
-    font-size: 13px;
+    font-size: calc(var(--base-font-size) * 0.93);
     text-transform: uppercase;
     letter-spacing: 1.1px;
-    margin: 0 0 8px;
+    margin: 0 0 calc(var(--base-font-size) * 0.57);
     padding-bottom: 3px;
     border-block-end: 1px solid #d1d5db;
     font-weight: bold;
@@ -129,11 +128,12 @@
   }
   #page-instawork p {
     margin: 0;
-    font-size: 14px;
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
     color: #111827;
   }
   #page-instawork .entry {
-    margin-bottom: 11px;
+    margin-bottom: var(--entry-margin-bottom);
   }
   #page-instawork .entry-header {
     display: flex;
@@ -143,31 +143,32 @@
   }
   #page-instawork .role {
     font-weight: 700;
-    font-size: 14px;
+    font-size: var(--base-font-size);
     color: #111827;
   }
   #page-instawork .date {
     color: #4b5563;
     white-space: nowrap;
-    font-size: 13px;
+    font-size: calc(var(--base-font-size) * 0.93);
   }
   #page-instawork .sub {
     color: #4b5563;
     margin-top: 2px;
-    font-size: 13px;
+    font-size: calc(var(--base-font-size) * 0.93);
   }
   #page-instawork ul {
     margin: 5px 0 0 18px;
     padding: 0;
     list-style-type: disc;
+    line-height: var(--base-line-height);
   }
   #page-instawork li {
-    margin-bottom: 3px;
-    font-size: 14px;
+    margin-bottom: var(--li-margin-bottom);
+    font-size: var(--base-font-size);
     color: #111827;
   }
   #page-instawork .skills p {
-    margin-bottom: 4px;
+    margin-bottom: var(--section-label-margin-bottom);
   }
   #page-instawork .label {
     font-weight: 700;
@@ -513,12 +514,12 @@
       --page-padding-top: 0;
       --page-padding-bottom: 0;
       --page-padding-left-right: 0;
-      --section-margin-top: 10px;
-      --section-label-margin-bottom: 4px;
-      --entry-margin-bottom: 6px;
+      --section-margin-top: 5px;
+      --section-label-margin-bottom: 2.5px;
+      --entry-margin-bottom: 3.5px;
       --li-margin-bottom: 0.8px;
       --skills-line-height: 1.20;
-      --base-font-size: 10px;
+      --base-font-size: 8.2px;
       --base-line-height: 1.20;
     }
     #page-startup {
@@ -553,40 +554,12 @@
     #page-instawork, #page-instawork * {
       font-family: 'Clarity City', sans-serif !important;
     }
-    #page-instawork h1 {
-      font-size: 16px !important;
-      margin-bottom: 2px !important;
-    }
-    #page-instawork header {
-      padding-bottom: 3px !important;
-      margin-bottom: 5px !important;
-    }
-    #page-instawork h2 {
-      font-size: 9.5px !important;
-      margin-bottom: 2.5px !important;
-      padding-bottom: 1px !important;
-    }
-    #page-instawork .role {
-      font-size: 9px !important;
-    }
-    #page-instawork .contact, #page-instawork .sub, #page-instawork .date {
-      font-size: 8.2px !important;
-    }
-    #page-instawork p, #page-instawork li {
-      font-size: 8.2px !important;
-      line-height: 1.20 !important;
-    }
     #page-instawork ul {
       margin: 2px 0 0 12px !important;
     }
-    #page-instawork li {
-      margin-bottom: 0.8px !important;
-    }
-    #page-instawork section {
-      margin-top: 5px !important;
-    }
-    #page-instawork .entry {
-      margin-bottom: 3.5px !important;
+    #page-instawork header {
+      padding-bottom: 3px !important;
+      margin-bottom: var(--section-margin-top) !important;
     }
     #page-startup {
       font-family: Arial, sans-serif !important;
