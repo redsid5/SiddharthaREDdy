@@ -498,40 +498,40 @@
   @media print {
     /* Web print overrides: Disable Flex/Grid layouts during Edge/Chrome headless rendering */
     #page-standard {
-      --page-padding-top: 16mm;
-      --page-padding-bottom: 16mm;
-      --page-padding-left-right: 15mm;
-      --section-margin-top: 6px;
-      --section-label-margin-bottom: 2px;
-      --entry-margin-bottom: 2px;
-      --li-margin-bottom: 0.2px;
-      --skills-line-height: 1.10;
-      --base-font-size: 8.9px;
-      --base-line-height: 1.10;
-    }
-    #page-instawork {
-      --page-padding-top: 16mm;
-      --page-padding-bottom: 16mm;
-      --page-padding-left-right: 15mm;
+      --page-padding-top: 0;
+      --page-padding-bottom: 0;
+      --page-padding-left-right: 0;
       --section-margin-top: 8px;
       --section-label-margin-bottom: 3px;
-      --entry-margin-bottom: 4px;
+      --entry-margin-bottom: 3px;
       --li-margin-bottom: 0.5px;
       --skills-line-height: 1.15;
-      --base-font-size: 8.5px;
+      --base-font-size: 9.2px;
       --base-line-height: 1.15;
     }
+    #page-instawork {
+      --page-padding-top: 0;
+      --page-padding-bottom: 0;
+      --page-padding-left-right: 0;
+      --section-margin-top: 10px;
+      --section-label-margin-bottom: 4px;
+      --entry-margin-bottom: 6px;
+      --li-margin-bottom: 0.8px;
+      --skills-line-height: 1.20;
+      --base-font-size: 10px;
+      --base-line-height: 1.20;
+    }
     #page-startup {
-      --page-padding-top: 16mm;
-      --page-padding-bottom: 16mm;
-      --page-padding-left-right: 15mm;
-      --section-margin-top: 6px;
-      --section-label-margin-bottom: 2px;
-      --entry-margin-bottom: 2px;
-      --li-margin-bottom: 0.1px;
-      --skills-line-height: 1.12;
-      --base-font-size: 8.5px;
-      --base-line-height: 1.12;
+      --page-padding-top: 0;
+      --page-padding-bottom: 0;
+      --page-padding-left-right: 0;
+      --section-margin-top: 8px;
+      --section-label-margin-bottom: 3px;
+      --entry-margin-bottom: 3px;
+      --li-margin-bottom: 0.3px;
+      --skills-line-height: 1.18;
+      --base-font-size: 9px;
+      --base-line-height: 1.18;
     }
 
     .no-print {
@@ -554,30 +554,30 @@
       font-family: 'Clarity City', sans-serif !important;
     }
     #page-instawork h1 {
-      font-size: 20px !important;
+      font-size: 22px !important;
     }
     #page-instawork h2 {
-      font-size: 10.5px !important;
-      margin-bottom: 4px !important;
+      font-size: 11.5px !important;
+      margin-bottom: 5px !important;
     }
     #page-instawork .role {
-      font-size: 10px !important;
+      font-size: 11px !important;
     }
     #page-instawork .contact, #page-instawork .sub, #page-instawork .date {
-      font-size: 9px !important;
+      font-size: 10px !important;
     }
     #page-instawork p, #page-instawork li {
-      font-size: 9.5px !important;
-      line-height: 1.25 !important;
+      font-size: 10.2px !important;
+      line-height: 1.35 !important;
     }
     #page-instawork li {
-      margin-bottom: 1.5px !important;
+      margin-bottom: 2.2px !important;
     }
     #page-instawork section {
-      margin-top: 8px !important;
+      margin-top: 11px !important;
     }
     #page-instawork .entry {
-      margin-bottom: 6px !important;
+      margin-bottom: 7px !important;
     }
     #page-startup {
       font-family: Arial, sans-serif !important;
@@ -627,7 +627,7 @@
     }
     @page { 
       size: A4; 
-      margin: 0; 
+      margin: 15mm 12mm 15mm 12mm; 
     }
     /* Responsive screen styling for mobile/tablet */
     @media screen and (max-width: 768px) {
