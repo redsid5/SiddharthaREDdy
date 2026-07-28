@@ -502,37 +502,37 @@
       --page-padding-top: 0;
       --page-padding-bottom: 0;
       --page-padding-left-right: 0;
-      --section-margin-top: 8px;
-      --section-label-margin-bottom: 3px;
-      --entry-margin-bottom: 3px;
-      --li-margin-bottom: 0.5px;
-      --skills-line-height: 1.15;
-      --base-font-size: 9.2px;
-      --base-line-height: 1.15;
+      --section-margin-top: 5px;
+      --section-label-margin-bottom: 2px;
+      --entry-margin-bottom: 2px;
+      --li-margin-bottom: 0.2px;
+      --skills-line-height: 1.10;
+      --base-font-size: 8.6px;
+      --base-line-height: 1.10;
     }
     #page-instawork {
       --page-padding-top: 0;
       --page-padding-bottom: 0;
       --page-padding-left-right: 0;
-      --section-margin-top: 5px;
-      --section-label-margin-bottom: 2.5px;
-      --entry-margin-bottom: 3.5px;
-      --li-margin-bottom: 0.8px;
-      --skills-line-height: 1.20;
-      --base-font-size: 8.2px;
-      --base-line-height: 1.20;
+      --section-margin-top: 3.5px;
+      --section-label-margin-bottom: 2px;
+      --entry-margin-bottom: 2.2px;
+      --li-margin-bottom: 0.3px;
+      --skills-line-height: 1.15;
+      --base-font-size: 7.6px;
+      --base-line-height: 1.15;
     }
     #page-startup {
       --page-padding-top: 0;
       --page-padding-bottom: 0;
       --page-padding-left-right: 0;
-      --section-margin-top: 8px;
-      --section-label-margin-bottom: 3px;
-      --entry-margin-bottom: 3px;
-      --li-margin-bottom: 0.3px;
-      --skills-line-height: 1.18;
-      --base-font-size: 9px;
-      --base-line-height: 1.18;
+      --section-margin-top: 5px;
+      --section-label-margin-bottom: 2px;
+      --entry-margin-bottom: 2px;
+      --li-margin-bottom: 0.2px;
+      --skills-line-height: 1.12;
+      --base-font-size: 8.4px;
+      --base-line-height: 1.12;
     }
 
     .no-print {
@@ -578,25 +578,26 @@
       margin: 0 !important;
       display: block !important;
       background: white !important;
-      width: 100% !important;
+      width: 210mm !important;
       height: auto !important;
       overflow: visible !important;
       position: static !important;
     }
     .page {
-      max-width: none !important;
-      width: 100% !important;
-      height: auto !important;
-      max-height: none !important;
+      width: 210mm !important;
+      max-width: 210mm !important;
+      height: 278mm !important;
+      max-height: 278mm !important;
       box-shadow: none !important;
       border-radius: 0 !important;
-      padding: var(--page-padding-top) var(--page-padding-left-right) var(--page-padding-bottom) !important;
+      padding: 8mm 10mm !important;
       margin: 0 !important;
       background: white !important;
       color: black !important;
-      overflow: visible !important;
+      overflow: hidden !important;
       display: block !important;
       position: relative !important;
+      box-sizing: border-box !important;
       page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
@@ -612,7 +613,7 @@
     }
     @page { 
       size: A4; 
-      margin: 8mm 10mm 8mm 10mm; 
+      margin: 0 !important; 
     }
     /* Responsive screen styling for mobile/tablet */
     @media screen and (max-width: 768px) {
